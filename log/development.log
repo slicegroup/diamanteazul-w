@@ -1,0 +1,182 @@
+  [1m[35m (1417.6ms)[0m  [1m[35mCREATE DATABASE "diamanteazul" ENCODING = 'utf8' TEMPLATE = "template0"[0m
+  [1m[35m (51.8ms)[0m  [1m[35mCREATE DATABASE "diamanteazul" ENCODING = 'utf8' TEMPLATE = "template0"[0m
+  [1m[35m (137.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (98.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1172531783632093395)[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20140812203549)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (110.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "avatar" character varying, "name" character varying, "permalink" character varying, "username" character varying, "deleted_at" timestamp, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (32.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email") WHERE deleted_at IS NULL[0m
+  [1m[35m (32.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20140812203549"]]
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RolifyCreateRoles (20140812210925)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (115.0ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" character varying, "position" integer, "resource_type" character varying, "resource_id" bigint, "deleted_at" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (34.2ms)[0m  [1m[35mCREATE  INDEX  "index_roles_on_resource_type_and_resource_id" ON "roles"  ("resource_type", "resource_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "users_roles" ("user_id" bigint, "role_id" bigint)[0m
+  [1m[35m (38.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_roles_on_user_id" ON "users_roles"  ("user_id")[0m
+  [1m[35m (26.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_roles_on_role_id" ON "users_roles"  ("role_id")[0m
+  [1m[35m (40.6ms)[0m  [1m[35mCREATE  INDEX  "index_roles_on_name" ON "roles"  ("name")[0m
+  [1m[35m (34.5ms)[0m  [1m[35mCREATE  INDEX  "index_roles_on_name_and_resource_type_and_resource_id" ON "roles"  ("name", "resource_type", "resource_id")[0m
+  [1m[35m (39.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_roles_on_user_id_and_role_id" ON "users_roles"  ("user_id", "role_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20140812210925"]]
+  [1m[35m (15.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivities (20151221173228)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (81.4ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "trackable_type" character varying, "trackable_id" bigint, "owner_type" character varying, "owner_id" bigint, "key" character varying, "parameters" text, "recipient_type" character varying, "recipient_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (34.1ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_trackable_type_and_trackable_id" ON "activities"  ("trackable_type", "trackable_id")[0m
+  [1m[35m (35.6ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_owner_type_and_owner_id" ON "activities"  ("owner_type", "owner_id")[0m
+  [1m[35m (34.9ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_recipient_type_and_recipient_id" ON "activities"  ("recipient_type", "recipient_id")[0m
+  [1m[35m (34.9ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_trackable_id_and_trackable_type" ON "activities"  ("trackable_id", "trackable_type")[0m
+  [1m[35m (38.5ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_owner_id_and_owner_type" ON "activities"  ("owner_id", "owner_type")[0m
+  [1m[35m (35.9ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_recipient_id_and_recipient_type" ON "activities"  ("recipient_id", "recipient_type")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151221173228"]]
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSettings (20160122201215)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (80.1ms)[0m  [1m[35mCREATE TABLE "settings" ("id" bigserial primary key, "name" character varying, "description" character varying, "phone" character varying, "mobile" character varying, "email" character varying, "logo" character varying, "favicon" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160122201215"]]
+  [1m[35m (19.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSmtpSettings (20160126141856)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (82.1ms)[0m  [1m[35mCREATE TABLE "smtp_settings" ("id" bigserial primary key, "address" character varying, "port" character varying, "domain_name" character varying, "email" character varying, "password" character varying, "setting_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (42.2ms)[0m  [1m[35mCREATE  INDEX  "index_smtp_settings_on_setting_id" ON "smtp_settings"  ("setting_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160126141856"]]
+  [1m[35m (18.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateScripts (20160128131802)
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (95.7ms)[0m  [1m[35mCREATE TABLE "scripts" ("id" bigserial primary key, "name" character varying, "script" text, "url" character varying, "position" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160128131802"]]
+  [1m[35m (11.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGoogleAnalyticsSettings (20160128151351)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (80.0ms)[0m  [1m[35mCREATE TABLE "google_analytics_settings" ("id" bigserial primary key, "ga_account_id" character varying, "ga_tracking_id" character varying, "ga_status" boolean, "setting_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (33.6ms)[0m  [1m[35mCREATE  INDEX  "index_google_analytics_settings_on_setting_id" ON "google_analytics_settings"  ("setting_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160128151351"]]
+  [1m[35m (19.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSocialAccounts (20160128193740)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (87.2ms)[0m  [1m[35mCREATE TABLE "social_accounts" ("id" bigserial primary key, "facebook" character varying, "twitter" character varying, "instagram" character varying, "google_plus" character varying, "tripadvisor" character varying, "pinterest" character varying, "flickr" character varying, "behance" character varying, "dribbble" character varying, "tumblr" character varying, "github" character varying, "linkedin" character varying, "soundcloud" character varying, "youtube" character varying, "skype" character varying, "vimeo" character varying, "setting_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (34.0ms)[0m  [1m[35mCREATE  INDEX  "index_social_accounts_on_setting_id" ON "social_accounts"  ("setting_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160128193740"]]
+  [1m[35m (18.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMetaTags (20160201134918)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (90.8ms)[0m  [1m[35mCREATE TABLE "meta_tags" ("id" bigserial primary key, "title" character varying, "description" text, "meta_tags" text, "url" character varying, "position" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160201134918"]]
+  [1m[35m (17.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAppearances (20160201210520)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (77.4ms)[0m  [1m[35mCREATE TABLE "appearances" ("id" bigserial primary key, "image_background" character varying, "theme_name" character varying, "language" character varying, "time_zone" character varying, "admin_code" character varying DEFAULT 'admin', "setting_id" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (33.1ms)[0m  [1m[35mCREATE  INDEX  "index_appearances_on_setting_id" ON "appearances"  ("setting_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160201210520"]]
+  [1m[35m (23.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateScaffolds (20171225023933)
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (75.8ms)[0m  [1m[35mCREATE TABLE "scaffolds" ("id" bigserial primary key, "name" character varying, "fields" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171225023933"]]
+  [1m[35m (17.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePermissions (20180503174351)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (83.8ms)[0m  [1m[35mCREATE TABLE "permissions" ("id" bigserial primary key, "modules" jsonb, "role_id" bigint, "deleted_at" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_93c739e1a2"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+)[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCREATE  INDEX  "index_permissions_on_role_id" ON "permissions"  ("role_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180503174351"]]
+  [1m[35m (16.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateKepplerFrontendThemes (20180730194655)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (83.8ms)[0m  [1m[35mCREATE TABLE "keppler_frontend_themes" ("id" bigserial primary key, "name" character varying, "active" boolean, "position" integer, "deleted_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (34.2ms)[0m  [1m[35mCREATE  INDEX  "index_keppler_frontend_themes_on_deleted_at" ON "keppler_frontend_themes"  ("deleted_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180730194655"]]
+  [1m[35m (20.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateKepplerCapsulesCapsules (20180802184429)
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (86.0ms)[0m  [1m[35mCREATE TABLE "keppler_capsules_capsules" ("id" bigserial primary key, "name" character varying, "position" integer, "deleted_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (34.3ms)[0m  [1m[35mCREATE  INDEX  "index_keppler_capsules_capsules_on_deleted_at" ON "keppler_capsules_capsules"  ("deleted_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180802184429"]]
+  [1m[35m (13.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateKepplerCapsulesCapsuleFields (20180802184430)
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (91.8ms)[0m  [1m[35mCREATE TABLE "keppler_capsules_capsule_fields" ("id" bigserial primary key, "name_field" character varying, "format_field" character varying, "capsule_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180802184430"]]
+  [1m[35m (13.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateKepplerCapsulesCapsuleValidations (20180806192023)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (81.9ms)[0m  [1m[35mCREATE TABLE "keppler_capsules_capsule_validations" ("id" bigserial primary key, "capsule_id" integer, "field" character varying, "validation" character varying, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180806192023"]]
+  [1m[35m (11.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateKepplerCapsulesCapsuleAssociations (20180807204310)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (91.2ms)[0m  [1m[35mCREATE TABLE "keppler_capsules_capsule_associations" ("id" bigserial primary key, "association_type" character varying, "capsule_name" character varying, "dependention_destroy" boolean, "capsule_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180807204310"]]
+  [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateKepplerLanguagesLanguages (20180813160624)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (83.4ms)[0m  [1m[35mCREATE TABLE "keppler_languages_languages" ("id" bigserial primary key, "name" character varying, "active" boolean, "field_ids" character varying, "position" integer, "deleted_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180813160624"]]
+  [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateKepplerLanguagesFields (20180813160625)
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (89.1ms)[0m  [1m[35mCREATE TABLE "keppler_languages_fields" ("id" bigserial primary key, "key" character varying, "value" text, "language_id" integer, "position" integer, "deleted_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180813160625"]]
+  [1m[35m (11.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20180818073305)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (75.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (33.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  [1m[35m (90.7ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (33.5ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  [1m[35m (34.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180818073305"]]
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPositionToUsersTable (20180827154647)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "users" ADD "position" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180827154647"]]
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSeos (20180904144238)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (58.9ms)[0m  [1m[35mCREATE TABLE "seos" ("id" bigserial primary key, "position" integer, "deleted_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (34.9ms)[0m  [1m[35mCREATE  INDEX  "index_seos_on_deleted_at" ON "seos"  ("deleted_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180904144238"]]
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-07-15 15:51:05.762184"], ["updated_at", "2019-07-15 15:51:05.762184"]]
+  [1m[35m (9.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1172531783632093395)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", "keppler_admin"], ["LIMIT", 1]]
+  [1m[36mRole Create (2.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "keppler_admin"], ["created_at", "2019-07-15 15:51:06.962847"], ["updated_at", "2019-07-15 15:51:06.962847"]]
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRole Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" WHERE "roles"."name" = $1 AND "roles"."id" != $2 LIMIT $3[0m  [["name", "keppler_admin"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."deleted_at" IS NULL LIMIT $2[0m  [["email", "admin@keppleradmin.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "permalink", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Keppler Admin"], ["permalink", "keppler-admin-61d85065"], ["email", "admin@keppleradmin.com"], ["encrypted_password", "$2a$10$VmVC0ppQGJV39NHfoEbg4OpqzXdMUliVuJadJ3RYO/k5CLg9Llc3i"], ["created_at", "2019-07-15 15:51:08.308054"], ["updated_at", "2019-07-15 15:51:08.308054"]]
+  [1m[36mPublicActivity::Activity Create (4.0ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "User"], ["trackable_id", 1], ["key", "user.create"], ["created_at", "2019-07-15 15:51:08.577872"], ["updated_at", "2019-07-15 15:51:08.577872"]]
+  [1m[36mUser::HABTM_Roles Create (2.4ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 1], ["role_id", 1]]
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSetting Create (3.1ms)[0m  [1m[32mINSERT INTO "settings" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Keppler Admin"], ["description", "Welcome to Keppler Admin"], ["created_at", "2019-07-15 15:51:09.096405"], ["updated_at", "2019-07-15 15:51:09.096405"]]
+  [1m[36mPublicActivity::Activity Create (2.1ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "Setting"], ["trackable_id", 1], ["key", "setting.create"], ["created_at", "2019-07-15 15:51:09.118998"], ["updated_at", "2019-07-15 15:51:09.118998"]]
+  [1m[36mSmtpSetting Create (3.7ms)[0m  [1m[32mINSERT INTO "smtp_settings" ("address", "port", "domain_name", "email", "password", "setting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["address", "smtp.keppleradmin.com"], ["port", "587"], ["domain_name", "keppleradmin.com"], ["email", "email@keppleradmin.com"], ["password", "12345678"], ["setting_id", 1], ["created_at", "2019-07-15 15:51:09.131159"], ["updated_at", "2019-07-15 15:51:09.131159"]]
+  [1m[36mGoogleAnalyticsSetting Create (2.6ms)[0m  [1m[32mINSERT INTO "google_analytics_settings" ("ga_account_id", "ga_tracking_id", "ga_status", "setting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["ga_account_id", "121648466"], ["ga_tracking_id", "UA-121648466-1"], ["ga_status", true], ["setting_id", 1], ["created_at", "2019-07-15 15:51:09.144393"], ["updated_at", "2019-07-15 15:51:09.144393"]]
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSocialAccount Load (1.8ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSocialAccount Create (2.2ms)[0m  [1m[32mINSERT INTO "social_accounts" ("setting_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["setting_id", 1], ["created_at", "2019-07-15 15:51:09.327408"], ["updated_at", "2019-07-15 15:51:09.327408"]]
+  [1m[35m (10.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAppearance Load (1.7ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAppearance Create (2.1ms)[0m  [1m[32mINSERT INTO "appearances" ("theme_name", "setting_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["theme_name", "keppler"], ["setting_id", "1"], ["created_at", "2019-07-15 15:51:09.427187"], ["updated_at", "2019-07-15 15:51:09.427187"]]
+  [1m[35m (10.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPublicActivity::Activity Create (1.5ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "Setting"], ["trackable_id", 1], ["key", "setting.update"], ["created_at", "2019-07-15 15:51:09.458990"], ["updated_at", "2019-07-15 15:51:09.458990"]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
