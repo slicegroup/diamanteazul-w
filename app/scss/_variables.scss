@@ -1,10 +1,22 @@
 // Medias querys
 $breakpoints: (
-  'xs': "(min-width: 0px) and (max-width: 767px)",
-  'sm': "(min-width: 768px) and (max-width: 991px)",
-  'md': "(min-width: 992px) and (max-width: 1199px)",
-  'lg': "(min-width: 1200px) and (max-width: 1600px)",
-  'xl': "(min-width: 1601px) and (max-width: 2048px)",
+  'xs': "(min-width: 0px) and (max-width: 575px)",
+  'sm': "(min-width: 576px) and (max-width: 767px)",
+  'md': "(min-width: 768px) and (max-width: 991px)",
+  'lg': "(min-width: 992px) and (max-width: 1199px)",
+  'xl': "(min-width: 1200px)",
 ) !default;
 
 // Fonts
+$raleway: 'Raleway', sans-serif;
+$regular: 400;
+$semi: 500;
+$medium: 600;
+
+$lato: 'Lato', sans-serif;
+$bold: 700;
+$extra: 900;
+
+// Colors
+$primary: #1e46a1;
+$light_blue: #b7d1df;

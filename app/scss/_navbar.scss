@@ -1,0 +1,30 @@
+.navbar {
+  height: 100px;
+
+  .nav-link {
+    text-transform: uppercase;
+    font-family: $lato;
+    font-weight: $bold;
+    color: $primary;
+  }
+
+  img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+  }
+}
+
+.navbar-nav {
+  width: 50%;
+
+  &:first-child {
+    justify-content: flex-end;
+    margin-right: 100px;
+  }
+
+  &:last-child {
+    margin-left: 100px;
+  }
+}
