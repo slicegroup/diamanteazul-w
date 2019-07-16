@@ -1,0 +1,22 @@
+es:
+  keppler:
+    sidebar-menu:
+      keppler-products: Keppler products
+      keppler-products-submenu:
+        category: Category
+    permissions:
+    models:
+      singularize:
+        category: category
+      pluralize:
+        categories: categories
+    modules:
+      admin/category: Category
+    messages:
+    actions:
+  activerecord:
+    attributes:
+    errors:
+      messages:
+  errors:
+  helpers:

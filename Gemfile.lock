@@ -1,4 +1,13 @@
 PATH
+  remote: rockets/keppler_banners
+  specs:
+    keppler_banners (0.1.0)
+      haml_rails
+      pundit
+      rails (= 5.2.0)
+      simple_form
+
+PATH
   remote: rockets/keppler_capsules
   specs:
     keppler_capsules (0.1.0)
@@ -28,6 +37,15 @@ PATH
   specs:
     keppler_languages (0.1.0)
       country_select
+      haml_rails
+      pundit
+      rails (= 5.2.0)
+      simple_form
+
+PATH
+  remote: rockets/keppler_products
+  specs:
+    keppler_products (0.1.0)
       haml_rails
       pundit
       rails (= 5.2.0)
@@ -84,6 +102,8 @@ GEM
       activerecord (>= 3.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    ancestry (3.0.7)
+      activerecord (>= 3.2.0)
     arel (9.0.0)
     ast (2.4.0)
     autoparse (0.3.3)
@@ -559,6 +579,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (= 6.0)
   acts_as_list (= 0.9.11)
+  ancestry
   better_errors (= 2.4.0)
   binding_of_caller (~> 0.8.0)
   bootsnap (>= 1.1.0)
@@ -598,10 +619,12 @@ DEPENDENCIES
   jshint
   kaminari (~> 1.1, >= 1.1.1)
   kaminari-i18n (= 0.5.0)
+  keppler_banners!
   keppler_capsules!
   keppler_frontend!
   keppler_ga_dashboard!
   keppler_languages!
+  keppler_products!
   loofah (>= 2.2.3)
   mini_magick (= 4.8.0)
   nprogress-rails (= 0.2.0.2)

@@ -197,5 +197,11 @@ Rails.application.routes.draw do
   mount KepplerCapsules::Engine, at: '/', as: 'capsules'
 
   # Ckeditor routes engine
-  mount Ckeditor::Engine => '/ckeditor' 
+  mount Ckeditor::Engine => '/ckeditor'
+
+  # Products routes engine
+  mount KepplerProducts::Engine, at: '/', as: 'products'
+
+  # Banners routes engine
+  mount KepplerBanners::Engine, at: '/', as: 'banners' 
 end

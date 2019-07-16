@@ -180,3 +180,978 @@ Migrating to CreateSeos (20180904144238)
   [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
   [1m[36mPublicActivity::Activity Create (1.5ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "Setting"], ["trackable_id", 1], ["key", "setting.update"], ["created_at", "2019-07-15 15:51:09.458990"], ["updated_at", "2019-07-15 15:51:09.458990"]]
   [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin" for 127.0.0.1 at 2019-07-15 12:03:44 -0400
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::AdminController#root as HTML
+  [1m[36mSetting Load (5.5ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (6.0ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (4.6ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (10.8ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.3ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.3ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2557ms (ActiveRecord: 221.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-15 12:03:48 -0400
+Processing by KepplerFrontend::App::FrontendController#keppler as HTML
+  [1m[36mSetting Load (2.4ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (3.7ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (5.9ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (8.3ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (3.5ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.4ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerLanguages::Language Load (3.3ms)[0m  [1m[34mSELECT  "keppler_languages_languages".* FROM "keppler_languages_languages" WHERE "keppler_languages_languages"."active" = $1 ORDER BY "keppler_languages_languages"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  [1m[36mMetaTag Load (25.4ms)[0m  [1m[34mSELECT  "meta_tags".* FROM "meta_tags" WHERE "meta_tags"."url" = $1 LIMIT $2[0m  [["url", "localhost:3000/"], ["LIMIT", 1]]
+  [1m[36mScript Load (3.1ms)[0m  [1m[34mSELECT "scripts".* FROM "scripts"[0m
+  Rendering rockets/keppler_frontend/app/views/keppler_frontend/app/frontend/keppler.html.haml within layouts/keppler_frontend/app/layouts/application
+  Rendered app/layouts/_meta_tags.html.haml (186.3ms)
+  Rendered app/layouts/_google_analytics.html.haml (30.6ms)
+  Rendered admin/layouts/_git_info.html.haml (1540.0ms)
+  Rendered app/layouts/_head.html.haml (206712.5ms)
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered rockets/keppler_frontend/app/views/keppler_frontend/app/frontend/keppler.html.haml within layouts/keppler_frontend/app/layouts/application (207176.8ms)
+  Rendered rockets/keppler_frontend/app/views/layouts/keppler_frontend/app/layouts/_meta_tags.html.haml (199.2ms)
+  Rendered rockets/keppler_frontend/app/views/layouts/keppler_frontend/app/layouts/_google_analytics.html.haml (29.5ms)
+  Rendered rockets/keppler_frontend/app/views/layouts/keppler_frontend/app/layouts/_head.html.haml (7356.3ms)
+Completed 200 OK in 214973ms (Views: 214660.0ms | ActiveRecord: 118.0ms)
+
+
+Started GET "/assets/keppler_frontend/app/application.self-cd4774e0e0f6fc1eb9c2040c1d441fd4d7d9a2b9aed4ad911a92c7dac4c7d23f.css?body=1" for 127.0.0.1 at 2019-07-15 12:07:24 -0400
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-07-15 12:07:24 -0400
+Started GET "/assets/app/application.self-3188ab3cf521ec5aed749932f8d6e62b22247133f5242f8d3758b8a2cf1c92c5.css?body=1" for 127.0.0.1 at 2019-07-15 12:07:24 -0400
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for 127.0.0.1 at 2019-07-15 12:07:24 -0400
+Started GET "/assets/admin/profile-menu.jpg" for 127.0.0.1 at 2019-07-15 12:07:30 -0400
+Started GET "/admin/sign_in" for 127.0.0.1 at 2019-07-15 12:07:45 -0400
+Processing by Devise::KepplerSessionsController#new as HTML
+  Parameters: {"admin_code"=>"admin"}
+  [1m[36mSetting Load (5.4ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (10.2ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (6.4ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (9.2ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (8.6ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (4.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering devise/keppler_sessions/new.html.haml within admin/layouts/application
+  Rendered devise/keppler_sessions/new.html.haml within admin/layouts/application (226.6ms)
+  Rendered admin/layouts/_head.html.haml (9081.5ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (39.9ms)
+  Rendered admin/layouts/_git_info.html.haml (666.9ms)
+Completed 200 OK in 10725ms (Views: 10164.8ms | ActiveRecord: 100.7ms)
+
+
+Started GET "/admin/sign_in" for 127.0.0.1 at 2019-07-15 12:07:56 -0400
+Processing by Devise::KepplerSessionsController#new as HTML
+  Parameters: {"admin_code"=>"admin"}
+  [1m[36mSetting Load (1.9ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (3.4ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (5.9ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (6.0ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (4.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (1.9ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering devise/keppler_sessions/new.html.haml within admin/layouts/application
+  Rendered devise/keppler_sessions/new.html.haml within admin/layouts/application (97.9ms)
+  Rendered admin/layouts/_head.html.haml (4911.0ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (20.1ms)
+  Rendered admin/layouts/_git_info.html.haml (466.2ms)
+Completed 200 OK in 5720ms (Views: 5584.2ms | ActiveRecord: 24.4ms)
+
+
+Started GET "/assets/keppler_frontend/admin/bootstrap-tagsinput.self-1159797aec829e1ae4436601658849556c4c34bb94e2fbfe63f0e2186f3f25dd.css?body=1" for 127.0.0.1 at 2019-07-15 12:08:03 -0400
+Started GET "/assets/keppler_frontend/admin/frontend.self-f794c0bf67fafe570356ff8f9f0bc7b5cc43bcddaf91ec58401460e1f7482e93.css?body=1" for 127.0.0.1 at 2019-07-15 12:08:03 -0400
+Started GET "/assets/keppler_languages/admin/language.self-665a17d821835c41c6eaf79c12fcc11a878aed53511e7bc62bc016534d8017d6.css?body=1" for 127.0.0.1 at 2019-07-15 12:08:03 -0400
+Started GET "/assets/keppler_capsules/admin/capsule.self-b61a097f9693aebaf1072b9d677da1b3396f63d1e84419d6e5d5741d77e6442a.css?body=1" for 127.0.0.1 at 2019-07-15 12:08:03 -0400
+Started GET "/assets/admin/application.self-5b933d298e26c312362095ef775bf97182cd9a4293e8930d05ea8693f137dbcb.css?body=1" for 127.0.0.1 at 2019-07-15 12:08:03 -0400
+Started GET "/assets/ckeditor/ckeditor.self-5627b7c5975c03aa8c738623a75f40df11e006c51dad749183c4ced4ea4906a1.js?body=1" for 127.0.0.1 at 2019-07-15 12:08:04 -0400
+Started GET "/assets/dist/vue.self-15c2aa2cbeae74a0a82f727ef8ac94f5d810949f6b9a9dcbb1c9c407f812fe15.js?body=1" for 127.0.0.1 at 2019-07-15 12:08:04 -0400
+Started GET "/assets/admin/bootstrap-file-input/fileinput.self-fdceeec95d06c95822ae0ddb4409716620ea17a0131deeb93b0ca651f6bd7b9a.js?body=1" for 127.0.0.1 at 2019-07-15 12:08:04 -0400
+Started GET "/assets/admin/codemirror/codemirror.self-aa4ac1fc6803c67a2bbc0bbac269344f38ec923757f882cab30ad4ee94752778.js?body=1" for 127.0.0.1 at 2019-07-15 12:08:05 -0400
+Started GET "/assets/admin/profile-menu.jpg" for 127.0.0.1 at 2019-07-15 12:08:08 -0400
+Started GET "/assets/admin/fonts-and-icons/ZXuke1cDvLCKLDcimxB44_lu.woff2" for 127.0.0.1 at 2019-07-15 12:08:08 -0400
+Started GET "/assetsadmin/fonts-and-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0" for 127.0.0.1 at 2019-07-15 12:08:09 -0400
+Started GET "/assets/admin/fonts-and-icons/fonts/boxicons.woff2" for 127.0.0.1 at 2019-07-15 12:08:10 -0400
+Started POST "/admin/sign_in" for 127.0.0.1 at 2019-07-15 12:08:47 -0400
+Processing by Devise::KepplerSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"orDI34JmZsRqxIaQ0rhgE8MbPaMz8rTge+0Wot88z0VD1y6UGTJeLC8OGm23nzHoQ08jP/CdG56g9MFwfeqtCg==", "user"=>{"email"=>"admin@keppleradmin.com", "password"=>"[FILTERED]"}, "commit"=>"Log in", "admin_code"=>"admin"}
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mSetting Load (2.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (2.1ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (2.1ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (2.7ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.4ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.0ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.3ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@keppleradmin.com"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (22.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2019-07-15 16:08:48.235344"], ["last_sign_in_at", "2019-07-15 16:08:48.235344"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2019-07-15 16:08:48.243734"], ["id", 1]]
+  [1m[36mPublicActivity::Activity Create (34.7ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "owner_type", "owner_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["trackable_type", "User"], ["trackable_id", 1], ["owner_type", "User"], ["owner_id", 1], ["key", "user.update"], ["created_at", "2019-07-15 16:08:48.356060"], ["updated_at", "2019-07-15 16:08:48.356060"]]
+  [1m[35m (28.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 1263ms (ActiveRecord: 138.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2019-07-15 12:08:48 -0400
+Processing by Admin::AdminController#root as HTML
+  [1m[36mSetting Load (2.8ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (2.3ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (7.1ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (3.3ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.5ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.3ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/admin/dashboard
+Completed 302 Found in 204ms (ActiveRecord: 32.8ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2019-07-15 12:08:49 -0400
+Processing by KepplerGaDashboard::Admin::DashboardController#analytics as HTML
+  [1m[36mSetting Load (5.5ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (5.2ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (5.3ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (3.3ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.4ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (3.9ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (3.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[36mRole Load (5.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering rockets/keppler_ga_dashboard/app/views/keppler_ga_dashboard/admin/dashboard/analytics.html.haml within keppler_ga_dashboard/admin/layouts/application
+  [1m[36mCACHE Setting Load (0.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGoogleAnalyticsSetting Load (5.1ms)[0m  [1m[34mSELECT "google_analytics_settings".* FROM "google_analytics_settings" WHERE "google_analytics_settings"."setting_id" = $1[0m  [["setting_id", 1]]
+  Rendered rockets/keppler_ga_dashboard/app/views/keppler_ga_dashboard/admin/dashboard/analytics.html.haml within keppler_ga_dashboard/admin/layouts/application (729.2ms)
+  Rendered rockets/keppler_ga_dashboard/app/views/keppler_ga_dashboard/admin/layouts/_head.html.haml (4436.9ms)
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered admin/layouts/_navigation.html.haml (325.5ms)
+  [1m[36mCACHE Role Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mPermission Load (31.6ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered admin/layouts/_sidebar.html.haml (3048.3ms)
+  Rendered admin/layouts/_messages.html.haml (22.0ms)
+  Rendered admin/layouts/_preloader.html.haml (51.6ms)
+  Rendered admin/layouts/_footer.html.haml (18.5ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (35.1ms)
+  Rendered admin/layouts/_git_info.html.haml (652.3ms)
+Completed 200 OK in 21797ms (Views: 9449.8ms | ActiveRecord: 156.1ms)
+
+
+Started GET "/assets/keppler_ga_dashboard/view-selector2.js?body=1" for 127.0.0.1 at 2019-07-15 12:09:16 -0400
+Started GET "/assets/keppler_ga_dashboard/active-users.self.js?body=1" for 127.0.0.1 at 2019-07-15 12:09:16 -0400
+Started GET "/assets/keppler_ga_dashboard/date-range-selector.self.js?body=1" for 127.0.0.1 at 2019-07-15 12:09:16 -0400
+Started GET "/assetsadmin/fonts-and-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0" for 127.0.0.1 at 2019-07-15 12:09:16 -0400
+Started GET "/assets/admin/fonts-and-icons/ZXuke1cDvLCKLDcimxB44_lu.woff2" for 127.0.0.1 at 2019-07-15 12:09:16 -0400
+Started GET "/assets/admin/fonts-and-icons/fonts/boxicons.woff2" for 127.0.0.1 at 2019-07-15 12:09:17 -0400
+Started GET "/admin/rockets" for 127.0.0.1 at 2019-07-15 12:10:11 -0400
+Processing by Admin::RocketsController#rockets as HTML
+  [1m[36mSetting Load (2.7ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (2.1ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (2.0ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (1.6ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.0ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.5ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (4.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering admin/rockets/rockets.haml within admin/layouts/application
+  Rendered admin/rockets/_install_rocket.haml (176.3ms)
+  Rendered admin/rockets/_create_rocket.haml (58.2ms)
+  Rendered admin/rockets/rockets.haml within admin/layouts/application (433.1ms)
+  Rendered admin/layouts/_head.html.haml (4852.6ms)
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered admin/layouts/_navigation.html.haml (234.8ms)
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mPermission Load (10.0ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered admin/layouts/_sidebar.html.haml (730.2ms)
+  Rendered admin/layouts/_messages.html.haml (38.0ms)
+  Rendered admin/layouts/_preloader.html.haml (63.3ms)
+  Rendered admin/layouts/_footer.html.haml (16.4ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (25.4ms)
+  Rendered admin/layouts/_git_info.html.haml (578.2ms)
+Completed 200 OK in 7603ms (Views: 7103.9ms | ActiveRecord: 57.5ms)
+
+
+Started POST "/admin/rockets/create/banners" for 127.0.0.1 at 2019-07-15 12:15:32 -0400
+Processing by Admin::RocketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I/LADaZ5W8aZPCIHrHfIXA6+TuZVuaewg76h138aBMR3dXkLXZPKHHqkXBLbRGIMuNoLvCPL3Aj/t/W8n6wW7Q==", "rocket"=>"banners"}
+  [1m[36mSetting Load (2.9ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (2.2ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (5.0ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (5.8ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (1.8ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.8ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.3ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (5.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/admin/rockets
+Completed 302 Found in 130994ms (ActiveRecord: 46.5ms)
+
+
+Started GET "/admin/rockets" for 127.0.0.1 at 2019-07-15 12:18:10 -0400
+  [1m[35m (34.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::RocketsController#rockets as HTML
+  [1m[36mSetting Load (4.7ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (9.1ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (3.9ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (2.3ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (3.4ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (8.4ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (7.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering admin/rockets/rockets.haml within admin/layouts/application
+  Rendered admin/rockets/_install_rocket.haml (1283.1ms)
+  Rendered admin/rockets/_create_rocket.haml (48.0ms)
+  Rendered admin/rockets/rockets.haml within admin/layouts/application (1592.0ms)
+  Rendered admin/layouts/_head.html.haml (197003.0ms)
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered admin/layouts/_navigation.html.haml (224.3ms)
+  [1m[36mCACHE Role Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mPermission Load (4.3ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (1.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.3ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.4ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (15.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered admin/layouts/_sidebar.html.haml (2517.6ms)
+  Rendered admin/layouts/_messages.html.haml (29.5ms)
+  Rendered admin/layouts/_preloader.html.haml (55.2ms)
+  Rendered admin/layouts/_footer.html.haml (37.8ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (32.4ms)
+  Rendered admin/layouts/_git_info.html.haml (2272.9ms)
+Completed 200 OK in 207765ms (Views: 203948.4ms | ActiveRecord: 331.3ms)
+
+
+Started GET "/assets/admin/fonts-and-icons/fonts/boxicons.woff2" for 127.0.0.1 at 2019-07-15 12:21:46 -0400
+Started GET "/assets/admin/fonts-and-icons/ZXuke1cDvLCKLDcimxB44_lu.woff2" for 127.0.0.1 at 2019-07-15 12:21:46 -0400
+Started GET "/assetsadmin/fonts-and-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0" for 127.0.0.1 at 2019-07-15 12:21:46 -0400
+Started GET "/" for 127.0.0.1 at 2019-07-15 12:22:59 -0400
+Processing by KepplerFrontend::App::FrontendController#keppler as HTML
+  [1m[36mSetting Load (3.9ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (5.1ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (10.0ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (2.4ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.3ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.6ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerLanguages::Language Load (2.1ms)[0m  [1m[34mSELECT  "keppler_languages_languages".* FROM "keppler_languages_languages" WHERE "keppler_languages_languages"."active" = $1 ORDER BY "keppler_languages_languages"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  [1m[36mMetaTag Load (2.2ms)[0m  [1m[34mSELECT  "meta_tags".* FROM "meta_tags" WHERE "meta_tags"."url" = $1 LIMIT $2[0m  [["url", "localhost:3000/"], ["LIMIT", 1]]
+  [1m[36mScript Load (1.9ms)[0m  [1m[34mSELECT "scripts".* FROM "scripts"[0m
+  Rendering rockets/keppler_frontend/app/views/keppler_frontend/app/frontend/keppler.html.haml within layouts/keppler_frontend/app/layouts/application
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Started GET "/admin" for 127.0.0.1 at 2019-07-16 09:15:09 -0400
+  [1m[35m (47.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::AdminController#root as HTML
+  [1m[36mSetting Load (34.3ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (41.7ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (26.4ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (4.9ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (8.8ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (49.0ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2985ms (ActiveRecord: 444.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-07-16 09:15:15 -0400
+Processing by KepplerFrontend::App::FrontendController#keppler as HTML
+  [1m[36mSetting Load (2.5ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (2.1ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (2.4ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (4.0ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (9.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.6ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (1.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerLanguages::Language Load (11.2ms)[0m  [1m[34mSELECT  "keppler_languages_languages".* FROM "keppler_languages_languages" WHERE "keppler_languages_languages"."active" = $1 ORDER BY "keppler_languages_languages"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  [1m[36mMetaTag Load (18.1ms)[0m  [1m[34mSELECT  "meta_tags".* FROM "meta_tags" WHERE "meta_tags"."url" = $1 LIMIT $2[0m  [["url", "localhost:3000/"], ["LIMIT", 1]]
+  [1m[36mScript Load (8.9ms)[0m  [1m[34mSELECT "scripts".* FROM "scripts"[0m
+  Rendering rockets/keppler_frontend/app/views/keppler_frontend/app/frontend/keppler.html.haml within layouts/keppler_frontend/app/layouts/application
+  Rendered app/layouts/_meta_tags.html.haml (191.1ms)
+  Rendered app/layouts/_google_analytics.html.haml (41.3ms)
+  Rendered admin/layouts/_git_info.html.haml (3474.4ms)
+  Rendered app/layouts/_head.html.haml (45884.8ms)
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered rockets/keppler_frontend/app/views/keppler_frontend/app/frontend/keppler.html.haml within layouts/keppler_frontend/app/layouts/application (46303.8ms)
+  Rendered rockets/keppler_frontend/app/views/layouts/keppler_frontend/app/layouts/_meta_tags.html.haml (286.8ms)
+  Rendered rockets/keppler_frontend/app/views/layouts/keppler_frontend/app/layouts/_google_analytics.html.haml (28.8ms)
+  Rendered rockets/keppler_frontend/app/views/layouts/keppler_frontend/app/layouts/_head.html.haml (12846.2ms)
+Completed 200 OK in 59619ms (Views: 59264.0ms | ActiveRecord: 116.2ms)
+
+
+Started GET "/assets/admin/profile-menu.jpg" for 127.0.0.1 at 2019-07-16 09:16:21 -0400
+Started GET "/admin/sign_in" for 127.0.0.1 at 2019-07-16 09:16:29 -0400
+Processing by Devise::KepplerSessionsController#new as HTML
+  Parameters: {"admin_code"=>"admin"}
+  [1m[36mSetting Load (2.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (2.8ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (2.8ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (1.5ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (1.8ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering devise/keppler_sessions/new.html.haml within admin/layouts/application
+  Rendered devise/keppler_sessions/new.html.haml within admin/layouts/application (204.0ms)
+  Rendered admin/layouts/_head.html.haml (8483.9ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (31.9ms)
+  Rendered admin/layouts/_git_info.html.haml (615.8ms)
+Completed 200 OK in 9913ms (Views: 9480.1ms | ActiveRecord: 43.7ms)
+
+
+Started GET "/admin/sign_in" for 127.0.0.1 at 2019-07-16 09:16:40 -0400
+Processing by Devise::KepplerSessionsController#new as HTML
+  Parameters: {"admin_code"=>"admin"}
+  [1m[36mSetting Load (2.8ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (2.1ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (3.1ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (3.1ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (5.5ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (3.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering devise/keppler_sessions/new.html.haml within admin/layouts/application
+  Rendered devise/keppler_sessions/new.html.haml within admin/layouts/application (94.8ms)
+  Rendered admin/layouts/_head.html.haml (5036.3ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (18.8ms)
+  Rendered admin/layouts/_git_info.html.haml (515.9ms)
+Completed 200 OK in 5872ms (Views: 5757.2ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/assets/admin/application.self-5b933d298e26c312362095ef775bf97182cd9a4293e8930d05ea8693f137dbcb.css?body=1" for 127.0.0.1 at 2019-07-16 09:16:47 -0400
+Started GET "/assets/ckeditor/ckeditor.self-5627b7c5975c03aa8c738623a75f40df11e006c51dad749183c4ced4ea4906a1.js?body=1" for 127.0.0.1 at 2019-07-16 09:16:48 -0400
+Started GET "/assets/admin/profile-menu.jpg" for 127.0.0.1 at 2019-07-16 09:16:53 -0400
+Started GET "/assets/admin/fonts-and-icons/ZXuke1cDvLCKLDcimxB44_lu.woff2" for 127.0.0.1 at 2019-07-16 09:16:53 -0400
+Started GET "/assetsadmin/fonts-and-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0" for 127.0.0.1 at 2019-07-16 09:16:53 -0400
+Started GET "/assets/admin/fonts-and-icons/fonts/boxicons.woff2" for 127.0.0.1 at 2019-07-16 09:16:55 -0400
+Started POST "/admin/sign_in" for 127.0.0.1 at 2019-07-16 09:17:01 -0400
+Processing by Devise::KepplerSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KV6hf+Q5OjXYmvNcb7wCPDh3tJgWDHXyebydObVMdFO2begJOrOf1co/tNZqD4sk6OY2vERqaPsy3Id3F7ZXMg==", "user"=>{"email"=>"admin@keppleradmin.com", "password"=>"[FILTERED]"}, "commit"=>"Log in", "admin_code"=>"admin"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mSetting Load (7.0ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (6.8ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (13.2ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (3.6ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.3ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (4.8ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (57.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@keppleradmin.com"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (2.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2019-07-16 13:17:03.229531"], ["sign_in_count", 2], ["updated_at", "2019-07-16 13:17:03.239852"], ["id", 1]]
+  [1m[36mPublicActivity::Activity Create (194.7ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "owner_type", "owner_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["trackable_type", "User"], ["trackable_id", 1], ["owner_type", "User"], ["owner_id", 1], ["key", "user.update"], ["created_at", "2019-07-16 13:17:03.334393"], ["updated_at", "2019-07-16 13:17:03.334393"]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 1723ms (ActiveRecord: 457.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2019-07-16 09:17:03 -0400
+Processing by Admin::AdminController#root as HTML
+  [1m[36mSetting Load (2.0ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (2.9ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (3.8ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (2.2ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (3.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.5ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.3ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/admin/dashboard
+Completed 302 Found in 315ms (ActiveRecord: 37.3ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2019-07-16 09:17:04 -0400
+Processing by KepplerGaDashboard::Admin::DashboardController#analytics as HTML
+  [1m[36mSetting Load (2.9ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (10.6ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (3.8ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (8.5ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (3.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (3.4ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (73.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[36mRole Load (113.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering rockets/keppler_ga_dashboard/app/views/keppler_ga_dashboard/admin/dashboard/analytics.html.haml within keppler_ga_dashboard/admin/layouts/application
+  [1m[36mCACHE Setting Load (0.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGoogleAnalyticsSetting Load (29.8ms)[0m  [1m[34mSELECT "google_analytics_settings".* FROM "google_analytics_settings" WHERE "google_analytics_settings"."setting_id" = $1[0m  [["setting_id", 1]]
+  Rendered rockets/keppler_ga_dashboard/app/views/keppler_ga_dashboard/admin/dashboard/analytics.html.haml within keppler_ga_dashboard/admin/layouts/application (602.8ms)
+  Rendered rockets/keppler_ga_dashboard/app/views/keppler_ga_dashboard/admin/layouts/_head.html.haml (5398.9ms)
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered admin/layouts/_navigation.html.haml (221.6ms)
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mPermission Load (51.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered admin/layouts/_sidebar.html.haml (2128.8ms)
+  Rendered admin/layouts/_messages.html.haml (28.0ms)
+  Rendered admin/layouts/_preloader.html.haml (55.7ms)
+  Rendered admin/layouts/_footer.html.haml (25.3ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (22.2ms)
+  Rendered admin/layouts/_git_info.html.haml (712.4ms)
+Completed 200 OK in 12480ms (Views: 9265.1ms | ActiveRecord: 409.4ms)
+
+
+Started GET "/assets/keppler_ga_dashboard/view-selector2.js?body=1" for 127.0.0.1 at 2019-07-16 09:17:20 -0400
+Started GET "/assets/keppler_ga_dashboard/date-range-selector.self.js?body=1" for 127.0.0.1 at 2019-07-16 09:17:20 -0400
+Started GET "/assets/keppler_ga_dashboard/active-users.self.js?body=1" for 127.0.0.1 at 2019-07-16 09:17:20 -0400
+Started GET "/assetsadmin/fonts-and-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0" for 127.0.0.1 at 2019-07-16 09:17:23 -0400
+Started GET "/assets/admin/fonts-and-icons/fonts/boxicons.woff2" for 127.0.0.1 at 2019-07-16 09:17:23 -0400
+Started GET "/assets/admin/fonts-and-icons/ZXuke1cDvLCKLDcimxB44_lu.woff2" for 127.0.0.1 at 2019-07-16 09:17:23 -0400
+Started GET "/admin/rockets" for 127.0.0.1 at 2019-07-16 09:18:17 -0400
+Processing by Admin::RocketsController#rockets as HTML
+  [1m[36mSetting Load (13.8ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (14.4ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (2.1ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (2.9ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (3.0ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (2.7ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (9.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering admin/rockets/rockets.haml within admin/layouts/application
+  Rendered admin/rockets/_install_rocket.haml (1171.7ms)
+  Rendered admin/rockets/_create_rocket.haml (135.4ms)
+  Rendered admin/rockets/rockets.haml within admin/layouts/application (1520.4ms)
+  Rendered admin/layouts/_head.html.haml (5901.5ms)
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered admin/layouts/_navigation.html.haml (182.2ms)
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mPermission Load (2.5ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered admin/layouts/_sidebar.html.haml (480.0ms)
+  Rendered admin/layouts/_messages.html.haml (22.7ms)
+  Rendered admin/layouts/_preloader.html.haml (41.6ms)
+  Rendered admin/layouts/_footer.html.haml (15.3ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (22.5ms)
+  Rendered admin/layouts/_git_info.html.haml (612.5ms)
+Completed 200 OK in 9593ms (Views: 8938.1ms | ActiveRecord: 67.8ms)
+
+
+Started POST "/admin/rockets/create/products" for 127.0.0.1 at 2019-07-16 09:19:05 -0400
+Processing by Admin::RocketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WbMmq5shwaHYvNTrm+bnu23zItFP8P+zsj06thUW1xQFEgEL316L0mNyaDz2ir03FbeIfGNGakVAw5Wh//CR4A==", "rocket"=>"products"}
+  [1m[36mSetting Load (5.4ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (4.7ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (10.4ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (1.6ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (1.9ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (7.5ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.5ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (5.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.1ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/admin/rockets
+Completed 302 Found in 114914ms (ActiveRecord: 50.9ms)
+
+
+Started GET "/admin/rockets" for 127.0.0.1 at 2019-07-16 09:21:26 -0400
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::RocketsController#rockets as HTML
+  [1m[36mSetting Load (5.5ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (3.8ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (3.6ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (3.4ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.3ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Appearance Load (0.2ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (4.4ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."deleted_at" IS NULL AND "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (7.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Setting Load (0.3ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendering admin/rockets/rockets.haml within admin/layouts/application
+  Rendered admin/rockets/_install_rocket.haml (1127.7ms)
+  Rendered admin/rockets/_create_rocket.haml (53.5ms)
+  Rendered admin/rockets/rockets.haml within admin/layouts/application (1418.0ms)
+  Rendered admin/layouts/_head.html.haml (212509.1ms)
+  [1m[36mCACHE Appearance Load (0.1ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered admin/layouts/_navigation.html.haml (275.2ms)
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mPermission Load (3.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.2ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (1.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Permission Load (0.1ms)[0m  [1m[34mSELECT "permissions".* FROM "permissions" WHERE "permissions"."role_id" = $1[0m  [["role_id", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Role Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 ORDER BY "roles"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered admin/layouts/_sidebar.html.haml (2516.7ms)
+  Rendered admin/layouts/_messages.html.haml (56.4ms)
+  Rendered admin/layouts/_preloader.html.haml (81.8ms)
+  Rendered admin/layouts/_footer.html.haml (21.0ms)
+  Rendered admin/layouts/_keppler_boolean_script.haml (32.8ms)
+  Rendered admin/layouts/_git_info.html.haml (3286.8ms)
+Completed 200 OK in 223563ms (Views: 220336.7ms | ActiveRecord: 311.3ms)
+
+
+Started GET "/assetsadmin/fonts-and-icons/fonts/Simple-Line-Icons.woff2?v=2.4.0" for 127.0.0.1 at 2019-07-16 09:25:20 -0400
+Started GET "/assets/admin/fonts-and-icons/ZXuke1cDvLCKLDcimxB44_lu.woff2" for 127.0.0.1 at 2019-07-16 09:25:20 -0400
+Started GET "/assets/admin/fonts-and-icons/fonts/boxicons.woff2" for 127.0.0.1 at 2019-07-16 09:25:20 -0400
+  [1m[35m (26.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1172531783632093395)[0m
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateKepplerProductsCategories (20190716132835)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (829.1ms)[0m  [1m[35mCREATE TABLE "keppler_products_categories" ("id" bigserial primary key, "name" character varying, "position" integer, "deleted_at" timestamp, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190716132835"]]
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (42.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1172531783632093395)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1172531783632093395)[0m
+  [1m[35m (24.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAncestryToCategoriesProducts (20190716134244)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (28.3ms)[0m  [1m[35mALTER TABLE "keppler_products_categories" ADD "ancestry" character varying[0m
+  [1m[35m (117.9ms)[0m  [1m[35mCREATE  INDEX  "index_keppler_products_categories_on_ancestry" ON "keppler_products_categories"  ("ancestry")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (5.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190716134244"]]
+  [1m[35m (10.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (10.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1172531783632093395)[0m
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mKepplerProducts::Category Load (17.6ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE (1 = 1) AND ("keppler_products_categories"."position" IS NOT NULL) ORDER BY "keppler_products_categories"."position" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Create (3.1ms)[0m  [1m[32mINSERT INTO "keppler_products_categories" ("name", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "zapatos"], ["position", 1], ["created_at", "2019-07-16 13:45:38.647221"], ["updated_at", "2019-07-16 13:45:38.647221"]]
+  [1m[36mPublicActivity::Activity Create (32.3ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 1], ["key", "keppler_products_category.create"], ["created_at", "2019-07-16 13:45:39.133259"], ["updated_at", "2019-07-16 13:45:39.133259"]]
+  [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mKepplerProducts::Category Load (1.7ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL ORDER BY "keppler_products_categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mKepplerProducts::Category Load (1.9ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE (1 = 1) AND ("keppler_products_categories"."position" IS NOT NULL) ORDER BY "keppler_products_categories"."position" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Create (1.8ms)[0m  [1m[32mINSERT INTO "keppler_products_categories" ("name", "position", "created_at", "updated_at", "ancestry") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Stinky"], ["position", 2], ["created_at", "2019-07-16 13:47:56.208919"], ["updated_at", "2019-07-16 13:47:56.208919"], ["ancestry", "1"]]
+  [1m[36mPublicActivity::Activity Create (2.1ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 2], ["key", "keppler_products_category.create"], ["created_at", "2019-07-16 13:47:56.241571"], ["updated_at", "2019-07-16 13:47:56.241571"]]
+  [1m[35m (31.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mKepplerProducts::Category Load (2.5ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "keppler_products_categories"."id" FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1'[0m
+  [1m[36mKepplerProducts::Category Load (208.2ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (2.4ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (2.2ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (39.8ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' ORDER BY "keppler_products_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (1.8ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mKepplerProducts::Category Load (2.1ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE (1 = 1) AND ("keppler_products_categories"."position" IS NOT NULL) ORDER BY "keppler_products_categories"."position" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Create (19.1ms)[0m  [1m[32mINSERT INTO "keppler_products_categories" ("name", "position", "created_at", "updated_at", "ancestry") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Maria"], ["position", 3], ["created_at", "2019-07-16 14:10:44.030583"], ["updated_at", "2019-07-16 14:10:44.030583"], ["ancestry", "1"]]
+  [1m[36mPublicActivity::Activity Create (44.8ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 3], ["key", "keppler_products_category.create"], ["created_at", "2019-07-16 14:10:44.083061"], ["updated_at", "2019-07-16 14:10:44.083061"]]
+  [1m[35m (25.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mKepplerProducts::Category Load (2.9ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (1.8ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' ORDER BY "keppler_products_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (1.9ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' ORDER BY "keppler_products_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mKepplerProducts::Category Load (1.8ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE (1 = 1) AND ("keppler_products_categories"."position" IS NOT NULL) ORDER BY "keppler_products_categories"."position" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Create (26.7ms)[0m  [1m[32mINSERT INTO "keppler_products_categories" ("name", "position", "created_at", "updated_at", "ancestry") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "hijo de stinky"], ["position", 4], ["created_at", "2019-07-16 14:11:29.818582"], ["updated_at", "2019-07-16 14:11:29.818582"], ["ancestry", "1/2"]]
+  [1m[36mPublicActivity::Activity Create (3.5ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 4], ["key", "keppler_products_category.create"], ["created_at", "2019-07-16 14:11:29.877253"], ["updated_at", "2019-07-16 14:11:29.877253"]]
+  [1m[35m (13.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mKepplerProducts::Category Load (1.8ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' ORDER BY "keppler_products_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (3.6ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1/2' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (1.5ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1' ORDER BY "keppler_products_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (1.4ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1/2' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (1.4ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1/2' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (2.3ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1/2' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (1.7ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '1/2' ORDER BY "keppler_products_categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (2.4ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (1.7ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (59.9ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."id" IN (1, 2) ORDER BY COALESCE("keppler_products_categories"."ancestry", '') ASC LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mKepplerProducts::Category Load (2.2ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE (1 = 1) AND ("keppler_products_categories"."position" IS NOT NULL) ORDER BY "keppler_products_categories"."position" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Create (16.6ms)[0m  [1m[32mINSERT INTO "keppler_products_categories" ("name", "position", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Tv"], ["position", 5], ["created_at", "2019-07-16 14:19:36.610280"], ["updated_at", "2019-07-16 14:19:36.610280"]]
+  [1m[36mPublicActivity::Activity Create (2.6ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 5], ["key", "keppler_products_category.create"], ["created_at", "2019-07-16 14:19:36.654761"], ["updated_at", "2019-07-16 14:19:36.654761"]]
+  [1m[35m (13.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mKepplerProducts::Category Load (1.6ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE (1 = 1) AND ("keppler_products_categories"."position" IS NOT NULL) ORDER BY "keppler_products_categories"."position" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Create (1.8ms)[0m  [1m[32mINSERT INTO "keppler_products_categories" ("name", "position", "created_at", "updated_at", "ancestry") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "samsung"], ["position", 6], ["created_at", "2019-07-16 14:20:08.408237"], ["updated_at", "2019-07-16 14:20:08.408237"], ["ancestry", "5"]]
+  [1m[36mPublicActivity::Activity Create (2.2ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 6], ["key", "keppler_products_category.create"], ["created_at", "2019-07-16 14:20:08.441044"], ["updated_at", "2019-07-16 14:20:08.441044"]]
+  [1m[35m (38.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mKepplerProducts::Category Load (1.5ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL AND "keppler_products_categories"."ancestry" = '5' LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mKepplerProducts::Category Load (1.5ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2019-07-16 10:25:15 -0400
+  [1m[36mKepplerProducts::Category Load (1.8ms)[0m  [1m[34mSELECT "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."deleted_at" IS NULL[0m
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPublicActivity::Activity Create (8.8ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 1], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:28.293715"], ["updated_at", "2019-07-16 14:25:28.293715"]]
+  [1m[36mKepplerProducts::Category Load (1.5ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (160.3ms)[0m  [1m[34mSELECT "keppler_products_categories".* FROM "keppler_products_categories" WHERE ("keppler_products_categories"."ancestry" LIKE '1/%' OR "keppler_products_categories"."ancestry" = '1')[0m
+  [1m[36mPublicActivity::Activity Create (5.4ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 2], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:28.506765"], ["updated_at", "2019-07-16 14:25:28.506765"]]
+  [1m[36mKepplerProducts::Category Load (1.5ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Update (14.1ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:28.534635"], ["updated_at", "2019-07-16 14:25:28.534859"], ["id", 2]]
+  [1m[36mKepplerProducts::Category Update All (67.3ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:28.564703' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 2)[0m
+  [1m[36mPublicActivity::Activity Create (3.5ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 3], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:28.646423"], ["updated_at", "2019-07-16 14:25:28.646423"]]
+  [1m[36mKepplerProducts::Category Load (3.7ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Update (18.0ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:28.688914"], ["updated_at", "2019-07-16 14:25:28.689073"], ["id", 3]]
+  [1m[36mKepplerProducts::Category Update All (4.7ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:28.719041' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 2)[0m
+  [1m[36mPublicActivity::Activity Create (2.6ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 4], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:28.742259"], ["updated_at", "2019-07-16 14:25:28.742259"]]
+  [1m[36mKepplerProducts::Category Load (16.4ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Update (1.9ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:28.790680"], ["updated_at", "2019-07-16 14:25:28.790849"], ["id", 4]]
+  [1m[36mKepplerProducts::Category Update All (4.4ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:28.799909' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 2)[0m
+  [1m[36mKepplerProducts::Category Update (4.1ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:28.808023"], ["updated_at", "2019-07-16 14:25:28.808165"], ["id", 1]]
+  [1m[36mKepplerProducts::Category Update All (13.9ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:28.829055' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 1)[0m
+  [1m[35m (42.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPublicActivity::Activity Create (16.9ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 2], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:28.909557"], ["updated_at", "2019-07-16 14:25:28.909557"]]
+  [1m[36mKepplerProducts::Category Load (6.7ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (1.8ms)[0m  [1m[34mSELECT "keppler_products_categories".* FROM "keppler_products_categories" WHERE ("keppler_products_categories"."ancestry" LIKE '1/2/%' OR "keppler_products_categories"."ancestry" = '1/2')[0m
+  [1m[36mPublicActivity::Activity Create (13.2ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 4], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:28.977812"], ["updated_at", "2019-07-16 14:25:28.977812"]]
+  [1m[36mKepplerProducts::Category Load (5.2ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Update (3.5ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:29.084705"], ["updated_at", "2019-07-16 14:25:29.084897"], ["id", 4]]
+  [1m[36mKepplerProducts::Category Update All (15.2ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:29.105316' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 1)[0m
+  [1m[36mKepplerProducts::Category Update (6.5ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:29.124399"], ["updated_at", "2019-07-16 14:25:29.124529"], ["id", 2]]
+  [1m[36mKepplerProducts::Category Update All (9.9ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:29.138377' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 1)[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPublicActivity::Activity Create (7.8ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 3], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:29.194257"], ["updated_at", "2019-07-16 14:25:29.194257"]]
+  [1m[36mKepplerProducts::Category Load (4.9ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (2.1ms)[0m  [1m[34mSELECT "keppler_products_categories".* FROM "keppler_products_categories" WHERE ("keppler_products_categories"."ancestry" LIKE '1/3/%' OR "keppler_products_categories"."ancestry" = '1/3')[0m
+  [1m[36mKepplerProducts::Category Update (2.6ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:29.241401"], ["updated_at", "2019-07-16 14:25:29.241581"], ["id", 3]]
+  [1m[36mKepplerProducts::Category Update All (9.8ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:29.252486' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 1)[0m
+  [1m[35m (18.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPublicActivity::Activity Create (10.4ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 4], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:29.307661"], ["updated_at", "2019-07-16 14:25:29.307661"]]
+  [1m[36mKepplerProducts::Category Load (5.2ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (6.9ms)[0m  [1m[34mSELECT "keppler_products_categories".* FROM "keppler_products_categories" WHERE ("keppler_products_categories"."ancestry" LIKE '1/2/4/%' OR "keppler_products_categories"."ancestry" = '1/2/4')[0m
+  [1m[36mKepplerProducts::Category Update (7.5ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:29.364598"], ["updated_at", "2019-07-16 14:25:29.364907"], ["id", 4]]
+  [1m[36mKepplerProducts::Category Update All (1.5ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:29.380800' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 1)[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPublicActivity::Activity Create (1.7ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 5], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:29.410946"], ["updated_at", "2019-07-16 14:25:29.410946"]]
+  [1m[36mKepplerProducts::Category Load (1.3ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (2.8ms)[0m  [1m[34mSELECT "keppler_products_categories".* FROM "keppler_products_categories" WHERE ("keppler_products_categories"."ancestry" LIKE '5/%' OR "keppler_products_categories"."ancestry" = '5')[0m
+  [1m[36mPublicActivity::Activity Create (1.7ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 6], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:29.453541"], ["updated_at", "2019-07-16 14:25:29.453541"]]
+  [1m[36mKepplerProducts::Category Load (9.7ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Update (5.7ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:29.490674"], ["updated_at", "2019-07-16 14:25:29.490863"], ["id", 6]]
+  [1m[36mKepplerProducts::Category Update All (2.0ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:29.503740' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 1)[0m
+  [1m[36mKepplerProducts::Category Update (2.9ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:29.509552"], ["updated_at", "2019-07-16 14:25:29.509795"], ["id", 5]]
+  [1m[36mKepplerProducts::Category Update All (1.6ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:29.520963' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 1)[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPublicActivity::Activity Create (6.8ms)[0m  [1m[32mINSERT INTO "activities" ("trackable_type", "trackable_id", "key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trackable_type", "KepplerProducts::Category"], ["trackable_id", 6], ["key", "keppler_products_category.destroy"], ["created_at", "2019-07-16 14:25:29.574494"], ["updated_at", "2019-07-16 14:25:29.574494"]]
+  [1m[36mKepplerProducts::Category Load (3.7ms)[0m  [1m[34mSELECT  "keppler_products_categories".* FROM "keppler_products_categories" WHERE "keppler_products_categories"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mKepplerProducts::Category Load (5.7ms)[0m  [1m[34mSELECT "keppler_products_categories".* FROM "keppler_products_categories" WHERE ("keppler_products_categories"."ancestry" LIKE '5/6/%' OR "keppler_products_categories"."ancestry" = '5/6')[0m
+  [1m[36mKepplerProducts::Category Update (1.8ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "deleted_at" = $1, "updated_at" = $2 WHERE "keppler_products_categories"."id" = $3[0m  [["deleted_at", "2019-07-16 14:25:29.633285"], ["updated_at", "2019-07-16 14:25:29.633502"], ["id", 6]]
+  [1m[36mKepplerProducts::Category Update All (6.1ms)[0m  [1m[33mUPDATE "keppler_products_categories" SET "position" = ("keppler_products_categories"."position" - 1), "updated_at" = '2019-07-16 14:25:29.649508' WHERE (1 = 1) AND ("keppler_products_categories"."position" > 1)[0m
+  [1m[35m (38.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (20.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by KepplerFrontend::App::FrontendController#keppler as HTML
+  [1m[36mSetting Load (4.4ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppearance Load (16.2ms)[0m  [1m[34mSELECT "appearances".* FROM "appearances" WHERE "appearances"."setting_id" = $1[0m  [["setting_id", "1"]]
+  [1m[36mSocialAccount Load (27.0ms)[0m  [1m[34mSELECT "social_accounts".* FROM "social_accounts" WHERE "social_accounts"."setting_id" = $1[0m  [["setting_id", 1]]
+  [1m[36mKepplerLanguages::Language Load (21.1ms)[0m  [1m[34mSELECT "keppler_languages_languages".* FROM "keppler_languages_languages"[0m
+  [1m[36mAppearance Load (2.3ms)[0m  [1m[34mSELECT  "appearances".* FROM "appearances" ORDER BY "appearances"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSmtpSetting Load (11.2ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCACHE SmtpSetting Load (0.1ms)[0m  [1m[34mSELECT  "smtp_settings".* FROM "smtp_settings" ORDER BY "smtp_settings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mKepplerLanguages::Language Load (2.1ms)[0m  [1m[34mSELECT  "keppler_languages_languages".* FROM "keppler_languages_languages" WHERE "keppler_languages_languages"."active" = $1 ORDER BY "keppler_languages_languages"."id" ASC LIMIT $2[0m  [["active", true], ["LIMIT", 1]]
+  [1m[36mMetaTag Load (23.9ms)[0m  [1m[34mSELECT  "meta_tags".* FROM "meta_tags" WHERE "meta_tags"."url" = $1 LIMIT $2[0m  [["url", "localhost:3000/"], ["LIMIT", 1]]
+  [1m[36mScript Load (9.5ms)[0m  [1m[34mSELECT "scripts".* FROM "scripts"[0m
+  Rendering rockets/keppler_frontend/app/views/keppler_frontend/app/frontend/keppler.html.haml within layouts/keppler_frontend/app/layouts/application
+  Rendered app/layouts/_meta_tags.html.haml (324.4ms)
