@@ -24,7 +24,7 @@ module KepplerProducts
       # GET /products/new
       def new
         if params[:parent]
-          @name_parent = Category.find(params[:parent]).name
+          @parent = Category.find(params[:parent])
         end
         @category = Category.new
       end

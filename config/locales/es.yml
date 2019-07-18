@@ -86,6 +86,7 @@ es:
         user: usuario
         capsule: capsule
       pluralize:
+        subcategories: subcategorías
         seos: seos
         roles: roles
         customizes: customizes

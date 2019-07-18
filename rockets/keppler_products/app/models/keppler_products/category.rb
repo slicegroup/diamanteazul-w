@@ -12,6 +12,7 @@ module KepplerProducts
     acts_as_list
     acts_as_paranoid
     has_ancestry
+    validates :name, presence: true
 
     def self.index_attributes
       %i[name]
