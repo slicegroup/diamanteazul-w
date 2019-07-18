@@ -58,6 +58,12 @@
                         = sort_link(@q, attribute) do
                           = t("activerecord.attributes.#{attribute.to_s}")
                     %th
+                      = sort_link(@q, 'add_subcategory') do
+                        = t("activerecord.attributes.add_subcategory")
+                    %th
+                      = sort_link(@q, 'add_product') do
+                        = t("activerecord.attributes.add_product")
+                    %th
                     %th
 
               %tbody.objects-container{ 'data-update-url': sort_admin_products_categories_path }

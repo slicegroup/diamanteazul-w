@@ -9,6 +9,7 @@ module KepplerProducts
       layout 'keppler_products/admin/layouts/application'
       before_action :set_category, only: %i[show edit update destroy]
       before_action :index_variables
+      before_action :check_parent, only: %i[create]
       include ObjectQuery
 
       # GET /products
@@ -22,6 +23,9 @@ module KepplerProducts
 
       # GET /products/new
       def new
+        if params[:parent]
+          @name_parent = Category.find(params[:parent]).name
+        end
         @category = Category.new
       end
 
@@ -77,6 +81,14 @@ module KepplerProducts
       end
 
       private
+
+      def check_parent
+        if params[:parent]
+          parent = Category.find(params[:parent])
+          parent.children.create(name: params[:category][:name])
+          redirect_back fallback_location: :root_path
+        end
+      end
 
       def index_variables
         @q = Category.ransack(params[:q])
