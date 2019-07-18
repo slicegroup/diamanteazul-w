@@ -1,0 +1,29 @@
+= Haml::Engine.new(File.read("app/partials/_head.haml")).render()
+= Haml::Engine.new(File.read("app/partials/_navbar.haml")).render()
+
+%body
+  .container.product-container
+    .category-header
+      %nav{ "aria-label" => "breadcrumb"}
+        %ol.breadcrumb
+          %li.breadcrumb-item
+            %a{ href: 'category.html'} Anillos de Graduación
+          %li.breadcrumb-item
+            %a{ href: 'category.html'} Clásicos
+          %li.breadcrumb-item.active{ "aria-current" =>"page" }
+            %a{ href: 'subcategory.html'} Tradicionales
+    .product-box
+      .product-images
+        .product-images-for
+          - 4.times do |x|
+            %img{ src: "/assets/img/shop/products/product#{x+1}.png" }
+        .product-images-nav
+          - 4.times do |x|
+            %img{ src: "/assets/img/shop/products/product#{x+1}.png" }
+      .product-description
+        %h3 REF: CLE 10X8 AN
+        %h4 Características
+
+
+= Haml::Engine.new(File.read("app/partials/_footer.haml")).render()
+= Haml::Engine.new(File.read("app/partials/_scripts.haml")).render()

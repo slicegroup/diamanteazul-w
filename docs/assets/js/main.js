@@ -21,3 +21,21 @@ if($('#slider-shop-fullwidth').length > 0) {
     },
   });
 }
+
+$('.product-images-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.product-images-nav'
+});
+$('.product-images-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.product-images-for',
+  dots: true,
+  centerMode: true,
+  focusOnSelect: true,
+  arrows: false
+});
+	

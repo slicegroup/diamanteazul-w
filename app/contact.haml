@@ -1,0 +1,75 @@
+.container
+  .hidden-xs{style: "height: 145px;"}
+  .container
+    .row
+      .col-md-7
+        %p.lead.color Siéntete libre de ponerte en contacto con nosotros si quieres un presupuesto o simplemente deseas saber algo sobre la empresa.
+        %form#contact-form.form-horizontal{method: "post", novalidate: ""}
+          .form-group
+            %label.control-label.sr-only{for: "contact-name"} Nombre
+            .col-sm-12
+              %input#contact-name.form-control{name: "name", placeholder: "Nombre Completo*", required: "", type: "text"}/
+          .form-group
+            %label.control-label.sr-only{for: "contact-email"} Correo
+            .col-sm-12
+              %input#contact-email.form-control{name: "email", placeholder: "Correo electrónico*", required: "", type: "email"}/
+          .form-group
+            %label.control-label.sr-only{for: "contact-message"} Mensaje
+            .col-sm-12
+              %textarea#contact-message.form-control{cols: "30", name: "message", placeholder: "Escriba aquí su mensaje*", required: "", rows: "12"}
+          .form-group
+            .col-sm-12
+              %button#submit-button.btn.btn-primary{type: "submit"}
+                %i.fa.loading-icon
+                %span Enviar
+          %input#msg-submitted{name: "msg-submitted", type: "hidden", value: "true"}/
+      .col-md-5
+        .sidebar
+          .widget
+            %h4.widget-title.color2 INFORMACIÓN DE CONTACTOS
+            %address.contact-info
+              %p
+                %i.icon.icon_pin_alt.ico-styled.text-primary
+                Calle Colombia entre Av. Arismendi y Libertad Sector Centro. Punto Fijo - Zona Libre de Paraguaná - Estado Falcón, Venezuela.
+              %p
+                %i.icon.icon_phone.ico-styled.text-primary
+                0269-4158673 / Cel: 0424-6030467
+              %p
+                %i.icon.icon_mail_alt.ico-styled.text-primary
+                info@joyeriadiamanteazul.com
+              %p
+                %a{href: "https://www.instagram.com/joyeriadiamanteazul/", target: "_top"}
+                  %i.fa.fa-instagram.fa-lg.text-primary{"aria-hidden" => "true"}
+                  joyeriadiamanteazul
+              %p
+                %a{href: "https://www.facebook.com/diamanteazuljoyeria?fref=ts", target: "_top"}
+                  %i.fa.fa-facebook-square.fa-lg.text-primary{"aria-hidden" => "true"}
+                  Diamante Azul
+              %p
+                %a{href: "https://twitter.com/search?q=jdiamanteazul&src=typd&lang=es", target: "_top"}
+                  %i.fa.fa-twitter.fa-lg.text-primary{"aria-hidden" => "true"}
+                  Diamante Azul
+          .widget
+            %center
+              %h4.widget-title.color2
+                %i.fa.fa-clock-o.fa-lg{"aria-hidden" => "true"}
+                HORARIO
+              %big
+                %strong.color4 Lunes a Viernes:
+                %br/
+                8:30 am a 12:30 pm
+                %br/
+                2:00 pm a 6:00 pm
+                %br/
+                %strong.color4 Sábados:
+                %br/
+                9:00 am a 1:00 pm
+                %br/
+                %strong.color4 Domingos:
+                %br/
+                Cerrado
+    .widget
+      %h4.widget-title.color3 ESTAMOS AQUÍ
+      .google-map-sidebar
+        %iframe{allowfullscreen: "", frameborder: "0", src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.017870374108!2d-70.21140848504116!3d11.693145844800071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e85ed11c0ad824d%3A0xe2fd024ced75f67d!2sDiamante+Azul+Joyeria!5e0!3m2!1ses-419!2sve!4v1491602173774", style: "border-radius: 7px;", width: "100%"}
+        / <div id="custom-map-canvas"></div>

@@ -1,0 +1,51 @@
+= Haml::Engine.new(File.read("app/partials/_head.haml")).render()
+= Haml::Engine.new(File.read("app/partials/_navbar.haml")).render()
+
+%body
+  .container.category-container
+    .category-header
+      %nav{ "aria-label" => "breadcrumb"}
+        %ol.breadcrumb
+          %li.breadcrumb-item
+            %a{ href: 'category.html'} Anillos de Graduación
+          %li.breadcrumb-item
+            %a{ href: 'category.html'} Clásicos
+          %li.breadcrumb-item.active{ "aria-current" =>"page" }
+            %a{ href: 'subcategory.html'} Tradicionales
+      %form
+        .input-group
+          %input.form-control{placeholder: "Buscar...", type: "text"}
+          .input-group-append
+            %button.btn.btn-primary{type: "button"}
+              %i.icofont-search
+        %small Ejemplo: graduación, boda, dije, etc.
+    .category-box
+      = Haml::Engine.new(File.read("app/partials/_sidebar.haml")).render()
+      .category-items
+        .row
+          - 3.times do
+            .col-lg-4
+              .card-subcategory
+                %a{ href: '/product.html' }
+                  %img{ src: '/assets/img/shop/products/category01-01.png' }
+                  %h2.card-subcategory-title REF: FINITO 6X4 ANTK
+                  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  %a.btn.btn-custom{ href: '' } Cotizar
+          %nav.nav-paginator{"aria-label" => "..."}
+            %ul.pagination
+              %li.page-item.disabled
+                %a.page-link{"aria-label" => "Previous", href: "#"}
+                  %span{"aria-hidden" => "true"} «
+              %li.page-item.active{"aria-current" => "page"}
+                %a.page-link{href: "#"} 1
+              %li.page-item
+                %a.page-link{href: "#"} 2
+              %li.page-item
+                %a.page-link{href: "#"} 3
+              %li.page-item
+                %a.page-link{"aria-label" => "Next", href: "#"}
+                  %span{"aria-hidden" => "true"} »
+
+
+= Haml::Engine.new(File.read("app/partials/_footer.haml")).render()
+= Haml::Engine.new(File.read("app/partials/_scripts.haml")).render()

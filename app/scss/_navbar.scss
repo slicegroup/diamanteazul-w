@@ -28,3 +28,16 @@
     margin-left: 100px;
   }
 }
+
+.sidebar-category {
+  width: 30%;
+  background-color: $light_blue;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.nav-paginator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
