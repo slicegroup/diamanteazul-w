@@ -10,7 +10,14 @@
       .col-lg-12
         .box.slice-box.p-15
           .box-header.with-border
-            %h3.box-title= t('keppler.models.singularize.category').humanize
+            - if @category.is_root?
+              %h3.box-title= t('keppler.models.singularize.category').humanize
+            - else
+              %h3.box-title
+                - @category.ancestors.each do |ancestor|
+                  = link_to({ action: :show, id: ancestor.id, search: @query }, { class: 'show-row' }) do
+                    = "#{ancestor.name} > "
+                = @category.name
             .box-tools.pull-right
               - if can?(model).update?
                 = link_to edit_admin_products_category_path(@category), class: 'btn btn-box-tool', title: t('keppler.actions.edit') do
@@ -22,7 +29,7 @@
           .box-body.no-padding
             %table.table
               %tbody
-                - @category.as_json(except: %w[position deleted_at]).each do |attribute, value|
+                - @category.as_json(except: %w[position deleted_at ancestry]).each do |attribute, value|
                   %tr.list-row
                     %th.display-label= t("activerecord.attributes.#{attribute}")
                     %td.display-value.fs-body-1.tc-black-2
@@ -33,3 +40,41 @@
                           = image_tag image.url if image.url
                       - else 
                         = sanitize raw value
+                %tr.list-row
+                  %th.display-label
+                    = t("activerecord.attributes.add_subcategory")
+                  %td.display-value.fs-body-1.tc-black-2
+                    %a{ href: new_admin_products_category_path(parent: @category.id)}
+                      %button.btn.btn-primary +
+                %tr.list-row
+                  %th.display-label
+                    = t("activerecord.attributes.add_product")
+                  %td.display-value.fs-body-1.tc-black-2
+                    %a{ href: new_admin_products_category_path(parent: @category.id)}
+                      %button.btn.btn-primary +
+          .box-header.with-border
+            %h4.box-title= "Subcategorías de #{@category.name}"
+            .box-body
+              %table.table
+                %thead
+                  - if @category.children.size.zero?
+                    %tr
+                      %th.not-records.center
+                        %h6= t('keppler.messages.not_found_records', model: t('keppler.models.pluralize.subcategories'))
+                  - else
+                    %tr
+                      %th= t('activerecord.attributes.name')
+                      %th= t("activerecord.attributes.add_subcategory")
+                      %th= t("activerecord.attributes.add_product")
+                %tbody.objects-container
+                  - @category.children.each do |child|
+                    %tr
+                      %td{ style: 'width: 33%'}
+                        = link_to({ action: :show, id: child.id, search: @query }, { class: 'show-row' }) do
+                          = child.name
+                      %td{ style: 'width: 33%'}
+                        %a{ href: new_admin_products_category_path(parent: child.id)}
+                          %button.btn.btn-primary +
+                      %td{ style: 'width: 33%'}
+                        %a{ href: new_admin_products_category_path(parent: child.id)}
+                          %button.btn.btn-primary +

@@ -14,6 +14,8 @@ module KepplerProducts
     has_ancestry
     validates :name, presence: true
 
+    scope :set_parents, -> { where(ancestry: nil) }
+
     def self.index_attributes
       %i[name]
     end

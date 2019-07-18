@@ -85,13 +85,17 @@ module KepplerProducts
       def check_parent
         if params[:parent]
           parent = Category.find(params[:parent])
-          parent.children.create(name: params[:category][:name])
-          redirect_back fallback_location: :root_path
+          category = parent.children.create(name: params[:category][:name])
+          if params[:_add_other]
+            new_admin_products_category_path(parent: params[:parent])
+          else
+            redirect_to admin_products_category_path(category)
+          end
         end
       end
 
       def index_variables
-        @q = Category.ransack(params[:q])
+        @q = Category.set_parents.ransack(params[:q])
         @categories = @q.result(distinct: true)
         @objects = @categories.page(@current_page).order(position: :asc)
         @total = @categories.size
