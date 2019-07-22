@@ -1,20 +1,24 @@
-.container
-  .hidden-xs{style: "height: 150px;"}
-  .row
-    .col-md-7.col-sm-12
-      %img.img-responsive{alt: "Imagen fabricación de joyas", src: "assets/img/fabricantes.jpg", title: "Designed by:  Estefanía de Peñuela"}/
-      %div{style: "height: 90px"}
-      %center
-        %img.img-responsive{alt: "Frase Hecho en Paraguaná para toda Venezuela", src: "assets/img/somos.svg"}/
-      / <small><i>Designed by:  Estefanía de Peñuela</i></small>
-    .col-md-5.col-sm-12
-      %p.lead{style: "text-align: justify;"}
-        %b.color Diamante Azul ®
-        Fundada en el año 2009 es una fabrica especializada en diseñar y crear los mas auténticos y originales anillos de graduación, compromiso, matrimonio, joyería corporativa, joyería para bebes y quince años, especialistas en elaborar joyas únicas. Somos profesionales con el conocimiento y dominio de las múltiples técnicas de orfebrería y joyería, combinando distintos materiales nobles.
-        %br/
-        %br/
-        Hoy contamos con mas de 500 modelos creados por nuestra diseñadora de joyas
-        %span.text-info Estefanía de Peñuela
-        aplicando los mas altos estándares de calidad ya que nuestra garantía es para toda la vida.
-      %img.img-responsive.center-block{alt: "Logotipo", src: "assets/img/logo/logo-default.png"}/
-  %div{style: "height: 75px"}
+= Haml::Engine.new(File.read("app/partials/_head.haml")).render()
+= Haml::Engine.new(File.read("app/partials/_navbar.haml")).render()
+
+%body
+  %section.about
+    .container
+      .row
+        .col-md-7.col-sm-12
+          %img.w-100{alt: "Imagen fabricación de joyas", src: "assets/img/fabricantes.jpg", title: "Designed by:  Estefanía de Peñuela"}
+          %center
+            %img.w-100{alt: "Frase Hecho en Paraguaná para toda Venezuela", src: "assets/img/somos.svg"}
+        .col-md-5.col-sm-12
+          %img.w-100.center-block{alt: "Logotipo", src: "assets/img/logo/logo-default.png"}
+          %p{style: "text-align: justify;"}
+            %b.color Diamante Azul ®
+            Fundada en el año 2009 es una fabrica especializada en diseñar y crear los mas auténticos y originales anillos de graduación, compromiso, matrimonio, joyería corporativa, joyería para bebes y quince años, especialistas en elaborar joyas únicas. Somos profesionales con el conocimiento y dominio de las múltiples técnicas de orfebrería y joyería, combinando distintos materiales nobles.
+            %br/
+            %br/
+            Hoy contamos con mas de 500 modelos creados por nuestra diseñadora de joyas
+            %span.text-info Estefanía de Peñuela
+            aplicando los mas altos estándares de calidad ya que nuestra garantía es para toda la vida.
+
+= Haml::Engine.new(File.read("app/partials/_footer.haml")).render()
+= Haml::Engine.new(File.read("app/partials/_scripts.haml")).render()

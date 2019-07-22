@@ -147,6 +147,10 @@ h1 {
   margin-bottom: 10px;
 }
 
+.btn-custom:hover {
+  color: #fff;
+}
+
 .breadcrumb {
   background-color: #fff;
 }
@@ -255,4 +259,32 @@ footer a:hover {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   color: #1e46a1;
+}
+
+.about {
+  padding: 50px 0;
+}
+
+.about p {
+  font-family: "Raleway", sans-serif;
+}
+
+.contact {
+  font-family: "Raleway", sans-serif;
+  padding: 50px 0;
+}
+
+.contact .widget-title {
+  color: #1e46a1;
+  font-family: "Lato", sans-serif;
+}
+
+.contact i {
+  color: #1e46a1;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #1e46a1;
 }

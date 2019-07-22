@@ -108,6 +108,10 @@ h1 {
   color: $white;
   font-family: $raleway;
   margin-bottom: 10px;
+
+  &:hover {
+    color: $white;
+  }
 }
 
 .breadcrumb {
@@ -214,4 +218,34 @@ footer {
   font-family: $lato;
   font-weight: $bold;
   color: $primary;
+}
+
+.about {
+  padding: 50px 0;
+
+  p {
+    font-family: $raleway;
+  }
+}
+
+.contact {
+  font-family: $raleway;
+  padding: 50px 0;
+
+  .widget-title {
+    color: $primary;
+    font-family: $lato;
+  }
+
+  i {
+    color: $primary;
+  }
+}
+
+.form-control {
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: $primary;
+  }
 }
