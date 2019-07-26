@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_135628) do
+ActiveRecord::Schema.define(version: 2019_07_26_194555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_135628) do
     t.string "ancestry"
     t.string "image"
     t.text "description"
+    t.string "banner"
     t.index ["ancestry"], name: "index_keppler_products_categories_on_ancestry"
   end
 

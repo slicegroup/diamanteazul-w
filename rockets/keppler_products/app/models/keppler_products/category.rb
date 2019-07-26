@@ -13,6 +13,7 @@ module KepplerProducts
     acts_as_paranoid
     has_ancestry
     mount_uploader :image, AttachmentUploader
+    mount_uploader :banner, AttachmentUploader
     validates_presence_of :name, :image
     validate :unique_category, on: [:create, :edit]
 

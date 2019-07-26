@@ -88,6 +88,7 @@ module KepplerProducts
           @category = parent.children.create(
             name: params[:category][:name],
             image: params[:category][:image],
+            image: params[:category][:banner],
             description: params[:category][:description])
           custom_redirect
         end
@@ -117,7 +118,7 @@ module KepplerProducts
       # Only allow a trusted parameter "white list" through.
       def category_params
         params.require(:category).permit(
-          :name, :image, :description
+          :name, :image, :description, :banner
         )
       end
     end

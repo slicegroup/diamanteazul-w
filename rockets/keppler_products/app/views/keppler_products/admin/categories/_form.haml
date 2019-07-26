@@ -32,6 +32,8 @@
                     .col-xs-12
                       %input.hidden{type: 'text', value: params[:parent], name: 'parent'}
                   .col-xs-12
+                    = f.input :banner, as: :keppler_file
+                  .col-xs-12
                     .pull-right
                       = f.button :submit, t('keppler.actions.save'), name: '_save', class: 'btn-primary'
                       = f.button :submit, t('keppler.actions.save_and_add_another'), name: '_add_other'
