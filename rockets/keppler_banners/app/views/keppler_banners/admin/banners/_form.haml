@@ -25,9 +25,24 @@
                     = f.input :subtitle, as: :string
                   .col-xs-12
                     = f.input :cta, as: :keppler_boolean
-                  .col-xs-12
+                  .col-xs-12.link-none
                     = f.input :link, as: :string
                   .col-xs-12
                     .pull-right
                       = f.button :submit, t('keppler.actions.save'), name: '_save', class: 'btn-primary'
                       = f.button :submit, t('keppler.actions.save_and_add_another'), name: '_add_other'
+- if !@banner.errors[:link].blank?
+  :javascript
+    $('.link-none').removeClass('link-none')
+:scss
+  .link-none{
+    display: none;
+  }
+:javascript
+  $('.keppler-switch').click(function(){
+    if($('#banner_cta').val()=='false'){
+      $('.link-none').removeClass('link-none')
+    }else{
+      $('#banner_link').parent().addClass('link-none')
+    }
+  })
