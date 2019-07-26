@@ -1,6 +1,6 @@
 menu:
   keppler_products:
-    name: Keppler Products
+    name: Products
     current: ['/']
     url_path: /
     icon: rocket

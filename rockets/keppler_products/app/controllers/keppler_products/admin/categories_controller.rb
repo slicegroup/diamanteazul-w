@@ -85,12 +85,19 @@ module KepplerProducts
       def check_parent
         if params[:parent]
           parent = Category.find(params[:parent])
-          category = parent.children.create(name: params[:category][:name])
-          if params[:_add_other]
-            new_admin_products_category_path(parent: params[:parent])
-          else
-            redirect_to admin_products_category_path(category)
-          end
+          @category = parent.children.create(
+            name: params[:category][:name],
+            image: params[:category][:image],
+            description: params[:category][:description])
+          custom_redirect
+        end
+      end
+
+      def custom_redirect
+        if params[:_add_other]
+          redirect_to new_admin_products_category_path(parent: params[:parent])
+        else
+          redirect_to admin_products_category_path(@category)
         end
       end
 
@@ -110,7 +117,7 @@ module KepplerProducts
       # Only allow a trusted parameter "white list" through.
       def category_params
         params.require(:category).permit(
-          :name
+          :name, :image, :description
         )
       end
     end

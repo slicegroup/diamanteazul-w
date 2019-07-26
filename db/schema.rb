@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_134244) do
+ActiveRecord::Schema.define(version: 2019_07_26_135628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 2019_07_16_134244) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["setting_id"], name: "index_google_analytics_settings_on_setting_id"
+  end
+
+  create_table "keppler_banners_banners", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.boolean "cta"
+    t.string "link"
+    t.integer "position"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "keppler_capsules_capsule_associations", force: :cascade do |t|
@@ -149,6 +160,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_134244) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "ancestry"
+    t.string "image"
+    t.text "description"
     t.index ["ancestry"], name: "index_keppler_products_categories_on_ancestry"
   end
 

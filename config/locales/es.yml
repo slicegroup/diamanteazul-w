@@ -19,6 +19,8 @@ es:
     sidebar-menu:
       about: Información
       seo: Seo
+      products: Productos
+      banner: Banners Home
       seo-submenu:
         metatags: Meta Tags
         sitemap: Sitemap
@@ -103,6 +105,7 @@ es:
       admin/meta_tags: 'Meta tags'
       admin/scripts: 'Scripts'
       admin/scaffolds: 'Scaffolds'
+      admin/keppler_banners: Banners Home
       admin/settings: 'Configuraciones'
       admin/users: 'Usuarios'
       keppler_ga_dashboard/dashboard: 'Dashboard'

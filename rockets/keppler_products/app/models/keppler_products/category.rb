@@ -12,12 +12,19 @@ module KepplerProducts
     acts_as_list
     acts_as_paranoid
     has_ancestry
-    validates :name, presence: true
+    mount_uploader :image, AttachmentUploader
+    validates_presence_of :name, :image
+    validate :unique_category, on: [:create, :edit]
 
     scope :set_parents, -> { where(ancestry: nil) }
 
     def self.index_attributes
       %i[name]
+    end
+
+    def unique_category
+      return if !Category.find_by(name: name, ancestry: nil)
+      errors.add :name, 'Ya existe una categoría con ese nombre'
     end
   end
 end
