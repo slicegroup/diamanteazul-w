@@ -31,6 +31,9 @@ es:
       scripts: Scripts
       meta_tags: Meta tags
       users: Usuarios
+      products-submenu:
+        category: Categorías
+        product: Productos
       users-submenu:
         users: Usuarios
         roles: Roles

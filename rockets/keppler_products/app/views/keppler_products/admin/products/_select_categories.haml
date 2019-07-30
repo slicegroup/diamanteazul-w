@@ -1,0 +1,22 @@
+- category&.ancestors.each do |c|
+  .col-xs-3
+    %label.control-label.select.optional{:for => "product_category_id"} Categoria
+    %select.form-control.select.category.subcategory{:name => "product[category_id]"}
+      - c.siblings.each do |child|
+        %option{:value => child.id, selected: c.eql?(child) ? true : false}= child.name
+.col-xs-3
+  %label.control-label.select.optional{:for => "product_category_id"} Categoria
+  %select.form-control.select.category.subcategory{:name => "product[category_id]"}
+    - category.siblings.each do |c|
+      %option{:value => c.id, selected: c.eql?(category) ? true : false}= c.name
+.col-xs-3
+  %label.control-label.select.optional{:for => "product_category_id"} Categoria
+  %select.form-control.select.category.subcategory{:name => "product[category_id]"}
+    - category&.children.each do |child|
+      %option{:value => child.id, selected: child.eql?(category) ? true : false}= child.name
+:javascript
+  $('.subcategory').change(function(){
+    category = $(this).val()
+    $('.category_secret').val(category)
+    $('.category_secret').parent().parent().submit()
+  })

@@ -84,13 +84,13 @@ module KepplerProducts
 
       def check_parent
         if params[:parent]
-          parent = Category.find(params[:parent])
-          @category = parent.children.create(
-            name: params[:category][:name],
-            image: params[:category][:image],
-            image: params[:category][:banner],
-            description: params[:category][:description])
-          custom_redirect
+          @parent = Category.find(params[:parent])
+          @category = @parent.children.new(category_params)
+          if @category.save
+            custom_redirect
+          else
+            render :new, parent: @parent
+          end
         end
       end
 
