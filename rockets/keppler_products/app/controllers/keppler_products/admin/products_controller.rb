@@ -78,7 +78,6 @@ module KepplerProducts
       end
 
       def select_categories
-        byebug
         @category = KepplerProducts::Category.find(params[:product][:category_id])
       end
 
@@ -104,7 +103,7 @@ module KepplerProducts
       # Only allow a trusted parameter "white list" through.
       def product_params
         params.require(:product).permit(
-          :name, :category_id, :description, :tags, :images
+          :name, :category_id, :description, :tags, {images: []}
         )
       end
     end

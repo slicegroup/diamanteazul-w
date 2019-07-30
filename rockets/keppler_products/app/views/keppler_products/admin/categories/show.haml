@@ -46,12 +46,6 @@
                   %td.display-value.fs-body-1.tc-black-2
                     %a{ href: new_admin_products_category_path(parent: @category.id)}
                       %button.btn.btn-primary +
-                %tr.list-row
-                  %th.display-label
-                    = t("activerecord.attributes.add_product")
-                  %td.display-value.fs-body-1.tc-black-2
-                    %a{ href: new_admin_products_category_path(parent: @category.id)}
-                      %button.btn.btn-primary +
           .box-header.with-border
             %h4.box-title= "Subcategorías de #{@category.name}"
             .box-body
@@ -65,16 +59,12 @@
                     %tr
                       %th= t('activerecord.attributes.name')
                       %th= t("activerecord.attributes.add_subcategory")
-                      %th= t("activerecord.attributes.add_product")
                 %tbody.objects-container
                   - @category.children.each do |child|
                     %tr
                       %td{ style: 'width: 33%'}
                         = link_to({ action: :show, id: child.id, search: @query }, { class: 'show-row' }) do
                           = child.name
-                      %td{ style: 'width: 33%'}
-                        %a{ href: new_admin_products_category_path(parent: child.id)}
-                          %button.btn.btn-primary +
                       %td{ style: 'width: 33%'}
                         %a{ href: new_admin_products_category_path(parent: child.id)}
                           %button.btn.btn-primary +

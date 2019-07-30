@@ -20,6 +20,8 @@ es:
     actions:
   activerecord:
     attributes:
+      category_id: categoría
+      category: categoría
       add_subcategory: Agregar subcategoría
       add_product: Agregar producto
     errors:

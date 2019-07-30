@@ -33,3 +33,11 @@
                           = image_tag image.url if image.url
                       - else 
                         = sanitize raw value
+                %tr.list-row
+                  %th.display-label= t("activerecord.attributes.category")
+                  %td.display-value.fs-body-1.tc-black-2
+                    - @product.category&.ancestors.each do |ancestor|
+                      = link_to admin_products_category_path(ancestor.id), class: 'show-row' do
+                        = "#{ancestor.name} > "
+                    = link_to admin_products_category_path(@product.category.id), class: 'show-row' do
+                      = "#{@product.category.name}"

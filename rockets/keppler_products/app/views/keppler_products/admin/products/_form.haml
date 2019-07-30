@@ -1,3 +1,4 @@
+%script{ src: 'https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js'}
 = simple_form_for [:admin, :products, @product] do |f|
   .container
     .row
@@ -21,13 +22,13 @@
                 .form-padding
                   .col-xs-12.select-categories
                     .col-xs-3
-                      = f.input :category_id, collection: @categories, include_blank: true, input_html: { class: 'category' }
+                      = f.input :category_id, collection: @categories, include_blank: 'Selecciona una categoría', input_html: { class: 'category' }, label: 'Categoría'
                   .col-xs-12
                     = f.input :name, as: :string
                   .col-xs-12
                     = f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } }
                   .col-xs-12
-                    = f.input :tags, as: :string
+                    = f.input :tags, as: :string, input_html: { "data-role" => "tagsinput" }
                   .col-xs-12
                     = f.input :images, as: :keppler_file, multiple: true # , max_size: 225
                   .col-xs-12
@@ -43,3 +44,16 @@
     $('.category_secret').val(category)
     $('.category_secret').parent().parent().submit()
   })
+  action = "#{action_name}"
+  if((action=="create")||(action=="edit")||(action=="update")){
+    $('.category_secret').val("#{@product.category_id}")
+    $('.category_secret').parent().parent().submit()
+  }
+
+:scss
+  .hidden-form{
+    display: none;
+  }
+  .bootstrap-tagsinput{
+    border-radius: 15px;
+  }

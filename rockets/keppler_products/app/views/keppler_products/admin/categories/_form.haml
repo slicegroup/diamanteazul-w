@@ -23,16 +23,16 @@
             %table.table.table-bordered
               %tbody
                 .form-padding
-                  .col-lg-6.col-md-12.col-sm-12
-                    = f.input :image, as: :keppler_file
-                  .col-lg-6.col-md-12.col-sm-12
+                  .col-xs-12
                     = f.input :name, as: :string
                     = f.input :description, as: :text, input_html: { maxlength: "50"}
+                  .col-lg-6.col-md-6.col-sm-12
+                    = f.input :image, as: :keppler_file
+                  .col-lg-6.col-md-6.col-sm-12
+                    = f.input :banner, as: :keppler_file
                   - if params[:parent]
                     .col-xs-12
                       %input.hidden{type: 'text', value: params[:parent], name: 'parent'}
-                  .col-xs-12
-                    = f.input :banner, as: :keppler_file
                   .col-xs-12
                     .pull-right
                       = f.button :submit, t('keppler.actions.save'), name: '_save', class: 'btn-primary'
@@ -51,16 +51,12 @@
                     %tr
                       %th= t('activerecord.attributes.name')
                       %th= t("activerecord.attributes.add_subcategory")
-                      %th= t("activerecord.attributes.add_product")
                 %tbody.objects-container
                   - @parent.children.each do |child|
                     %tr
                       %td{ style: 'width: 33%'}
                         = link_to({ action: :show, id: child.id, search: @query }, { class: 'show-row' }) do
                           = child.name
-                      %td{ style: 'width: 33%'}
-                        %a{ href: new_admin_products_category_path(parent: child.id)}
-                          %button.btn.btn-primary +
                       %td{ style: 'width: 33%'}
                         %a{ href: new_admin_products_category_path(parent: child.id)}
                           %button.btn.btn-primary +

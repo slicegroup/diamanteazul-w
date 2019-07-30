@@ -12,6 +12,8 @@ module KepplerProducts
     mount_uploaders :images, AttachmentUploader
     acts_as_list
     acts_as_paranoid
+    validates_presence_of :name, :category_id, :description, :images
+    belongs_to :category, class_name: 'KepplerProducts::Category'
 
     def self.index_attributes
       %i[name category_id tags]

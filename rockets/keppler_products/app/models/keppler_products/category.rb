@@ -16,6 +16,7 @@ module KepplerProducts
     mount_uploader :banner, AttachmentUploader
     validates_presence_of :name, :image
     validate :unique_category, on: [:create, :edit]
+    has_many :products, class_name: 'KepplerProducts::Product'
 
     scope :set_parents, -> { where(ancestry: nil) }
 
