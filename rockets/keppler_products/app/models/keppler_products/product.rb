@@ -14,6 +14,7 @@ module KepplerProducts
     acts_as_paranoid
     validates_presence_of :name, :category_id, :description, :images
     belongs_to :category, class_name: 'KepplerProducts::Category'
+    has_many :cotizations, class_name: 'KepplerProducts::Cotization'
 
     def self.index_attributes
       %i[name category_id tags]

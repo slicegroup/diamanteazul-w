@@ -3,17 +3,21 @@ en:
     sidebar-menu:
       keppler-products: Keppler products
       keppler-products-submenu:
+        cotization: Cotization
         product: Product
         category: Category
     permissions:
     models:
       singularize:
+        cotization: cotization
         product: product
         category: category
       pluralize:
+        cotizations: cotizations
         products: products
         categories: categories
     modules:
+      admin/cotization: Cotization
       admin/product: Product
       admin/category: Category
     messages:
