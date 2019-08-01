@@ -1,0 +1,283 @@
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1 {
+  color: $primary;
+  font-family: $lato;
+  font-weight: $bold;
+  text-transform: uppercase;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
+
+p {
+  font-family: $raleway;
+}
+
+.category-container, .catalogue-container, .product-container {
+  padding: 50px 0;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-box {
+  display: flex;
+}
+
+.banner-category {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.category-items {
+  width: 70%;
+
+  .card-subcategory {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid $light_blue;
+    text-align: center;
+
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 25px;
+      padding: 7px;
+      font-size: 13px;
+    }
+
+    .card-subcategory-title {
+      color: #636363;
+      text-transform: uppercase;
+      font-family: $lato;
+      font-weight: $bold;
+      font-size: 18px;
+    }
+
+    p {
+      color: #8c8c8c;
+    }
+  }
+}
+
+.catalogue-items {
+  padding: 30px 0;
+
+  .card-catalogue {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid $light_blue;
+    text-align: center;
+    height: 260px;
+
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+
+    .card-catalogue-title {
+      color: #636363;
+      text-transform: uppercase;
+      font-family: $lato;
+      font-weight: $bold;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.btn-custom {
+  background-color: $primary;
+  border-radius: 10px;
+  color: $white;
+  font-family: $raleway;
+  margin-bottom: 10px;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.breadcrumb {
+  background-color: $white;
+
+  li a{
+    font-family: $raleway;
+    color: $primary;
+  }
+  
+  li.active a {
+    color: #8c8c8c;
+  }
+}
+
+.product-box {
+  display: flex;
+}
+
+.product-images {
+  width: 50%;
+
+  .product-images-for {
+    margin-bottom: 30px;
+    img {
+      height: 400px;
+      object-fit: cover;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .product-images-nav {
+    img {
+      height: 150px;
+      object-fit: cover;
+      margin: 0 10px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.slick-dots {
+  bottom: -50px;
+}
+
+.slick-dots li button:before {
+  background-color: $primary;
+  @include size(15px, 5px);
+  content: '';
+}
+
+.slick-dots li.slick-active button:before {
+  color: $primary;
+}
+
+.product-description {
+  width: 50%;
+  margin-left: 20px;
+  padding: 30px;
+  border-radius: 5px;
+
+  h3 {
+    color: #636363;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: $medium;
+    font-family: $raleway;
+  }
+  h4 {
+    font-size: 18px;
+    color: $primary;
+    font-family: $raleway;
+  }
+}
+
+footer {
+  font-family: $raleway;
+  padding-top: 20px;
+  font-size: 16px;
+
+  a {
+    color: #636363;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+.fullwidth-shop-slider {
+  font-family: $raleway;
+}
+
+.fullwidth-shop-slider .slide-overlay {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.fullwidth-shop-slider .tp-caption .heading {
+  border-bottom: 3px solid #1d1d1d;
+  font-family: $lato;
+  font-weight: $bold;
+  color: $primary;
+}
+
+.about {
+  padding: 50px 0;
+
+  p {
+    font-family: $raleway;
+  }
+}
+
+.contact {
+  font-family: $raleway;
+  padding: 50px 0;
+
+  .widget-title {
+    color: $primary;
+    font-family: $lato;
+  }
+
+  i {
+    color: $primary;
+  }
+}
+
+.form-control {
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: $primary;
+  }
+}
+
+.formBox{
+  margin-top: 50px;
+}
+
+.inputBox{
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+.inputBox .input{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #8c8c8c;
+  font-family: $raleway;
+
+  &:focus {
+    border-bottom: 1px solid $primary;
+  }
+
+  &::placeholder {
+    font-family: $raleway;
+  }
+}
+
+textarea{
+  height: 100px;
+  resize: none;
+}

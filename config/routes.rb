@@ -1,10 +1,12 @@
 
 Rails.application.routes.draw do
-  localized do
-    get '/index', to: 'app/front#index', as: :app_index
-  end
-
-  # root to: 'app/front#index'
+  root to: 'app/front#index'
+  get '/about', to: 'app/front#about', as: :app_about
+  get '/catalogue', to: 'app/front#catalogue', as: :app_catalogue
+  get '/category', to: 'app/front#category', as: :app_category
+  get '/subcategory', to: 'app/front#subcategory', as: :app_subcategory
+  get '/products', to: 'app/front#products', as: :app_products
+  get '/product', to: 'app/front#product', as: :app_product
 
   devise_for :users, skip: KepplerConfiguration.skip_module_devise
 

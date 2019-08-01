@@ -3,7 +3,7 @@
 
 // Plugins
 @import "bourbon";
-@import 'plugins/bootstrap_override';
+// @import 'plugins/bootstrap_override';
 @import 'plugins/font_awesome';
 @import 'plugins/npogress';
 @import 'slick';
@@ -14,17 +14,8 @@
 @import 'utils/mixins';
 @import 'plugins/keppler';
 
-// Base
-@import 'base/base_project';
-
-// Layout
-@import 'layout/container';
-@import 'layout/header';
-@import 'layout/footer';
-
 // Components
 @import 'components/navbar';
-@import 'components/buttons';
-@import 'components/inputs';
+
 // Pages
 @import 'pages/*';

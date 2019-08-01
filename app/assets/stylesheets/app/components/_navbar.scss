@@ -1,21 +1,43 @@
-.app-navbar {
-  background-color: $primary-color;
-  border: 0;
-  border-radius: 0;
-  box-shadow: 0 1px 10px $primary-shadow;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 0;
+.navbar {
+  height: 100px;
 
-  a {
-    color: $white;
+  .nav-link {
+    text-transform: uppercase;
+    font-family: $lato;
+    font-weight: $bold;
+    color: $primary;
   }
 
-  .brand-logo {
-    color: $white;
-    font-family: $putua;
-    font-size: 30px;
-    left: 10px;
-    position: relative;
+  img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
   }
+}
+
+.navbar-nav {
+  width: 50%;
+
+  &:first-child {
+    justify-content: flex-end;
+    margin-right: 100px;
+  }
+
+  &:last-child {
+    margin-left: 100px;
+  }
+}
+
+.sidebar-category {
+  width: 30%;
+  background-color: $light_blue;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.nav-paginator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

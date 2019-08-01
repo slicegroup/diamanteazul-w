@@ -2,6 +2,17 @@
 = render 'app/layouts/meta_tags'
 
 // Stylesheets
+/ CORE CSS
+%link{ href: "https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css", rel: "stylesheet"}/
+%link{href: "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", rel: "stylesheet", type: "text/css"}
+/ SLIDER REVOLUTION CSS
+%link{href: "assets/app/css/settings.css", rel: "stylesheet", type: "text/css"}
+%link{href: "assets/app/css/layers.css", rel: "stylesheet", type: "text/css"}
+%link{href: "assets/app/css/navigation.css", rel: "stylesheet", type: "text/css"}
+/ SLICK CSS
+%link{ rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' }
+%link{ rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css' }
+
 = stylesheet_link_tag 'app/application', media: 'all', 'data-turbolinks-track': 'reload'
 = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Patua+One', 'data-turbolinks-track': 'reload'
 = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css', 'data-turbolinks-track': 'reload'
@@ -12,4 +23,4 @@
 
 // Google Analytics
 = render 'app/layouts/google_analytics'
-= render 'admin/layouts/git_info', git: @git
+-# = render 'admin/layouts/git_info', git: @git

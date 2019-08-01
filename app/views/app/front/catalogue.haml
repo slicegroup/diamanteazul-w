@@ -1,0 +1,17 @@
+.container.catalogue-container
+  %form
+    .input-group
+      %input.form-control{placeholder: "Buscar...", type: "text"}
+      .input-group-append
+        %button.btn.btn-primary{type: "button"}
+          %i.icofont-search
+    %small Ejemplo: graduación, boda, dije, etc.
+  .catalogue-items
+    .row
+      - services = [{img:'/assets/app/diamanteazul/shop/products/category01.png', title:'Anillos de Graduación'},{img:'/assets/app/diamanteazul/shop/products/category02.png', title:'Anillos de Compromiso'},{img:'/assets/app/diamanteazul/shop/products/category03.png', title:'Aros de Matrimonio'},{img:'/assets/app/diamanteazul/shop/products/category04.png', title:'Joyas de Oro laminado'}]
+      - services.each do |service|
+        .col-lg-3
+          .card-catalogue
+            %a{ href: '/category' }
+              %img{ src: "#{service[:img]}" }
+              %h2.card-catalogue-title= service[:title]

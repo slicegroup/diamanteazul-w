@@ -1,0 +1,26 @@
+.container.category-container
+  .category-header
+    %nav{ "aria-label" => "breadcrumb"}
+      %ol.breadcrumb
+        %li.breadcrumb-item
+          %a{ href: 'category'} Anillos de Graduación
+        %li.breadcrumb-item.active{ "aria-current" =>"page" }
+          %a{ href: 'subcategory'} Clásicos
+    %form
+      .input-group
+        %input.form-control{placeholder: "Buscar...", type: "text"}
+        .input-group-append
+          %button.btn.btn-primary{type: "button"}
+            %i.icofont-search
+      %small Ejemplo: graduación, boda, dije, etc.
+  .category-box
+    = render 'app/partials/sidebar'
+    .category-items
+      %img.banner-category{ src: '/assets/app/diamanteazul/banner.jpg' }
+      .row
+        - 3.times do
+          .col-lg-4
+            .card-subcategory
+              %a{ href: '/products' }
+                %img{ src: '/assets/app/diamanteazul/shop/products/category01-01-01.png' }
+                %h2.card-subcategory-title Tradicionales

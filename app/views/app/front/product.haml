@@ -1,0 +1,45 @@
+.container.product-container
+  .category-header
+    %nav{ "aria-label" => "breadcrumb"}
+      %ol.breadcrumb
+        %li.breadcrumb-item
+          %a{ href: 'category.html'} Anillos de Graduación
+        %li.breadcrumb-item
+          %a{ href: 'category.html'} Clásicos
+        %li.breadcrumb-item.active{ "aria-current" =>"page" }
+          %a{ href: 'subcategory.html'} Tradicionales
+  .product-box
+    .product-images
+      .product-images-for
+        - 4.times do |x|
+          %img{ src: "/assets/app/diamanteazul/shop/products/product#{x+1}.png" }
+      .product-images-nav
+        - 4.times do |x|
+          %img{ src: "/assets/app/diamanteazul/shop/products/product#{x+1}.png" }
+    .product-description
+      %h3 REF: CLE 10X8 AN
+      %h1 Anillo de Graduación Oro 18k
+      %h4 Características
+      %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quidem odio neque ratione iure quos hic quas, aliquid aperiam eius quod repellendus voluptate dolores voluptas eum, expedita aliquam laborum exercitationem.
+      .formBox
+        %form
+          .row
+            .col-sm-12
+              %h4 Solicitar
+          .row
+            .col-sm-6
+              .inputBox
+                %input.input{placeholder: 'Nombre y Apellido', type: "text"}
+            .col-sm-6
+              .inputBox
+                %input.input{placeholder: 'Correo electrónico', type: "text"}
+          .row
+            .col-sm-6
+              .inputBox
+                %input.input{placeholder: 'Teléfono', type: "text"}
+            .col-sm-6
+              .inputBox
+                %textarea.input{placeholder: 'Mensaje'}
+          .row
+            .col-sm-12
+              %a.btn.btn-custom{ href: '' } Enviar

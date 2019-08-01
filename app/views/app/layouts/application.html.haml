@@ -1,10 +1,11 @@
 !!!
 %html
-  %head
+  %header
     = render 'app/layouts/head'
   %body
-    %header
-      = #render 'app/layouts/navigation'
-    %main#keppler{:role => "main"}
-      = #render 'app/layouts/messages'
-      = yield
+    = render 'app/partials/navbar'
+
+    = yield
+
+    = render 'app/partials/footer'
+    = render 'app/partials/scripts'
