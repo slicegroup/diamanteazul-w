@@ -9,6 +9,7 @@ module KepplerBanners
     include Downloadable
     include Sortable
     include Searchable
+    mount_uploader :image, AttachmentUploader
     acts_as_list
     acts_as_paranoid
     validates_presence_of :title, :subtitle
@@ -21,6 +22,8 @@ module KepplerBanners
     def check_cta
       if cta && link.eql?('')
         errors.add :link, 'Debe introducir un link al CTA'
+      elsif cta && cta_text.eql?('')
+        errors.add :cta_text, 'Debe introducir un texto al CTA'
       end
     end
   end

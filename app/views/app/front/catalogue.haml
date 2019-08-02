@@ -1,17 +1,16 @@
 .container.catalogue-container
-  %form
+  = simple_form_for @category, url: app_catalogue_path, method: :get do
     .input-group
-      %input.form-control{placeholder: "Buscar...", type: "text"}
+      %input.form-control{placeholder: "Buscar...", type: "text", name: 'q'}
       .input-group-append
-        %button.btn.btn-primary{type: "button"}
+        %button.btn.btn-primary{type: "submit"}
           %i.icofont-search
     %small Ejemplo: graduación, boda, dije, etc.
   .catalogue-items
     .row
-      - services = [{img:'/assets/app/diamanteazul/shop/products/category01.png', title:'Anillos de Graduación'},{img:'/assets/app/diamanteazul/shop/products/category02.png', title:'Anillos de Compromiso'},{img:'/assets/app/diamanteazul/shop/products/category03.png', title:'Aros de Matrimonio'},{img:'/assets/app/diamanteazul/shop/products/category04.png', title:'Joyas de Oro laminado'}]
-      - services.each do |service|
+      - @categories.each do |category|
         .col-lg-3
           .card-catalogue
-            %a{ href: '/category' }
-              %img{ src: "#{service[:img]}" }
-              %h2.card-catalogue-title= service[:title]
+            = link_to category.children? ? app_category_path(category) : app_products_path do
+              %img{ src: category.image.url }
+              %h2.card-catalogue-title= category.name

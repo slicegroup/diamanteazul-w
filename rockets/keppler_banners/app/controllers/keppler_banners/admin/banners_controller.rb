@@ -94,7 +94,7 @@ module KepplerBanners
       # Only allow a trusted parameter "white list" through.
       def banner_params
         params.require(:banner).permit(
-          :title, :subtitle, :cta, :link
+          :title, :subtitle, :cta, :link, :image, :cta_text
         )
       end
     end

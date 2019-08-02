@@ -19,6 +19,7 @@ module KepplerProducts
     has_many :products, class_name: 'KepplerProducts::Product'
 
     scope :set_parents, -> { where(ancestry: nil) }
+    scope :filter_by_parent, -> (id) { find(id).children }
 
     def self.index_attributes
       %i[name]

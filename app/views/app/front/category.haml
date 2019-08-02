@@ -1,21 +1,21 @@
 .container.category-container
   .category-header
-    %h1 Anillos de Graduación
-    %form
+    %h1= @category.name
+    = simple_form_for @category, url: app_category_path(@category), method: :get do
       .input-group
-        %input.form-control{placeholder: "Buscar...", type: "text"}
+        %input.form-control{placeholder: "Buscar...", type: "text", name: 'q'}
         .input-group-append
-          %button.btn.btn-primary{type: "button"}
+          %button.btn.btn-primary{type: "submit"}
             %i.icofont-search
       %small Ejemplo: graduación, boda, dije, etc.
   .category-box
     = render 'app/partials/sidebar'
     .category-items
-      %img.banner-category{ src: '/assets/app/diamanteazul/banner.jpg' }
+      %img.banner-category{ src: @category.banner.url }
       .row
-        - 3.times do
+        - @subcategories.each do |category|
           .col-lg-4
             .card-subcategory
-              %a{ href: '/subcategory' }
-                %img{ src: '/assets/app/diamanteazul/shop/products/category01-01.png' }
-                %h2.card-subcategory-title Clásicos
+              = link_to app_subcategory_path(category) do
+                %img{ src: category.image.url }
+                %h2.card-subcategory-title= category.name

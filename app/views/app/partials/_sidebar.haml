@@ -1,19 +1,6 @@
 %aside.sidebar-category
   %ul.nav.nav-pills.flex-column
-    %li.nav-item
-      %a.nav-link.btn.btn-custom{href: "#"} Anillos de Graduación
-    %li.nav-item
-      %a.nav-link.btn.btn-custom{href: "#"} Anillos de Compromiso
-    %li.nav-item
-      %a.nav-link.btn.btn-custom{href: "#"} Aros de Matrimonio
-    %li.nav-item
-      %a.nav-link.btn.btn-custom{href: "#"} Joyas de Oro Laminado
-    %li.nav-item
-      %a.nav-link.btn.btn-custom{href: "#"} Joyas de Acero Inoxidable
-    %li.nav-item
-      %a.nav-link.btn.btn-custom{href: "#"} Joyas de Plata 925
-    %li.nav-item
-      %a.nav-link.btn.btn-custom{href: "#"} Joyería para 15 años
-    - 6.times do
+    - @categories.each do |category|
       %li.nav-item
-        %a.nav-link.btn.btn-custom{href: "#"} Categoría
+        = link_to category.children? ? app_category_path(category) : app_products_path, class: 'nav-link btn btn-custom' do
+          = category.name

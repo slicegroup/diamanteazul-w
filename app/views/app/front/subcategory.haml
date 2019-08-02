@@ -2,25 +2,27 @@
   .category-header
     %nav{ "aria-label" => "breadcrumb"}
       %ol.breadcrumb
-        %li.breadcrumb-item
-          %a{ href: 'category'} Anillos de Graduación
+        - @subcategory.ancestors.each_with_index do |category, i|
+          %li.breadcrumb-item
+            = link_to i.zero? ? app_category_path(category) : app_subcategory_path(category) do
+              = category.name
         %li.breadcrumb-item.active{ "aria-current" =>"page" }
-          %a{ href: 'subcategory'} Clásicos
-    %form
+          = @subcategory.name
+    = simple_form_for @category, url: app_subcategory_path(@subcategory), method: :get do
       .input-group
-        %input.form-control{placeholder: "Buscar...", type: "text"}
+        %input.form-control{placeholder: "Buscar...", type: "text", name: 'q'}
         .input-group-append
-          %button.btn.btn-primary{type: "button"}
+          %button.btn.btn-primary{type: "submit"}
             %i.icofont-search
       %small Ejemplo: graduación, boda, dije, etc.
   .category-box
     = render 'app/partials/sidebar'
     .category-items
-      %img.banner-category{ src: '/assets/app/diamanteazul/banner.jpg' }
+      %img.banner-category{ src: @subcategory.banner.url }
       .row
-        - 3.times do
+        - @subcategories.each do |category|
           .col-lg-4
             .card-subcategory
-              %a{ href: '/products' }
-                %img{ src: '/assets/app/diamanteazul/shop/products/category01-01-01.png' }
-                %h2.card-subcategory-title Tradicionales
+              = link_to app_subcategory_path(category) do
+                %img{ src: category.image.url }
+                %h2.card-subcategory-title= category.name
