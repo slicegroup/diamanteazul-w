@@ -1,4 +1,4 @@
-- objects.each do |object|
+- objects.reverse.each do |object|
   %tr{ id: "row-#{object.id}" }
     %td.item-check{ style: 'width: 10%' }
       - if can?(model).destroy_multiple?
@@ -7,7 +7,7 @@
             %input{ type: 'checkbox', id: "checkbox-#{object.id}", 'checklist-model' => 'check', 'checklist-value' => "#{object.id}", '@click' => "listDelete(#{object.id})"}
             %span.cr
               %i.cr-icon.glyphicon.glyphicon-ok
-    - ['name', 'created_at'].each do |attribute|
+    - ['name'].each do |attribute|
       - if @attachments.dig('images', 'names').include?(attribute.to_s)
         %td
           = link_to({ action: :show, id: object.id, search: @query }, { class: 'show-row' }) do
@@ -27,6 +27,9 @@
         %td
           = link_to({ action: :show, id: object.id, search: @query }, { class: 'show-row' }) do
             %span= object.try(attribute).try(:truncate_words, 4)
+    %td
+      = link_to({ action: :show, id: object.id, search: @query }, { class: 'show-row' }) do
+        %span= object.created_at.strftime("%d/%m/%Y")
     %td
       = link_to({ action: :show, id: object.id, search: @query }, { class: 'show-row' }) do
         %span= object.product.name

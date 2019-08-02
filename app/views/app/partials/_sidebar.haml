@@ -2,5 +2,5 @@
   %ul.nav.nav-pills.flex-column
     - @categories.each do |category|
       %li.nav-item
-        = link_to category.children? ? app_category_path(category) : app_products_path, class: 'nav-link btn btn-custom' do
+        = link_to category.children? ? app_category_path(category) : app_products_path(category), class: 'nav-link btn btn-custom' do
           = category.name

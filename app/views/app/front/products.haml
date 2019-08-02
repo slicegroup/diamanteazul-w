@@ -2,30 +2,35 @@
   .category-header
     %nav{ "aria-label" => "breadcrumb"}
       %ol.breadcrumb
+        - @category&.ancestors.each_with_index do |category, i|
+          %li.breadcrumb-item
+            = link_to i.zero? ? app_category_path(category) : app_subcategory_path(category) do
+              = category.name
         %li.breadcrumb-item
-          %a{ href: 'category'} Anillos de Graduación
-        %li.breadcrumb-item
-          %a{ href: 'category'} Clásicos
-        %li.breadcrumb-item.active{ "aria-current" =>"page" }
-          %a{ href: 'subcategory'} Tradicionales
-    %form
+          - if @category.root? && @category.children?
+            = link_to @category.name, app_category_path(category)
+          - elsif @category.children?
+            = link_to @category.name, app_subcategory_path(category)
+          - else
+            = link_to @category.name, app_products_path(@category)
+    = simple_form_for @category, url: app_products_path(@category), method: :get do
       .input-group
-        %input.form-control{placeholder: "Buscar...", type: "text"}
+        %input.form-control{placeholder: "Buscar...", type: "text", name: 'q'}
         .input-group-append
-          %button.btn.btn-primary{type: "button"}
+          %button.btn.btn-primary{type: "submit"}
             %i.icofont-search
       %small Ejemplo: graduación, boda, dije, etc.
   .category-box
     = render 'app/partials/sidebar'
     .category-items
       .row
-        - 3.times do
+        - @products.each do |product|
           .col-lg-4
             .card-subcategory
-              %a{ href: '/product' }
-                %img{ src: '/assets/app/diamanteazul/shop/products/category01-01.png' }
-                %h2.card-subcategory-title REF: FINITO 6X4 ANTK
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              = link_to app_product_path(@category, product) do
+                %img{ src: product.images[0] }
+                %h2.card-subcategory-title= product.name
+                %p= raw product.description
                 %a.btn.btn-custom{ href: '' } Cotizar
         %nav.nav-paginator{"aria-label" => "..."}
           %ul.pagination

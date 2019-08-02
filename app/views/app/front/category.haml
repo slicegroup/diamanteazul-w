@@ -16,6 +16,6 @@
         - @subcategories.each do |category|
           .col-lg-4
             .card-subcategory
-              = link_to app_subcategory_path(category) do
+              = link_to category.children? ? app_subcategory_path(category) : app_products_path(category) do
                 %img{ src: category.image.url }
                 %h2.card-subcategory-title= category.name

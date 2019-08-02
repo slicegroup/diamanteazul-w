@@ -90,7 +90,7 @@ gem 'rolify', '5.2.0'
 # Search
 # gem 'ransack', git: 'https://github.com/activerecord-hackery/ransack'
 gem 'ransack', '1.8.8'
-
+gem "recaptcha", require: "recaptcha/rails"
 # Route translation
 gem 'route_translator', '5.6.2'
 
