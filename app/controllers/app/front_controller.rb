@@ -47,9 +47,9 @@ module App
     def products
       @category = KepplerProducts::Category.find(params[:id])
       if params[:q]
-        @products = @category.products.ransack(name_cont: params[:q]).result
+        @products = @category.products.ransack(name_cont: params[:q]).result.page(params[:page])
       else
-        @products = @category.products
+        @products = @category.products.page(params[:page])
       end
     end
 

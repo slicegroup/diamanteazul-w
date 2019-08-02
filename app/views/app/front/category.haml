@@ -11,7 +11,7 @@
   .category-box
     = render 'app/partials/sidebar'
     .category-items
-      %img.banner-category{ src: @category.banner.url }
+      %img.banner-category{ src: @category&.banner&.url || '/assets/app/diamanteazul/banner.jpg' }
       .row
         - @subcategories.each do |category|
           .col-lg-4
