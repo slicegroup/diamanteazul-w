@@ -29,7 +29,7 @@
       %h4 Características
       %p= raw @product.description
       .formBox
-        = simple_form_for @product, url: app_send_cotization_path(@product), method: :get do |f|
+        = simple_form_for @product, url: app_send_cotization_path(@product), html: {id: 'cotization_form'}, method: :get do |f|
           .row
             .col-sm-12
               %h4 Solicitar
@@ -73,3 +73,23 @@
       type: 'error',
       title: '¡Los sentimos!, tu cotización no ha sido procesada. Vuelve a intentarlo.'
     })
+:javascript
+  $('#cotization_form').validate({
+    event: 'blur',
+    errorClass: 'error-class',
+    validClass: 'valid-class',
+     rules: {
+       'cotization[name]': { required: true},
+       'cotization[email]': { required: true, email: true},
+       'cotization[phone]': {required: true, number: true}
+      },
+     messages: {
+       'cotization[name]': 'Indica tu nombre',
+       'cotization[email]': 'Indica tu correo',
+       'cotization[phone]': 'Indica tu teléfono'
+      },
+    debug: true,errorElement: 'label',
+    submitHandler: function(form){
+      form.submit();
+    }
+  });

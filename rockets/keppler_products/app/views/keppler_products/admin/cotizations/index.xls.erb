@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">A nombre de:</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha de reservación</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Teléfono</Data></Cell>
+        <Cell><Data ss:Type="String">Mensaje</Data></Cell>
+      </Row>
+    <% @cotizations.each do |cotization| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= cotization.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= cotization.created_at.strftime("%d/%m/%Y") %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= cotization.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= cotization.phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= cotization.message %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

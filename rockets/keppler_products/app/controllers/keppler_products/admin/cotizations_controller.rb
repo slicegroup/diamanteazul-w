@@ -13,7 +13,11 @@ module KepplerProducts
 
       # GET /products
       def index
-        respond_to_formats(@cotizations)
+        respond_to do |format|
+          format.html
+          format.xls
+          format.json { render json: json_objects(@cotizations) }
+        end
         redirect_to_index(@objects)
       end
 

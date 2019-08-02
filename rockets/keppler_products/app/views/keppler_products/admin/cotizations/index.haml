@@ -12,16 +12,9 @@
               = link_to reload_admin_products_cotizations_path, class: 'tool-btn', remote: true, title: t('keppler.actions.reload_page') do
                 %i.icon-reload
             - if can?(model).download?
-              %li.toolbar-item.dropdown
-                %a.dropdown-toggle{ 'data-toggle': 'dropdown', href: '#', title: t('keppler.actions.download_records') }
-                  %i.icon-cloud-download
-                %ul.dropdown-menu
-                  %li= link_to t('keppler.actions.download.csv'), admin_products_cotizations_path(format: :csv), class: 'tool-btn'
-                  %li= link_to t('keppler.actions.download.xls'), admin_products_cotizations_path(format: :xls), class: 'tool-btn'
-            - if can?(model).upload?
               .toolbar-item
-                = link_to '#', class: 'tool-btn', title: t('keppler.actions.upload_records'), id: 'upload' do
-                  %i.icon-cloud-upload
+                = link_to admin_products_cotizations_path(format: :xls), class: 'tool-btn', title: t('keppler.actions.download_records') do
+                  %i.icon-cloud-download
             .toolbar-item
               %a.tool-btn{ 'data-confirm': t('keppler.messages.data_confirm'), 'data-method': 'delete', 'v-bind:href': 'link', rel: 'nofollow', ':class': '{disabled: !checks}' }
                 %i.icon-trash
