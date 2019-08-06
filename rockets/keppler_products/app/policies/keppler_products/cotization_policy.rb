@@ -11,5 +11,13 @@ module KepplerProducts
     def create?
     	false
     end
+
+    def update?
+      false
+    end
+
+    def clone?
+      false
+    end
   end
 end
