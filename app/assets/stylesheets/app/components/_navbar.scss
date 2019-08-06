@@ -1,6 +1,10 @@
 .navbar {
   height: 100px;
 
+  @include respond-to(xs) {
+    position: relative;
+  }
+
   .nav-link {
     text-transform: uppercase;
     font-family: $lato;
@@ -18,14 +22,23 @@
 
 .navbar-nav {
   width: 50%;
+  @include respond-to(xs) {
+    width: 100%;
+  }
 
   &:first-child {
     justify-content: flex-end;
     margin-right: 100px;
+    @include respond-to(xs) {
+      margin-right: 0;
+    }
   }
 
   &:last-child {
     margin-left: 100px;
+    @include respond-to(xs) {
+      margin-left: 0;
+    }
   }
 }
 
@@ -34,10 +47,58 @@
   background-color: $light_blue;
   padding: 20px;
   margin-right: 20px;
+
+  @include respond-to(xs) {
+    display: none;
+  }
+
+  @include respond-to(sm) {
+    display: none;
+  }
 }
 
 .nav-paginator {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.navbar-collapse {
+  @include respond-to(xs) {
+    z-index: 99;
+    padding: 10px 20px;
+    background-color: white;
+    top: 100px;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+  }
+  @include respond-to(sm) {
+    z-index: 99;
+    padding: 10px 20px;
+    background-color: white;
+    top: 100px;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+  }
+  @include respond-to(md) {
+    z-index: 99;
+    padding: 10px 20px;
+    background-color: white;
+    top: 100px;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+  }
+}
+
+.navbar-toggler {
+  &:focus {
+    outline: none;
+  }
+
+  span {
+    color: $primary;
+  }
 }

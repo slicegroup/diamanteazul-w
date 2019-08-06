@@ -1,13 +1,15 @@
 %nav.navbar.navbar-expand-lg.border-bottom
+  %a.navbar-brand.d-none-md{href: "/"}
+    %img{ width: 200, src: '/assets/app/diamanteazul/logo/logo-default.png' }
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", type: "button"}
-    %span.navbar-toggler-icon
+    %span.fa.fa-bars
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav
       %li.nav-item
         %a.nav-link{href: "/"} Inicio
       %li.nav-item
         %a.nav-link{href: "/catalogue"} Catálogo
-    %a.navbar-brand{href: "/"}
+    %a.navbar-brand.d-none.d-block-md{href: "/"}
       %img{ width: 200, src: '/assets/app/diamanteazul/logo/logo-default.png' }
     %ul.navbar-nav
       %li.nav-item

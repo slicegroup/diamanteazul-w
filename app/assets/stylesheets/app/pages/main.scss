@@ -13,8 +13,13 @@ h1 {
   margin-bottom: 50px;
 }
 
-p {
+p, small, span {
   font-family: $raleway;
+}
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
 }
 
 .category-container, .catalogue-container, .product-container {
@@ -24,6 +29,15 @@ p {
 .category-header {
   display: flex;
   justify-content: space-between;
+  @include respond-to(xs) {
+    padding: 0 10px;
+    flex-direction: column;
+    margin-bottom: 50px;
+    
+    h1 {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .category-box {
@@ -39,6 +53,14 @@ p {
 
 .category-items {
   width: 70%;
+  @include respond-to(xs) {
+    width: 100%;
+    padding: 0 10px;
+  }
+  @include respond-to(sm) {
+    width: 100%;
+    padding: 0 10px;
+  }
 
   .card-subcategory {
     margin-bottom: 20px;
@@ -66,6 +88,7 @@ p {
       font-family: $lato;
       font-weight: $bold;
       font-size: 18px;
+      margin-top: 10px;
     }
 
     p {
@@ -88,6 +111,8 @@ p {
     img {
       width: 100%;
       vertical-align: middle;
+      height: 80%;
+      object-fit: cover;
     }
 
     .card-catalogue-title {
@@ -121,17 +146,26 @@ p {
     color: $primary;
   }
   
-  li.active a {
+  li {
+    font-family: $raleway;
     color: #8c8c8c;
   }
 }
 
 .product-box {
   display: flex;
+  @include respond-to(xs) {
+    flex-direction: column;
+  }
 }
 
 .product-images {
   width: 50%;
+
+  @include respond-to(xs) {
+    width: 90%;
+    margin: 0 auto;
+  }
 
   .product-images-for {
     margin-bottom: 30px;
@@ -174,8 +208,21 @@ p {
 .product-description {
   width: 50%;
   margin-left: 20px;
-  padding: 30px;
-  border-radius: 5px;
+  padding: 0 30px;
+
+  @include respond-to(xs) {
+    width: 100%;
+    padding: 10px 20px;
+    margin-left: 0;
+  }
+
+  @include respond-to(sm) {
+    padding: 0 10px;
+  }
+
+  @include respond-to(md) {
+    padding: 0 10px;
+  }
 
   h3 {
     color: #636363;
@@ -212,7 +259,7 @@ footer {
 }
 
 .fullwidth-shop-slider .tp-caption .heading {
-  border-bottom: 3px solid #1d1d1d;
+  border-bottom: 3px solid $primary;
   font-family: $lato;
   font-weight: $bold;
   color: $primary;
@@ -241,6 +288,12 @@ footer {
 }
 
 .form-control {
+  font-family: $raleway;
+
+  &::placeholder {
+    font-family: $raleway;
+  }
+
   &:focus {
     outline: none;
     box-shadow: none;
@@ -280,4 +333,26 @@ footer {
 textarea{
   height: 100px;
   resize: none;
+}
+
+.g-recaptcha {
+  transform: scale(.8);
+  transform-origin: left;
+  @include respond-to(xs) {
+    transform: scale(1);
+    transform-origin: center;
+    & > div {
+      margin: 0 auto;
+    }
+  }
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  @include respond-to(xs) {
+    justify-content: center;
+  }
 }

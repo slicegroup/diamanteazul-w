@@ -25,7 +25,7 @@
     .category-items
       .row
         - @products.each do |product|
-          .col-lg-4
+          .col-lg-4.col-sm-6.col-xs-12
             .card-subcategory
               = link_to app_product_path(@category, product) do
                 %img{ src: product.images[0] }

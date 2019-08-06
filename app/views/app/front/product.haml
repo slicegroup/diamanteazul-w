@@ -48,12 +48,11 @@
               .inputBox
                 %textarea.input{placeholder: 'Mensaje', name: 'cotization[message]'}
           .row
-            .col-sm-12
+            .col-lg-6.col-xs-12
               = recaptcha_tags
-          .row
-            .col-sm-12
-              = f.submit 'Enviar', class: 'btn btn-custom'
-              / %btn.btn.btn-custom{ type: 'submit' } Enviar
+            .col-lg-6.col-xs-12
+              .form-footer
+                = f.submit 'Enviar', class: 'btn btn-custom'
 - if flash[:notice].eql?("Mensaje enviado")
   :javascript
     Swal.fire({
