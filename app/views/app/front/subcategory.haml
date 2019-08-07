@@ -21,7 +21,7 @@
       %img.banner-category{ src: @subcategory.banner.url }
       .row
         - @subcategories.each do |category|
-          .col-lg-4
+          .col-lg-4.col-sm-6.col-xs-12
             .card-subcategory
               = link_to category.children? ? app_subcategory_path(category) : app_products_path(category) do
                 %img{ src: category.image.url }

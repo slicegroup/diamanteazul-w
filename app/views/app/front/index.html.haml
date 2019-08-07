@@ -3,16 +3,13 @@
     - @banners.each do |banner|
       %li{"data-transition" => "slotfade-horizontal"}
         %img{alt: "Slide", "data-bgfit" => "cover", "data-bgposition" => "center center", "data-bgrepeat" => "no-repeat", src: banner.image.url}
-        .tp-caption.tp-resizeme{"data-hoffset" => "15", "data-start" => "1000", "data-transform_idle" => "o:1;", "data-transform_in" => "o:0;y:50;s:2000;", "data-transform_out" => "o:0;s:1500;e:Power3.easeInOut;", "data-voffset" => "-120", "data-x" => "left", "data-y" => "center"}
-          %h2#titulo1.heading= banner.title
-        .tp-caption{"data-hoffset" => "0", "data-start" => "1200", "data-transform_idle" => "o:1;", "data-transform_in" => "o:0;y:50;s:2000;", "data-transform_out" => "o:0;y:0;s:1500;e:Power3.easeInOut;", "data-voffset" => "-20", "data-x" => "250", "data-y" => "center"}
-          %p{style: "font-size: 2.8rem"}
-            / Bs.
-            / %strong{style: "font-size: 3rem"} 120.000
-            / sólo por este mes
-            = banner.subtitle
+        .tp-caption.tp-resizeme.tp-shape.tp-shapewrapper.slide-overlay{"data-basealign" => "slide", "data-height" => "400", "data-start" => "500", "data-transform_idle" => "o:1", "data-transform_in" => "o:0;s:1500;e:Power3.easeInOut;", "data-transform_out" => "o:0;s:1500;e:Power3.easeInOut;", "data-width" => "600", "data-x" => "center", "data-y" => "center"}
+        .tp-caption.tp-resizeme{"data-hoffset" => "0", "data-start" => "1000", "data-transform_idle" => "o:1;", "data-transform_in" => "o:0;y:50;s:1500;", "data-transform_out" => "o:0;s:1500;e:Power3.easeInOut;", "data-voffset" => "-75", "data-x" => "center", "data-y" => "center"}
+          %h2#titulo2.heading= banner.title
+        .tp-caption.tp-resizeme{"data-hoffset" => "0", "data-start" => "1500", "data-transform_idle" => "o:1;", "data-transform_in" => "o:0;y:50;s:1500;", "data-transform_out" => "o:0;s:1500;e:Power3.easeInOut;", "data-voffset" => "0", "data-x" => "center", "data-y" => "center"}
+          %p.lead= banner.subtitle
         - if banner.cta
-          .tp-caption.tp-resizeme{"data-hoffset" => "0", "data-start" => "2000", "data-transform_idle" => "o:1;", "data-transform_in" => "o:0;y:50;s:1500;", "data-transform_out" => "o:0;s:1500;e:Power3.easeInOut;", "data-voffset" => "50", "data-x" => "430", "data-y" => "center"}
+          .tp-caption.tp-resizeme.rs-parallaxlevel-1{"data-hoffset" => "0", "data-start" => "2000", "data-transform_idle" => "o:1;", "data-transform_in" => "o:0;y:50;s:1500;", "data-transform_out" => "o:0;s:1500;e:Power3.easeInOut;", "data-voffset" => "65", "data-x" => "center", "data-y" => "center"}
             %a.btn.btn-primary.btn-lg{href: banner.link}
               = banner.cta_text
               %i.icofont-rounded-right{"aria-hidden" => "true"}
