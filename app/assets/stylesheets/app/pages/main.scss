@@ -356,3 +356,15 @@ textarea{
     justify-content: center;
   }
 }
+
+.tparrows:before {
+  font-family: "IcoFont";
+}
+
+.tparrows.tp-rightarrow:before {
+  content: "\eaa0";
+}
+
+.tparrows.tp-leftarrow:before {
+  content: "\ea9d";
+}
