@@ -38,4 +38,10 @@ $('.product-images-nav').slick({
   focusOnSelect: true,
   arrows: false
 });
-	
+  
+
+var slides = $('li.tp-revslider-slidesli')
+if (slides.length <= 1) {
+  console.log('un solo banner')
+  $('.tparrows').addClass('d-none')
+}
