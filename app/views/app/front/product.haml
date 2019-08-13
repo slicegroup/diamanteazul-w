@@ -37,14 +37,14 @@
           .row
             .col-sm-6
               .inputBox
-                %input.input{placeholder: 'Nombre y Apellido', type: "text", name: 'cotization[name]'}
+                %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'cotization[name]', id: 'name'}
             .col-sm-6
               .inputBox
-                %input.input{placeholder: 'Correo electrónico', type: "text", name: 'cotization[email]'}
+                %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'cotization[email]', id: 'email'}
           .row
             .col-sm-6
               .inputBox
-                %input.input{placeholder: 'Teléfono', type: "text", name: 'cotization[phone]'}
+                %input.input.required{placeholder: 'Teléfono', type: "text", name: 'cotization[phone]', id: 'phone'}
             .col-sm-6
               .inputBox
                 %textarea.input{placeholder: 'Mensaje', name: 'cotization[message]'}
@@ -93,3 +93,7 @@
       form.submit();
     }
   });
+  $('.required').change(function(){
+    if($('#name').va||)
+  })
+  $('.btn-custom').removeAttr('disabled')

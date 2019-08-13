@@ -22,7 +22,7 @@
           .box-body.no-padding
             %table.table
               %tbody
-                - @banner.as_json(except: %w[position deleted_at]).each do |attribute, value|
+                - @banner.as_json(except: %w[position deleted_at title subtitle link cta cta_text]).each do |attribute, value|
                   %tr.list-row
                     %th.display-label= t("activerecord.attributes.#{attribute}")
                     %td.display-value.fs-body-1.tc-black-2
@@ -33,3 +33,10 @@
                           = image_tag image.url if image.url
                       - else 
                         = sanitize raw value
+                - if @banner.cta
+                  %tr.list-row
+                    %th.display-label= t("activerecord.attributes.link")
+                    %td.display-value.fs-body-1.tc-black-2= @banner.link
+                  %tr.list-row
+                    %th.display-label= t("activerecord.attributes.cta_text")
+                    %td.display-value.fs-body-1.tc-black-2= @banner.cta_text
