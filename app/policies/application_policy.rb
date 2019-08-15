@@ -13,6 +13,7 @@ class ApplicationPolicy
   end
 
   def user_can?(objects, method)
+    return if objects.nil?
     user.can?(objects.model_name.name.split('::').join(''), method)
   end
 end
