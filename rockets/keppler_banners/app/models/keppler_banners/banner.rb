@@ -14,6 +14,7 @@ module KepplerBanners
     acts_as_paranoid
     validates_presence_of :image
     validate :check_cta, on: [:create, :edit]
+    validate :check_dimension, on: [:create, :edit]
 
     def self.index_attributes
       %i[title subtitle link]
@@ -24,6 +25,13 @@ module KepplerBanners
         errors.add :link, 'Debe introducir un link al CTA'
       elsif cta && cta_text.eql?('')
         errors.add :cta_text, 'Debe introducir un texto al CTA'
+      end
+    end
+
+    def check_dimension
+      return if image_cache.nil?
+      if (image.width < 1920) || ( image.height < 480)
+        errors.add :image, "La imágen debe tener una dimensión mínima de: 1920x480".html_safe
       end
     end
   end
