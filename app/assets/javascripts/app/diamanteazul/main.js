@@ -6,6 +6,8 @@ WebFont.load({
 
 if($('#slider-shop-fullwidth').length > 0) {
   $('#slider-shop-fullwidth').revolution({
+    gridwidth: 1570,
+    gridheight: 500,
     disableProgressBar: 'on',
     delay: 4000,
     navigation: {
@@ -42,6 +44,5 @@ $('.product-images-nav').slick({
 
 var slides = $('li.tp-revslider-slidesli')
 if (slides.length <= 1) {
-  console.log('un solo banner')
   $('.tparrows').addClass('d-none')
 }
