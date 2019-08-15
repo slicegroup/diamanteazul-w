@@ -1,5 +1,6 @@
 .navbar {
   height: 100px;
+  background-color: $black;
 
   @include respond-to(xs) {
     position: relative;
@@ -9,42 +10,18 @@
     text-transform: uppercase;
     font-family: $lato;
     font-weight: $bold;
-    color: $primary;
+    color: $light_blue;
   }
 
   img {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-  }
-}
-
-.navbar-nav {
-  width: 50%;
-  @include respond-to(xs) {
-    width: 100%;
-  }
-
-  &:first-child {
-    justify-content: flex-end;
-    margin-right: 100px;
-    @include respond-to(xs) {
-      margin-right: 0;
-    }
-  }
-
-  &:last-child {
-    margin-left: 100px;
-    @include respond-to(xs) {
-      margin-left: 0;
-    }
+    margin-top: 15px;
+    width: 250px;
   }
 }
 
 .sidebar-category {
   width: 30%;
-  background-color: $light_blue;
+  background-color: $secondary;
   padding: 20px;
   margin-right: 20px;
 
