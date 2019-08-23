@@ -3,10 +3,11 @@
   %header
     = render 'app/layouts/head'
   %body
+    %a.float-button.btn.btn-float{href: "#"}
+      %i.icofont-whatsapp
     = render 'app/partials/navbar'
 
     = yield
 
     = render 'app/partials/footer'
     = render 'app/partials/scripts'
-    %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js'}

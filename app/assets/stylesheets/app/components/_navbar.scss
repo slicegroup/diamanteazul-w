@@ -1,5 +1,4 @@
 .navbar {
-  height: 100px;
   background-color: $black;
 
   @include respond-to(xs) {
@@ -10,13 +9,17 @@
     text-transform: uppercase;
     font-family: $lato;
     font-weight: $bold;
-    color: $light_blue;
+    color: $silver;
   }
 
   img {
     margin-top: 15px;
     width: 250px;
   }
+}
+
+.navbar-top {
+  height: 100px;
 }
 
 .sidebar-category {

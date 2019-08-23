@@ -9,8 +9,10 @@
   .catalogue-items
     .row
       - @categories.each do |category|
-        .col-lg-3
+        .col-lg-4
           .card-catalogue
-            = link_to category.children? ? app_category_path(category) : app_products_path(category) do
-              %img{ src: category.image.url }
+            .card-catalogue-img
+              = link_to category.children? ? app_category_path(category) : app_products_path(category) do
+                %img{ src: category.image.url }
+            .card-catalogue-content
               %h2.card-catalogue-title= category.name

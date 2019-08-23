@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'app/front#index'
   get '/about',                   to: 'app/front#about',       as: :app_about
   get '/catalogue',               to: 'app/front#catalogue',   as: :app_catalogue
+  get '/contact',                 to: 'app/front#contact',   as: :app_contact
   get '/category/:id',            to: 'app/front#category',    as: :app_category
   get '/subcategory/:id',         to: 'app/front#subcategory', as: :app_subcategory
   get '/products/:id',            to: 'app/front#products',    as: :app_products

@@ -1,0 +1,39 @@
+%section.about
+  .container
+    .row
+      .col-md-6.col-sm-12
+        %img.w-100.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/logo/logo-default.png"}
+        %p{style: "text-align: justify;"}
+          %b.color Diamante Azul ®
+          Fundada en el año 2009 es una fabrica especializada en diseñar y crear los mas auténticos y originales anillos de graduación, compromiso, matrimonio, joyería corporativa, joyería para bebes y quince años, especialistas en elaborar joyas únicas. Somos profesionales con el conocimiento y dominio de las múltiples técnicas de orfebrería y joyería, combinando distintos materiales nobles.
+          %br/
+          %br/
+          Hoy contamos con mas de 500 modelos creados por nuestra diseñadora de joyas
+          %span.text-info Estefanía de Peñuela
+          aplicando los mas altos estándares de calidad ya que nuestra garantía es para toda la vida.
+      .col-md-6.col-sm-12
+        .formBox-contact
+          %form
+            .row
+              .col-sm-12
+                %h4 Contáctanos
+            .row
+              .col-md-12
+                .inputBox
+                  %input.input.required{placeholder: 'Nombre y Apellido', type: "text"}
+              .col-md-12
+                .inputBox
+                  %input.input.required{placeholder: 'Correo electrónico', type: "text"}
+            .row
+              .col-md-12
+                .inputBox
+                  %input.input.required{placeholder: 'Asunto', type: "text"}
+              .col-md-12
+                .inputBox
+                  %textarea.input{placeholder: 'Mensaje'}
+            .row
+              .col-lg-6.col-xs-12
+                = recaptcha_tags
+              .col-lg-6.col-xs-12
+                .form-footer
+                  %a.btn.btn-custom{href:''} Enviar

@@ -7,6 +7,7 @@ module App
     before_action :validate_recaptcha, only: [:send_cotization]
     def index
       @banners = KepplerBanners::Banner.all
+      @categories = KepplerProducts::Category.all
     end
 
     def about
@@ -67,6 +68,9 @@ module App
         flash[:notice] = "Mensaje no enviado"
       end
       redirect_back(fallback_location: :root_path)
+    end
+
+    def contact
     end
 
     private
