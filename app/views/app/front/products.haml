@@ -21,16 +21,16 @@
             %i.icofont-search
       %small Ejemplo: graduación, boda, dije, etc.
   .category-box
-    = render 'app/partials/sidebar'
-    .category-items
+    .category-items.w-100
       .row
         - @products.each do |product|
           .col-lg-4.col-sm-6.col-xs-12
-            .card-subcategory
-              = link_to app_product_path(@category, product) do
-                %img{ src: product.images[0] }
-                %h2.card-subcategory-title= product.name
-                %p= raw product.description
+            .card-catalogue
+              .card-catalogue-img
+                = link_to app_product_path(@category, product) do
+                  %img{ src: product.images[0] }
+              .card-catalogue-content
+                %h2.card-catalogue-title= product.name
                 %a.btn.btn-custom{ href: '' } Cotizar
         / %nav.nav-paginator{"aria-label" => "..."}
         /   %ul.pagination

@@ -53,7 +53,7 @@ p, small, span {
 }
 
 .category-items {
-  width: 70%;
+  // width: 70%;
   @include respond-to(xs) {
     width: 100%;
     padding: 0 10px;
@@ -412,7 +412,10 @@ textarea{
 }
 
 .formBox-contact {
-  margin-top: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   h4 {
     font-size: 25px;
     color: $primary;

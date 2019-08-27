@@ -9,13 +9,14 @@
             %i.icofont-search
       %small Ejemplo: graduación, boda, dije, etc.
   .category-box
-    = render 'app/partials/sidebar'
     .category-items
       %img.banner-category{ src: @category&.banner&.url || '/assets/app/diamanteazul/banner.jpg' }
       .row
         - @subcategories.each do |category|
           .col-lg-4.col-sm-6.col-xs-12
-            .card-subcategory
-              = link_to category.children? ? app_subcategory_path(category) : app_products_path(category) do
-                %img{ src: category.image.url }
-                %h2.card-subcategory-title= category.name
+            .card-catalogue
+              .card-catalogue-img
+                = link_to category.children? ? app_subcategory_path(category) : app_products_path(category) do
+                  %img{ src: category.image.url }
+              .card-catalogue-content
+                %h2.card-catalogue-title= category.name
