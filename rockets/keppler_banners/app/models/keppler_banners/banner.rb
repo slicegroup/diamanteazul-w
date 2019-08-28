@@ -13,8 +13,8 @@ module KepplerBanners
     acts_as_list
     acts_as_paranoid
     validates_presence_of :image
-    validate :check_cta, on: [:create, :edit]
-    validate :check_dimension, on: [:create, :edit]
+    validate :check_cta, on: [:create, :update]
+    validate :check_dimension, on: [:create, :update]
 
     def self.index_attributes
       %i[title subtitle link]

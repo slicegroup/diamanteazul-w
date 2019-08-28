@@ -37,6 +37,9 @@
 - if !@banner.errors[:link].blank? || !@banner.errors[:cta_text].blank? || (action_name.eql?('edit') && @banner.cta)
   :javascript
     $('.link-none').removeClass('link-none')
+- if @banner.cta
+  :javascript
+    $('.link-none').removeClass('link-none')
 :scss
   .link-none{
     display: none;
@@ -47,5 +50,7 @@
       $('.link-none').removeClass('link-none')
     }else{
       $('#banner_link').parent().addClass('link-none')
+      $('#banner_cta_text').parent().addClass('link-none')
     }
   })
+  $('.banner_image').find('label').append(' (1920x480)')
