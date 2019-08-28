@@ -17,7 +17,7 @@
       %small Ejemplo: graduación, boda, dije, etc.
   .category-box
     .category-items.w-100
-      %img.banner-category{ src: @subcategory.banner.url }
+      %img.banner-category{ src: @subcategory&.banner&.url || '/assets/app/diamanteazul/banner.jpg' }
       .row
         - @subcategories.each do |category|
           .col-lg-4.col-sm-6.col-xs-12
