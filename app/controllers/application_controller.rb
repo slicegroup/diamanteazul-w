@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   include AdminHelper
   include PublicActivity::StoreController
+  helper KepplerContactUs::ApplicationHelper
   helper KepplerProducts::ApplicationHelper
   helper KepplerBanners::ApplicationHelper
   helper KepplerLanguages::LanguagesHelper

@@ -1,0 +1,89 @@
+.container-fluid
+  .row
+    .listing.col-lg-12.col-xs-12
+      %section.content
+        .row
+          .col-md-3
+            = render 'keppler_contact_us/admin/layouts/compose'
+            = render 'keppler_contact_us/admin/layouts/folders'
+            = render 'keppler_contact_us/admin/layouts/labels'
+          .col-md-9
+            .box.slice-box
+              .box-header.with-border
+                %h3.box-title= t("keppler-contact-us.modules.#{controller_path.underscore}")
+                .box-tools.pull-right
+                  - if can?(KepplerContactUs::Message).update?
+                    = link_to edit_admin_contact_us_message_path(@object), class: 'btn btn-box-tool', 'data-toggle': 'tooltip', 'data-original-title': t('keppler.actions.edit') do
+                      %i.icon-pencil
+
+                  / = link_to admin_contact_us_message_path(@object.id.pred), class: 'btn btn-box-tool', 'data-original-title': 'Previous', 'data-toggle': 'tooltip', disabled: module_name.all.first.eql?(@object) do
+                  /   %i.icon-arrow-left
+                  / = link_to admin_contact_us_message_path(@object.id.next), class: 'btn btn-box-tool', 'data-original-title': 'Next', 'data-toggle': 'tooltip', disabled: module_name.all.last.eql?(@object) do
+                  /   %i.icon-arrow-right
+
+              .box-body.no-padding
+                .mailbox-read-info
+                  %h3= @object.subject
+                  / %h5
+                  /   #{t('activerecord.attributes.from_email')}:
+                  /   %small.label.label-default
+                  /     #{@object.name}
+                  /     atencionalcliente@2xale.com
+                  / %h5
+                  /   #{t('activerecord.attributes.to_emails')}: 
+                  /   %small.label.label-default= @object.to_emails
+                / /.mailbox-read-info
+                .mailbox-controls.with-border
+                  .btn-group
+                    - if can?(KepplerContactUs::Message).destroy?
+                      = link_to admin_contact_us_message_remove_path(1, @object.id), title: t('keppler.actions.delete'), method: :get, data: { confirm: t('keppler.messages.data_confirm') } do
+                        %i.icon-trash
+                  -# .mailbox-controls
+                    .toolbar-inline
+                      - if can?(module_name).destroy_multiple?
+                        .toolbar-item
+                          .checkbox
+                            %label{ for: 'checkbox-all' }
+                              %input{ type: 'checkbox', id: 'checkbox-all', '@click': 'selectAll()' }
+                              %span.cr
+                                %i.cr-icon.glyphicon.glyphicon-ok
+                        .toolbar-item
+                          %a.tool-btn{ 'data-confirm': '¿Estás seguro?', 'data-method': 'delete', 'v-bind:href': 'link', rel: 'nofollow', ':class': '{disabled: !checks}' }
+                            %i.icon-trash
+                    -# .pull-right{ style: 'padding: 5px 10px;' }
+                    -#   = entries(@total, @objects)
+                    -#   &nbsp; | &nbsp;
+                    -#   = paginate @objects, window: 1
+                    -# .btn-group
+                      %button.btn.btn-default.btn-sm{ type: 'button' }
+                        %i.icon-arrow-left
+                      %button.btn.btn-default.btn-sm{ type: 'button' }
+                        %i.icon-arrow-right
+                  
+                  %span.mailbox-read-time.pull-right= I18n.l(@object.created_at, format: :long)
+                / /.mailbox-controls
+                .mailbox-read-message
+                  - unless @object.from_email.eql?('current@2xale.com')
+                    %p
+                      Nombre:
+                      = @object.name
+                    %p
+                      Correo:
+                      = @object.from_email
+                  - if !@object.content.blank?
+                    %p
+                      Su mensaje:
+                      = raw @object.content
+                  %p
+                    Hace #{time_ago_in_words(@object.created_at)}
+:javascript 
+  function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+  }

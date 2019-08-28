@@ -1,0 +1,16 @@
+%td{ style: 'width: 10%'}
+  = link_to admin_contact_us_message_remove_path(1, object.id), title: t('keppler.actions.delete'), method: :get, data: { confirm: t('keppler.messages.data_confirm') } do
+    %i.icon-trash
+%td.mailbox-content.mailbox-read
+  = link_to admin_contact_us_message_path(object, search: query), class: 'mailbox-link' do
+    - if object.from_email.eql?('current@2xale.com')
+      %i.icon-check{ title: t('keppler-contact-us.attributes.sent') }
+    - else
+      %span{ id: "read-status-#{object.id}" }
+        %i{ class: "icon-#{object.read ? 'envelope-open' : 'envelope keppler-color' }", title: t("keppler-contact-us.attributes.#{'un' unless object.read}read") }
+%td.mailbox-content.mailbox-read
+  = link_to admin_contact_us_message_path(object, search: query), class: 'mailbox-link' do
+    .text-overflow= object.name
+%td.mailbox-content.mailbox-read
+  = link_to admin_contact_us_message_path(object, search: query), class: 'mailbox-link' do
+    .text-overflow= object.subject

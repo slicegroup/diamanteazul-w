@@ -2,12 +2,11 @@ module App
   # FrontsController
   class FrontController < AppController
     layout 'app/layouts/application'
-    before_action :set_categories_parents, except: [:index, :catalogue]
+    before_action :set_categories_parents, except: [:catalogue]
     before_action :set_category, except: [:index, :products, :product]
-    before_action :validate_recaptcha, only: [:send_cotization]
+    before_action :validate_recaptcha, only: [:send_cotization, :send_message]
     def index
       @banners = KepplerBanners::Banner.all
-      @categories = KepplerProducts::Category.all
     end
 
     def about
@@ -70,7 +69,18 @@ module App
       redirect_back(fallback_location: :root_path)
     end
 
+    def send_message
+      @message = KepplerContactUs::Message.new(message_params)
+      if @message.save
+        flash[:notice] = "Mensaje enviado"
+      else
+        flash[:notice] = "Mensaje no enviado"
+      end
+      redirect_back(fallback_location: :root_path)
+    end
+
     def contact
+      @message = KepplerContactUs::Message.new
     end
 
     private
@@ -91,6 +101,12 @@ module App
     def cotization_params
       params.require(:cotization).permit(
         :name, :email, :phone, :message
+      )
+    end
+
+    def message_params
+      params.require(:message).permit(
+        :name, :from_email, :subject, :content
       )
     end
 

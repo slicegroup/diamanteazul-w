@@ -31,7 +31,8 @@
                   %img{ src: product.images[0] }
               .card-catalogue-content
                 %h2.card-catalogue-title= product.name
-                %a.btn.btn-custom{ href: '' } Cotizar
+                = link_to app_product_path(@category, product), class: 'btn btn-custom' do
+                  Cotizar
         / %nav.nav-paginator{"aria-label" => "..."}
         /   %ul.pagination
         /     %li.page-item.disabled

@@ -1,14 +1,15 @@
 
 Rails.application.routes.draw do
   root to: 'app/front#index'
-  get '/about',                   to: 'app/front#about',       as: :app_about
-  get '/catalogue',               to: 'app/front#catalogue',   as: :app_catalogue
-  get '/contact',                 to: 'app/front#contact',   as: :app_contact
-  get '/category/:id',            to: 'app/front#category',    as: :app_category
-  get '/subcategory/:id',         to: 'app/front#subcategory', as: :app_subcategory
-  get '/products/:id',            to: 'app/front#products',    as: :app_products
-  get '/product/:id/:product_id', to: 'app/front#product',     as: :app_product
-  get '/send_cotization/:id',         to: 'app/front#send_cotization',   as: :app_send_cotization
+  get '/about',                   to: 'app/front#about',            as: :app_about
+  get '/catalogue',               to: 'app/front#catalogue',        as: :app_catalogue
+  get '/contact',                 to: 'app/front#contact',          as: :app_contact
+  get '/category/:id',            to: 'app/front#category',         as: :app_category
+  get '/subcategory/:id',         to: 'app/front#subcategory',      as: :app_subcategory
+  get '/products/:id',            to: 'app/front#products',         as: :app_products
+  get '/product/:id/:product_id', to: 'app/front#product',          as: :app_product
+  get '/send_cotization/:id',     to: 'app/front#send_cotization',  as: :app_send_cotization
+  get '/send_message',            to: 'app/front#send_message',     as: :app_send_message
 
   devise_for :users, skip: KepplerConfiguration.skip_module_devise
 
@@ -202,6 +203,9 @@ Rails.application.routes.draw do
 
   # Ckeditor routes engine
   mount Ckeditor::Engine => '/ckeditor'
+
+  # KepplerContactUs routes engine
+  mount KepplerContactUs::Engine, at: '/', as: 'keppler_contact_us'
 
   # Products routes engine
   mount KepplerProducts::Engine, at: '/', as: 'products'

@@ -1,0 +1,10 @@
+.mailbox-controls
+  .pull-right{ style: 'padding: 5px 10px;' }
+    = entries(@total, @objects)
+    &nbsp; | &nbsp;
+    = paginate @objects, window: 1
+    -# .btn-group
+      %button.btn.btn-default.btn-sm{ type: 'button' }
+        %i.icon-arrow-left
+      %button.btn.btn-default.btn-sm{ type: 'button' }
+        %i.icon-arrow-right

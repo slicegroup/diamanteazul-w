@@ -13,27 +13,66 @@
           %img.w-100.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/about.jpg"}
       .col-md-6.col-sm-12
         .formBox-contact
-          %form
+          = simple_form_for @message, url: app_send_message_path(), html: {id: 'message_form'}, method: :get do |f|
             .row
               .col-sm-12
                 %h4 Contáctanos
             .row
               .col-md-12
                 .inputBox
-                  %input.input.required{placeholder: 'Nombre y Apellido', type: "text"}
+                  %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'message[name]'}
               .col-md-12
                 .inputBox
-                  %input.input.required{placeholder: 'Correo electrónico', type: "text"}
+                  %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'message[from_email]'}
             .row
               .col-md-12
                 .inputBox
-                  %input.input.required{placeholder: 'Asunto', type: "text"}
+                  %input.input.required{placeholder: 'Asunto', type: "text", name: 'message[subject]'}
               .col-md-12
                 .inputBox
-                  %textarea.input{placeholder: 'Mensaje'}
+                  %textarea.input{placeholder: 'Mensaje', name: 'message[content]'}
             .row
               .col-lg-6.col-xs-12
                 = recaptcha_tags
               .col-lg-6.col-xs-12
                 .form-footer
-                  %a.btn.btn-custom{href:''} Enviar
+                  = f.submit 'Enviar', class: 'btn btn-custom'
+- if flash[:notice].eql?("Mensaje enviado")
+  :javascript
+    Swal.fire({
+      type: 'success',
+      title: 'Cotización enviada con éxito'
+    })
+- elsif flash[:recaptcha_error].eql?("Oh! It's error with reCAPTCHA!")
+  :javascript
+    Swal.fire({
+      type: 'error',
+      title: '¡Lo siento!',
+      text: 'Hubo un error en el reCAPTCHA, tu reservación no ha sido procesada.'
+    })
+- elsif flash[:notice].eql?("Mensaje no enviado")
+  :javascript
+    Swal.fire({
+      type: 'error',
+      title: '¡Los sentimos!, tu cotización no ha sido procesada. Vuelve a intentarlo.'
+    })
+:javascript
+  $('#message_form').validate({
+    event: 'blur',
+    errorClass: 'error-class',
+    validClass: 'valid-class',
+     rules: {
+       'message[name]': { required: true},
+       'message[from_email]': { required: true, email: true},
+       'message[subject]': {required: true}
+      },
+     messages: {
+       'message[name]': 'Indica tu nombre',
+       'message[from_email]': 'Indica tu correo',
+       'message[subject]': 'Indica el asunto'
+      },
+    debug: true,errorElement: 'label',
+    submitHandler: function(form){
+      form.submit();
+    }
+  });

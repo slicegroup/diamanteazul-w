@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_185312) do
+ActiveRecord::Schema.define(version: 2019_08_27_200858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,28 @@ ActiveRecord::Schema.define(version: 2019_08_02_185312) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deleted_at"], name: "index_keppler_capsules_capsules_on_deleted_at"
+  end
+
+  create_table "keppler_contact_us_messages", force: :cascade do |t|
+    t.string "name"
+    t.string "from_email"
+    t.string "phone"
+    t.jsonb "to_emails"
+    t.string "subject"
+    t.text "content"
+    t.boolean "read"
+    t.boolean "favorite"
+    t.integer "position"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_keppler_contact_us_messages_on_deleted_at"
+  end
+
+  create_table "keppler_contact_us_settings", force: :cascade do |t|
+    t.jsonb "messages_to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "keppler_frontend_themes", force: :cascade do |t|
