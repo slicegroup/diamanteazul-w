@@ -7,7 +7,7 @@ module KepplerContactUs
     include KepplerContactUs::Concerns::Uploadable
     include KepplerContactUs::Concerns::Downloadable
     include KepplerContactUs::Concerns::Sortable
-    validates_presence_of :name, :from_email
+    validates_presence_of :name, :from_email, :subject
     acts_as_list
 
     def self.reject_current_user_email
