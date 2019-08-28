@@ -4,7 +4,8 @@ module App
     layout 'app/layouts/application'
     before_action :set_categories_parents, except: [:catalogue]
     before_action :set_category, except: [:index, :products, :product]
-    before_action :validate_recaptcha, only: [:send_cotization, :send_message]
+    before_action :recaptcha_cotization, only: [:send_cotization]
+    before_action :recaptcha_message, only: [:send_message]
     def index
       @banners = KepplerBanners::Banner.all
     end
@@ -56,6 +57,7 @@ module App
     def product
       @category = KepplerProducts::Category.find(params[:id])
       @product = KepplerProducts::Product.find(params[:product_id])
+      @cotization = KepplerProducts::Cotization.new
     end
 
     def send_cotization
@@ -85,8 +87,13 @@ module App
 
     private
 
-    def validate_recaptcha
-      return if verify_recaptcha(model: @reservation, timeout: 10, message: "Oh! It's error with reCAPTCHA!")
+    def recaptcha_cotization
+      return if verify_recaptcha(model: @cotization, timeout: 10, message: "Oh! It's error with reCAPTCHA!")
+      redirect_back fallback_location: :root_path
+    end
+
+    def recaptcha_message
+      return if verify_recaptcha(model: @message, timeout: 10, message: "Oh! It's error with reCAPTCHA!")
       redirect_back fallback_location: :root_path
     end
 

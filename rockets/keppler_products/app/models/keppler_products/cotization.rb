@@ -12,6 +12,7 @@ module KepplerProducts
     acts_as_list
     acts_as_paranoid
     belongs_to :product, class_name: 'KepplerProducts::Product'
+    validates_presence_of :name, :email, :phone
 
     def self.index_attributes
       %i[name email phone product_id]

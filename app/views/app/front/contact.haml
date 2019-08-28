@@ -41,20 +41,20 @@
   :javascript
     Swal.fire({
       type: 'success',
-      title: 'Cotización enviada con éxito'
+      title: 'Mensaje enviado con éxito'
     })
 - elsif flash[:recaptcha_error].eql?("Oh! It's error with reCAPTCHA!")
   :javascript
     Swal.fire({
       type: 'error',
       title: '¡Lo siento!',
-      text: 'Hubo un error en el reCAPTCHA, tu reservación no ha sido procesada.'
+      text: 'Hubo un error en el reCAPTCHA, tu mensaje no ha sido enviado.'
     })
 - elsif flash[:notice].eql?("Mensaje no enviado")
   :javascript
     Swal.fire({
       type: 'error',
-      title: '¡Los sentimos!, tu cotización no ha sido procesada. Vuelve a intentarlo.'
+      title: '¡Los sentimos!, tu mensaje no ha sido enviado. Vuelve a intentarlo.'
     })
 :javascript
   $('#message_form').validate({
