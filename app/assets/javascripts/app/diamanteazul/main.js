@@ -42,7 +42,11 @@ $('.product-images-nav').slick({
 });
   
 
-var slides = $('li.tp-revslider-slidesli')
-if (slides.length <= 1) {
-  $('.tparrows').addClass('d-none')
-}
+$('.single-item').slick({
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  fade: true,
+  infinite: true,
+  pauseOnHover: false
+});

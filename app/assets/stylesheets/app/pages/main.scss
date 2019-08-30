@@ -22,6 +22,51 @@ p, small, span {
   border-color: $primary;
 }
 
+.banner-home {
+  @include size(100%, 320px);
+  overflow: hidden;
+
+  ul {
+    padding-left: 0;
+  }
+
+  .slick-list, .slick-slider, .slick-track {
+    height: 100%;
+  }
+
+  li {
+    @include size(100%);
+
+    img {
+      @include size(100%);
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .slick-prev:before, .slick-next:before {
+    background-color: rgba(0, 0, 0, .7);
+    padding: 20px;
+    font-family: 'IcoFont';
+  }
+
+  .slick-prev {
+    left: 30px;
+    z-index: 2;
+    &:before {
+      content: "\ea9d";
+    }
+  }
+
+  .slick-next {
+    right: 60px;
+    z-index: 2;
+    &:before {
+      content: "\eaa0";
+    }
+  }
+}
+
 
 .category-container, .catalogue-container, .product-container {
   padding: 50px 0;
@@ -109,7 +154,7 @@ p, small, span {
   // border: 1px solid $secondary;
   text-align: center;
   height: 350px;
-  box-shadow:0px 13px 21px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 5px 10px -5px rgba($primary, 0.5);
 
   .card-catalogue-img {
     height: 70%;
@@ -337,11 +382,12 @@ footer {
   position: relative;
   width: 100%;
   height: 50px;
-  background: transparent;
+  background: #fff;
   border: none;
   outline: none;
   border-bottom: 1px solid #8c8c8c;
   font-family: $raleway;
+  padding: 10px;
 
   &:focus {
     border-bottom: 1px solid $primary;
@@ -379,18 +425,6 @@ textarea{
   }
 }
 
-.tparrows:before {
-  font-family: "IcoFont";
-}
-
-.tparrows.tp-rightarrow:before {
-  content: "\eaa0";
-}
-
-.tparrows.tp-leftarrow:before {
-  content: "\ea9d";
-}
-
 .float-button{
   z-index: 20;
   position: fixed;
@@ -411,14 +445,49 @@ textarea{
   font-size: 30px;
 }
 
+.contact {
+  padding: 50px 0 100px 0;
+  background-color: #dbdad8;
+}
+
 .formBox-contact {
   height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  padding: 0 50px;
+
   h4 {
     font-size: 25px;
     color: $primary;
     font-family: $raleway;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.contact-social {
+  padding-left: 0;
+  font-family: $raleway;
+  li {
+    list-style: none;
+    margin-bottom: 10px;
+
+    i {
+      color: $primary;
+    }
+    a {
+      color: #636363;
+      &:hover {
+        color: $primary;
+      }
+    }
+    span {
+      margin-left: 10px;
+      &.address {
+        color: #636363;
+      }
+    }
   }
 }
