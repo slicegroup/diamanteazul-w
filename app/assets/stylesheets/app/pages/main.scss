@@ -18,7 +18,7 @@ h1 {
 }
 
 p, small, span {
-  font-family: $raleway;
+  font-family: $lato;
 }
 
 .btn-primary {
@@ -29,6 +29,7 @@ p, small, span {
 .banner-home {
   @include size(100%, 320px);
   overflow: hidden;
+  margin-top: 155px;
 
   ul {
     padding-left: 0;
@@ -74,6 +75,11 @@ p, small, span {
 
 .category-container, .catalogue-container, .product-container {
   padding: 50px 0;
+  margin-top: 155px;
+}
+
+.contact, .about {
+  margin-top: 155px;
 }
 
 .category-header {
@@ -191,16 +197,6 @@ p, small, span {
     font-size: 20px;
     margin-top: 10px;
     position: relative;
-
-    &::before {
-      @include pseudo();
-      bottom: -10px;
-      left: 50%;
-      background-color: $primary;
-      width: 10%;
-      height: 3px;
-      transform: translateX(-50%);
-    }
   }
 }
 
@@ -208,7 +204,7 @@ p, small, span {
   background-color: $primary;
   border-radius: 10px;
   color: $white;
-  font-family: $raleway;
+  font-family: $lato;
   margin-bottom: 10px;
 
   &:hover {
@@ -220,12 +216,12 @@ p, small, span {
   background-color: transparent;
 
   li a{
-    font-family: $raleway;
+    font-family: $lato;
     color: $primary;
   }
   
   li {
-    font-family: $raleway;
+    font-family: $lato;
     color: #8c8c8c;
   }
 }
@@ -307,17 +303,17 @@ p, small, span {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: $medium;
-    font-family: $raleway;
+    font-family: $lato;
   }
   h4 {
     font-size: 18px;
     color: $primary;
-    font-family: $raleway;
+    font-family: $lato;
   }
 }
 
 footer {
-  font-family: $raleway;
+  font-family: $lato;
   padding: 20px;
   font-size: 16px;
   background-color: #fff;
@@ -330,7 +326,7 @@ footer {
   }
 }
 .fullwidth-shop-slider {
-  font-family: $raleway;
+  font-family: $lato;
 }
 
 .fullwidth-shop-slider .slide-overlay {
@@ -348,12 +344,12 @@ footer {
   padding: 50px 0;
 
   p {
-    font-family: $raleway;
+    font-family: $lato;
   }
 }
 
 .contact {
-  font-family: $raleway;
+  font-family: $lato;
   padding: 50px 0;
 
   .widget-title {
@@ -367,10 +363,10 @@ footer {
 }
 
 .form-control {
-  font-family: $raleway;
+  font-family: $lato;
 
   &::placeholder {
-    font-family: $raleway;
+    font-family: $lato;
   }
 
   &:focus {
@@ -398,7 +394,7 @@ footer {
   border: none;
   outline: none;
   border-bottom: 1px solid #8c8c8c;
-  font-family: $raleway;
+  font-family: $lato;
   padding: 10px;
 
   &:focus {
@@ -406,7 +402,7 @@ footer {
   }
 
   &::placeholder {
-    font-family: $raleway;
+    font-family: $lato;
   }
 }
 
@@ -471,7 +467,7 @@ textarea{
   h4 {
     font-size: 25px;
     color: $primary;
-    font-family: $raleway;
+    font-family: $lato;
     margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: bold;
@@ -479,7 +475,7 @@ textarea{
   h3 {
     font-size: 19px;
     color: $primary;
-    font-family: $raleway;
+    font-family: $lato;
     margin: 30px 0;
     font-weight: bold;
     small {
@@ -490,7 +486,7 @@ textarea{
 
 .contact-social {
   padding-left: 0;
-  font-family: $raleway;
+  font-family: $lato;
   li {
     list-style: none;
     margin-bottom: 10px;
@@ -510,5 +506,15 @@ textarea{
         color: #636363;
       }
     }
+  }
+}
+
+.diseno-img {
+  flex-direction: column;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  a.btn {
+    margin-top: 30px;
   }
 }
