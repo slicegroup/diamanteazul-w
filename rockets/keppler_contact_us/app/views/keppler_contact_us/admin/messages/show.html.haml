@@ -23,16 +23,6 @@
 
               .box-body.no-padding
                 .mailbox-read-info
-                  %h3= @object.subject
-                  / %h5
-                  /   #{t('activerecord.attributes.from_email')}:
-                  /   %small.label.label-default
-                  /     #{@object.name}
-                  /     atencionalcliente@2xale.com
-                  / %h5
-                  /   #{t('activerecord.attributes.to_emails')}: 
-                  /   %small.label.label-default= @object.to_emails
-                / /.mailbox-read-info
                 .mailbox-controls.with-border
                   .btn-group
                     - if can?(KepplerContactUs::Message).destroy?

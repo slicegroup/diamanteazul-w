@@ -7,7 +7,7 @@
 .container.catalogue-container
   .catalogue-items.p-0
     .row
-      - @categories.each do |category|
+      - @categories.first(3).each do |category|
         .col-lg-4
           .card-catalogue
             .card-catalogue-img
