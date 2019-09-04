@@ -1,3 +1,7 @@
+body {
+  background-color: #dbdad8;
+}
+
 a {
   &:hover {
     text-decoration: none;
@@ -154,7 +158,13 @@ p, small, span {
   // border: 1px solid $secondary;
   text-align: center;
   height: 350px;
-  box-shadow: 3px 5px 10px -5px rgba($primary, 0.5);
+  box-shadow: 3px 5px 5px -5px rgba($primary, 0.5);
+  transition: all ease-in-out .3s;
+
+  &:hover {
+    box-shadow: 3px 5px 8px -2px rgba($primary, 0.5);
+    transition: all ease-in-out .3s;
+  }
 
   .card-catalogue-img {
     height: 70%;
@@ -170,6 +180,7 @@ p, small, span {
   .card-catalogue-content {
     height: 30%;
     padding: 20px;
+    background-color: white;
   }
 
   .card-catalogue-title {
@@ -206,7 +217,7 @@ p, small, span {
 }
 
 .breadcrumb {
-  background-color: $white;
+  background-color: transparent;
 
   li a{
     font-family: $raleway;
@@ -307,8 +318,9 @@ p, small, span {
 
 footer {
   font-family: $raleway;
-  padding-top: 20px;
+  padding: 20px;
   font-size: 16px;
+  background-color: #fff;
 
   a {
     color: #636363;
@@ -375,7 +387,7 @@ footer {
 .inputBox{
   position: relative;
   box-sizing: border-box;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .inputBox .input{
@@ -447,7 +459,6 @@ textarea{
 
 .contact {
   padding: 50px 0 100px 0;
-  background-color: #dbdad8;
 }
 
 .formBox-contact {
@@ -464,6 +475,16 @@ textarea{
     margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: bold;
+  }
+  h3 {
+    font-size: 19px;
+    color: $primary;
+    font-family: $raleway;
+    margin: 30px 0;
+    font-weight: bold;
+    small {
+      font-size: 15px;
+    }
   }
 }
 
@@ -485,7 +506,7 @@ textarea{
     }
     span {
       margin-left: 10px;
-      &.address {
+      &.address, &.time, &.schedule {
         color: #636363;
       }
     }

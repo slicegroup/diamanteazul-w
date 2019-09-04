@@ -2,10 +2,10 @@
   .container
     .row
       .col-md-6.col-sm-12
-        %center
-          %img.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/logo/logo-default.png", width: 400}
-        .text-center
-          %p Somos una empresa familiar fundada por el matrimonio que forman Fernando Peñuela y Estefania de Peñuela en el año 2009, especializada en diseñar y fabricar anillos de graduación, compromiso, matrimonio y joyería de autor.  Contamos con profesionales que aplican sus conocimientos y dominios de las múltiples técnicas en la fabricación y diseño de joyas de oro y plata, con los más altos estándares de calidad y garantía de por vida. 
+        %center.mb-5
+          %img.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/logo/logo_negro.png", width: 300}
+        .text-justify
+          %p{style:'text-indent: 25px;'} Somos una empresa familiar fundada por el matrimonio que forman Fernando Peñuela y Estefania de Peñuela en el año 2009, especializada en diseñar y fabricar anillos de graduación, compromiso, matrimonio y joyería de autor.  Contamos con profesionales que aplican sus conocimientos y dominios de las múltiples técnicas en la fabricación y diseño de joyas de oro y plata, con los más altos estándares de calidad y garantía de por vida. 
           %p Joyería Diamante Azul es Casa de Marcas con prestigio internacional garantizando todas las colecciones en tendencia de accesorios de joyería y relojería, con la orientación de nuestro equipo calificado de asesores en ventas.
           %p.mb-5 Nuestra tienda física está ubicada en Ciudad Comercial las Virtudes III Etapa Planta Baja, Punto Fijo Estado Falcón Venezuela.
           %img.w-100.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/about.jpg"}
@@ -49,15 +49,23 @@
             %li
               .float-left
                 %i.fa.fa-clock
-                %span.address
+                %span.schedule
                   Lunes a sábados
-                  %br
+                %br/
+                %span.time{style:'margin-left: 30px;'}
                   10:00 am a 7:00 pm
               .float-right
-                %span.address
+                %span.schedule
                   Domingos y Feriados
-                  %br
+                %br
+                %span.time
                   11:00 am a 7:00 pm
+          .row
+            .col-sm-12
+              %h3
+                Envíenos un mensaje
+                %br/
+                %small Si desea enviarnos un mensaje, por favor llene el siguiente formulario y le responderemos lo antes posible
           = simple_form_for @message, url: app_send_message_path(), html: {id: 'message_form'}, method: :get do |f|
             .row
               .col-md-12
@@ -66,10 +74,12 @@
               .col-md-12
                 .inputBox
                   %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'message[from_email]'}
-            .row
               .col-md-12
                 .inputBox
-                  %input.input.required{placeholder: 'Asunto', type: "text", name: 'message[subject]'}
+                  %input.input.required{placeholder: 'País', type: "text", name: 'message[country]'}
+              .col-md-12
+                .inputBox
+                  %input.input.required{placeholder: 'Ciudad', type: "text", name: 'message[city]'}
               .col-md-12
                 .inputBox
                   %textarea.input{placeholder: 'Mensaje', name: 'message[content]'}
