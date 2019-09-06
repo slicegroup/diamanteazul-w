@@ -1,6 +1,6 @@
 WebFont.load({
   google: {
-    families: ['Raleway:400,500,600', 'Lato:700,900']
+    families: ['Raleway:400,500,600', 'Lato:400,700,900']
   }
 });
 
