@@ -6,7 +6,7 @@ menu:
     icon: rocket
     model: KepplerProducts::Product
     environment: all
-    position: 4
+    position: 3
     submenu:
       - cotization:
           name: cotization
@@ -35,5 +35,4 @@ menu:
     icon: rocket
     model: KepplerProducts::Catalogue
     environment: all
-    position: 5
-    submenu:
+    position: 4
