@@ -4,6 +4,12 @@
   @include respond-to(xs) {
     position: relative;
   }
+  @include respond-to(sm) {
+    position: relative;
+  }
+  @include respond-to(md) {
+    position: relative;
+  }
 
   .nav-link {
     text-transform: uppercase;
@@ -12,18 +18,58 @@
     color: $silver;
   }
 
+  .navbar-brand {
+    margin: 0 auto;
+    @include respond-to(xs) {
+      margin: 0;
+    }
+    @include respond-to(sm) {
+      margin: 0;
+    }
+    @include respond-to(md) {
+      margin: 0;
+    }
+  }
+
   img {
     margin: 15px 0;
     width: 180px;
+    @include respond-to(xs) {
+      width: 120px;
+    }
+    @include respond-to(sm) {
+      width: 120px;
+    }
+    @include respond-to(md) {
+      width: 120px;
+    }
   }
 
   .nav-item {
     padding: 0 60px;
+    @include respond-to(xs) {
+      padding: 0 10px;
+    }
+    @include respond-to(sm) {
+      padding: 0 10px;
+    }
+    @include respond-to(md) {
+      padding: 0 10px;
+    }
   }
 }
 
 .navbar-top {
   height: 100px;
+  @include respond-to(xs) {
+    height: auto;
+  }
+  @include respond-to(sm) {
+    height: auto;
+  }
+  @include respond-to(md) {
+    height: auto;
+  }
 }
 
 .sidebar-category {
@@ -47,42 +93,16 @@
   justify-content: center;
 }
 
-.navbar-collapse {
-  @include respond-to(xs) {
-    z-index: 99;
-    padding: 10px 20px;
-    background-color: white;
-    top: 100px;
-    position: absolute;
-    width: 100%;
-    left: 0px;
-  }
-  @include respond-to(sm) {
-    z-index: 99;
-    padding: 10px 20px;
-    background-color: white;
-    top: 100px;
-    position: absolute;
-    width: 100%;
-    left: 0px;
-  }
-  @include respond-to(md) {
-    z-index: 99;
-    padding: 10px 20px;
-    background-color: white;
-    top: 100px;
-    position: absolute;
-    width: 100%;
-    left: 0px;
-  }
-}
-
 .navbar-toggler {
+  position: absolute;
+  right: 20px;
+
   &:focus {
     outline: none;
   }
 
   span {
     color: $primary;
+    font-size: 25px;
   }
 }

@@ -1,4 +1,5 @@
 body {
+  position: relative;
   background-color: #dbdad8;
 }
 
@@ -18,7 +19,7 @@ h1 {
 }
 
 p, small, span {
-  font-family: $raleway;
+  font-family: $lato;
 }
 
 .btn-primary {
@@ -29,6 +30,7 @@ p, small, span {
 .banner-home {
   @include size(100%, 320px);
   overflow: hidden;
+  margin-top: 155px;
 
   ul {
     padding-left: 0;
@@ -39,8 +41,6 @@ p, small, span {
   }
 
   li {
-    @include size(100%);
-
     img {
       @include size(100%);
       object-fit: cover;
@@ -74,6 +74,10 @@ p, small, span {
 
 .category-container, .catalogue-container, .product-container {
   padding: 50px 0;
+}
+
+.wrapper {
+  margin-top: 155px;
 }
 
 .category-header {
@@ -191,16 +195,6 @@ p, small, span {
     font-size: 20px;
     margin-top: 10px;
     position: relative;
-
-    &::before {
-      @include pseudo();
-      bottom: -10px;
-      left: 50%;
-      background-color: $primary;
-      width: 10%;
-      height: 3px;
-      transform: translateX(-50%);
-    }
   }
 }
 
@@ -208,7 +202,7 @@ p, small, span {
   background-color: $primary;
   border-radius: 10px;
   color: $white;
-  font-family: $raleway;
+  font-family: $lato;
   margin-bottom: 10px;
 
   &:hover {
@@ -220,12 +214,12 @@ p, small, span {
   background-color: transparent;
 
   li a{
-    font-family: $raleway;
+    font-family: $lato;
     color: $primary;
   }
   
   li {
-    font-family: $raleway;
+    font-family: $lato;
     color: #8c8c8c;
   }
 }
@@ -269,6 +263,18 @@ p, small, span {
   }
 }
 
+.banner-home {
+  .slick-dots {
+    bottom: 20px;
+  }
+  .slick-dots li button:before, .slick-dots li button, .slick-dots li {
+    @include size(25px, 8px);
+  }
+  .slick-dots li button:before {
+    background-color: #000;
+  }
+}
+
 .slick-dots {
   bottom: -50px;
 }
@@ -307,20 +313,24 @@ p, small, span {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: $medium;
-    font-family: $raleway;
+    font-family: $lato;
   }
   h4 {
     font-size: 18px;
     color: $primary;
-    font-family: $raleway;
+    font-family: $lato;
+    font-weight: 700;
   }
 }
 
 footer {
-  font-family: $raleway;
+  font-family: $lato;
   padding: 20px;
   font-size: 16px;
   background-color: #fff;
+  width: 100%;
+  bottom: -160px;
+  position: absolute;
 
   a {
     color: #636363;
@@ -330,7 +340,7 @@ footer {
   }
 }
 .fullwidth-shop-slider {
-  font-family: $raleway;
+  font-family: $lato;
 }
 
 .fullwidth-shop-slider .slide-overlay {
@@ -348,13 +358,16 @@ footer {
   padding: 50px 0;
 
   p {
-    font-family: $raleway;
+    font-family: $lato;
   }
 }
 
 .contact {
-  font-family: $raleway;
-  padding: 50px 0;
+  font-family: $lato;
+  padding: 50px 0 100px 0;
+  @include respond-to(xs) {
+    padding: 0;
+  }
 
   .widget-title {
     color: $primary;
@@ -367,10 +380,10 @@ footer {
 }
 
 .form-control {
-  font-family: $raleway;
+  font-family: $lato;
 
   &::placeholder {
-    font-family: $raleway;
+    font-family: $lato;
   }
 
   &:focus {
@@ -398,7 +411,7 @@ footer {
   border: none;
   outline: none;
   border-bottom: 1px solid #8c8c8c;
-  font-family: $raleway;
+  font-family: $lato;
   padding: 10px;
 
   &:focus {
@@ -406,7 +419,7 @@ footer {
   }
 
   &::placeholder {
-    font-family: $raleway;
+    font-family: $lato;
   }
 }
 
@@ -442,23 +455,23 @@ textarea{
   position: fixed;
   bottom: 20px;
   right: 20px;
-  height: 70px;
-  width: 70px;
+  @include size(60px);
   background-color: #54cc61;
   border-radius: 50%;
   box-shadow: 2px 1px 10px 0px #5d5858;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.float-button i{
-  color: $white;
-  font-size: 30px;
-}
-
-.contact {
-  padding: 50px 0 100px 0;
+  @include respond-to(xs) {
+    @include size(50px);
+  }
+  i {
+    color: $white;
+    font-size: 30px;
+    @include respond-to(xs) {
+      font-size: 20px;
+    }
+  }
 }
 
 .formBox-contact {
@@ -467,11 +480,14 @@ textarea{
   flex-direction: column;
   justify-content: center;
   padding: 0 50px;
+  @include respond-to(xs) {
+    padding: 20px 10px;
+  }
 
   h4 {
     font-size: 25px;
     color: $primary;
-    font-family: $raleway;
+    font-family: $lato;
     margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: bold;
@@ -479,7 +495,7 @@ textarea{
   h3 {
     font-size: 19px;
     color: $primary;
-    font-family: $raleway;
+    font-family: $lato;
     margin: 30px 0;
     font-weight: bold;
     small {
@@ -490,7 +506,7 @@ textarea{
 
 .contact-social {
   padding-left: 0;
-  font-family: $raleway;
+  font-family: $lato;
   li {
     list-style: none;
     margin-bottom: 10px;
@@ -511,4 +527,82 @@ textarea{
       }
     }
   }
+}
+
+.diseno-img {
+  flex-direction: column;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  a.btn {
+    margin-top: 30px;
+  }
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: $lato;
+  font-size: 15px;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: $primary;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

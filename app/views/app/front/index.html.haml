@@ -1,19 +1,20 @@
-%section.banner-home
-  %ul.single-item
-    - @banners.each do |banner|
-      %li
-        %a{href: banner.link}
-          %img{alt: banner.title, src: banner.image.url}
-.container.catalogue-container
-  .catalogue-items.p-0
-    .row
-      - @categories.first(3).each do |category|
-        .col-lg-4
-          .card-catalogue
-            .card-catalogue-img
-              = link_to category.children? ? app_category_path(category) : app_products_path(category) do
-                %img{ src: category.image.url }
-            .card-catalogue-content
-              %h2.card-catalogue-title= category.name
-  %center
-    %a.btn.btn-custom{href:'/catalogue'} Ir al catálogo
+.wrapper
+  %section.banner-home
+    %ul.single-item
+      - @banners.each do |banner|
+        %li
+          %a{href: banner.link}
+            %img{alt: banner.title, src: banner.image.url}
+  .container.catalogue-container
+    .catalogue-items.p-0
+      .row
+        - @categories.first(3).each do |category|
+          .col-lg-4
+            .card-catalogue
+              .card-catalogue-img
+                = link_to category.children? ? app_category_path(category) : app_products_path(category) do
+                  %img{ src: category.image.url }
+              .card-catalogue-content
+                %h2.card-catalogue-title= category.name
+    %center
+      %a.btn.btn-custom{href:'/catalogue'} Ir al catálogo

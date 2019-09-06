@@ -1,94 +1,95 @@
-%section.contact
-  .container
-    .row
-      .col-md-6.col-sm-12
-        %center.mb-5
-          %img.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/logo/logo_negro.png", width: 300}
-        .text-justify
-          %p{style:'text-indent: 25px;'} Somos una empresa familiar fundada por el matrimonio que forman Fernando Peñuela y Estefania de Peñuela en el año 2009, especializada en diseñar y fabricar anillos de graduación, compromiso, matrimonio y joyería de autor.  Contamos con profesionales que aplican sus conocimientos y dominios de las múltiples técnicas en la fabricación y diseño de joyas de oro y plata, con los más altos estándares de calidad y garantía de por vida. 
-          %p Joyería Diamante Azul es Casa de Marcas con prestigio internacional garantizando todas las colecciones en tendencia de accesorios de joyería y relojería, con la orientación de nuestro equipo calificado de asesores en ventas.
-          %p.mb-5 Nuestra tienda física está ubicada en Ciudad Comercial las Virtudes III Etapa Planta Baja, Punto Fijo Estado Falcón Venezuela.
-          %img.w-100.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/about.jpg"}
-      .col-md-6.col-sm-12
-        .formBox-contact
-          .row
-            .col-sm-12
-              %h4 Contáctenos
-          %ul.contact-social
-            %li
-              %a{href:'https://api.whatsapp.com/send?phone=584246779776'}
-                %i.fab.fa-whatsapp
-                %span
-                0424-6779776
-            %li
-              %a{href:'tel:+58269-4158673'}
-                %i.fa.fa-phone
-                %span
-                  0269-4158673
-            %li
-              %a{href:'mailto:ventas@joyeriadiamanteazul.xyz'}
-                %i.fa.fa-envelope
-                %span
-                  ventas@joyeriadiamanteazul.xyz
-            %li
-              %a{href:'https://www.instagram.com/joyeriadiamanteazul/'}
-                %i.fab.fa-instagram
-                %span
-                  @joyeriadiamanteazul
-            %li
-              %a{href:'https://www.facebook.com/diamanteazuljoyeria'}
-                %i.fab.fa-facebook
-                %span
-                  Diamanteazuljoyeria
-            %li
-              %i.fa.fa-map-marker
-              %span.address
-                Ciudad Comercial Las Virtudes III Etapa.
-                %br
-                Punto Fijo, Estado Falcón, Venezuela.
-            %li
-              .float-left
-                %i.fa.fa-clock
-                %span.schedule
-                  Lunes a sábados
-                %br/
-                %span.time{style:'margin-left: 30px;'}
-                  10:00 am a 7:00 pm
-              .float-right
-                %span.schedule
-                  Domingos y Feriados
-                %br
-                %span.time
-                  11:00 am a 7:00 pm
-          .row
-            .col-sm-12
-              %h3
-                Envíenos un mensaje
-                %br/
-                %small Si desea enviarnos un mensaje, por favor llene el siguiente formulario y le responderemos lo antes posible
-          = simple_form_for @message, url: app_send_message_path(), html: {id: 'message_form'}, method: :get do |f|
+.wrapper
+  %section.contact
+    .container
+      .row
+        .col-md-6.col-sm-12
+          %center.mb-5
+            %img.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/logo/logo_negro.png", width: 300}
+          .text-justify{style:'text-indent: 25px;'}
+            %p Somos una empresa familiar fundada por el matrimonio que forman Fernando Peñuela y Estefania de Peñuela en el año 2009, especializada en diseñar y fabricar anillos de graduación, compromiso, matrimonio y joyería de autor.  Contamos con profesionales que aplican sus conocimientos y dominios de las múltiples técnicas en la fabricación y diseño de joyas de oro y plata, con los más altos estándares de calidad y garantía de por vida. 
+            %p Joyería Diamante Azul es Casa de Marcas con prestigio internacional garantizando todas las colecciones en tendencia de accesorios de joyería y relojería, con la orientación de nuestro equipo calificado de asesores en ventas.
+            %p.mb-5 Nuestra tienda física está ubicada en Ciudad Comercial las Virtudes III Etapa Planta Baja, Punto Fijo Estado Falcón Venezuela.
+            %img.w-100.center-block{alt: "Logotipo", src: "assets/app/diamanteazul/contact.jpeg"}
+        .col-md-6.col-sm-12
+          .formBox-contact
             .row
-              .col-md-12
-                .inputBox
-                  %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'message[name]'}
-              .col-md-12
-                .inputBox
-                  %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'message[from_email]'}
-              .col-md-12
-                .inputBox
-                  %input.input.required{placeholder: 'País', type: "text", name: 'message[country]'}
-              .col-md-12
-                .inputBox
-                  %input.input.required{placeholder: 'Ciudad', type: "text", name: 'message[city]'}
-              .col-md-12
-                .inputBox
-                  %textarea.input{placeholder: 'Mensaje', name: 'message[content]'}
+              .col-sm-12
+                %h4 Contáctenos
+            %ul.contact-social
+              %li
+                %a{href:'https://api.whatsapp.com/send?phone=584246779776'}
+                  %i.fab.fa-whatsapp
+                  %span
+                  0424-6779776
+              %li
+                %a{href:'tel:+58269-4158673'}
+                  %i.fa.fa-phone
+                  %span
+                    0269-4158673
+              %li
+                %a{href:'mailto:ventas@joyeriadiamanteazul.xyz'}
+                  %i.fa.fa-envelope
+                  %span
+                    ventas@joyeriadiamanteazul.xyz
+              %li
+                %a{href:'https://www.instagram.com/joyeriadiamanteazul/'}
+                  %i.fab.fa-instagram
+                  %span
+                    @joyeriadiamanteazul
+              %li
+                %a{href:'https://www.facebook.com/diamanteazuljoyeria'}
+                  %i.fab.fa-facebook
+                  %span
+                    Diamanteazuljoyeria
+              %li
+                %i.fa.fa-map-marker
+                %span.address
+                  Ciudad Comercial Las Virtudes III Etapa.
+                  %br
+                  Punto Fijo, Estado Falcón, Venezuela.
+              %li
+                .float-left
+                  %i.fa.fa-clock
+                  %span.schedule
+                    Lunes a sábados
+                  %br/
+                  %span.time{style:'margin-left: 30px;'}
+                    10:00 am a 7:00 pm
+                .float-right
+                  %span.schedule
+                    Domingos y Feriados
+                  %br
+                  %span.time
+                    11:00 am a 7:00 pm
             .row
-              .col-lg-6.col-xs-12
-                = recaptcha_tags
-              .col-lg-6.col-xs-12
-                .form-footer
-                  = f.submit 'Enviar', class: 'btn btn-custom'
+              .col-sm-12
+                %h3
+                  Envíenos un mensaje
+                  %br/
+                  %small Si desea enviarnos un mensaje, por favor llene el siguiente formulario y le responderemos lo antes posible
+            = simple_form_for @message, url: app_send_message_path(), html: {id: 'message_form'}, method: :get do |f|
+              .row
+                .col-md-12
+                  .inputBox
+                    %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'message[name]'}
+                .col-md-12
+                  .inputBox
+                    %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'message[from_email]'}
+                .col-md-12
+                  .inputBox
+                    %input.input.required{placeholder: 'País', type: "text", name: 'message[country]'}
+                .col-md-12
+                  .inputBox
+                    %input.input.required{placeholder: 'Ciudad', type: "text", name: 'message[city]'}
+                .col-md-12
+                  .inputBox
+                    %textarea.input{placeholder: 'Mensaje', name: 'message[content]'}
+              .row
+                .col-lg-6.col-xs-12
+                  = recaptcha_tags
+                .col-lg-6.col-xs-12
+                  .form-footer
+                    = f.submit 'Enviar', class: 'btn btn-custom'
 - if flash[:notice].eql?("Mensaje enviado")
   :javascript
     Swal.fire({

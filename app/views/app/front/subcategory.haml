@@ -1,29 +1,30 @@
-.container.category-container
-  .category-header
-    %nav{ "aria-label" => "breadcrumb"}
-      %ol.breadcrumb
-        - @subcategory.ancestors.each_with_index do |category, i|
-          %li.breadcrumb-item
-            = link_to i.zero? ? app_category_path(category) : app_subcategory_path(category) do
-              = category.name
-        %li.breadcrumb-item.active{ "aria-current" =>"page" }
-          = @subcategory.name
-    = simple_form_for @category, url: app_subcategory_path(@subcategory), method: :get do
-      .input-group
-        %input.form-control{placeholder: "Buscar...", type: "text", name: 'q'}
-        .input-group-append
-          %button.btn.btn-primary{type: "submit"}
-            %i.icofont-search
-      %small Ejemplo: graduación, boda, dije, etc.
-  .category-box
-    .category-items.w-100
-      %img.banner-category{ src: @subcategory&.banner&.url || '/assets/app/diamanteazul/banner.jpg' }
-      .row
-        - @subcategories.each do |category|
-          .col-lg-4.col-sm-6.col-xs-12
-            .card-catalogue
-              .card-catalogue-img
-                = link_to category.children? ? app_subcategory_path(category) : app_products_path(category) do
-                  %img{ src: category.image.url }
-              .card-catalogue-content
-                %h2.card-catalogue-title= category.name
+.wrapper
+  .container.category-container
+    .category-header
+      %nav{ "aria-label" => "breadcrumb"}
+        %ol.breadcrumb
+          - @subcategory.ancestors.each_with_index do |category, i|
+            %li.breadcrumb-item
+              = link_to i.zero? ? app_category_path(category) : app_subcategory_path(category) do
+                = category.name
+          %li.breadcrumb-item.active{ "aria-current" =>"page" }
+            = @subcategory.name
+      = simple_form_for @category, url: app_subcategory_path(@subcategory), method: :get do
+        .input-group
+          %input.form-control{placeholder: "Buscar...", type: "text", name: 'q'}
+          .input-group-append
+            %button.btn.btn-primary{type: "submit"}
+              %i.icofont-search
+        %small Ejemplo: graduación, boda, dije, etc.
+    .category-box
+      .category-items.w-100
+        %img.banner-category{ src: @subcategory&.banner&.url || '/assets/app/diamanteazul/banner.jpg' }
+        .row
+          - @subcategories.each do |category|
+            .col-lg-4.col-sm-6.col-xs-12
+              .card-catalogue
+                .card-catalogue-img
+                  = link_to category.children? ? app_subcategory_path(category) : app_products_path(category) do
+                    %img{ src: category.image.url }
+                .card-catalogue-content
+                  %h2.card-catalogue-title= category.name
