@@ -12,18 +12,34 @@
     color: $silver;
   }
 
+  .navbar-brand {
+    margin: 0 auto;
+    @include respond-to(xs) {
+      margin: 0;
+    }
+  }
+
   img {
     margin: 15px 0;
     width: 180px;
+    @include respond-to(xs) {
+      width: 120px;
+    }
   }
 
   .nav-item {
     padding: 0 60px;
+    @include respond-to(xs) {
+      padding: 0 10px;
+    }
   }
 }
 
 .navbar-top {
   height: 100px;
+  @include respond-to(xs) {
+    height: auto;
+  }
 }
 
 .sidebar-category {
@@ -48,15 +64,6 @@
 }
 
 .navbar-collapse {
-  @include respond-to(xs) {
-    z-index: 99;
-    padding: 10px 20px;
-    background-color: white;
-    top: 100px;
-    position: absolute;
-    width: 100%;
-    left: 0px;
-  }
   @include respond-to(sm) {
     z-index: 99;
     padding: 10px 20px;
@@ -78,11 +85,15 @@
 }
 
 .navbar-toggler {
+  position: absolute;
+  right: 20px;
+
   &:focus {
     outline: none;
   }
 
   span {
     color: $primary;
+    font-size: 25px;
   }
 }

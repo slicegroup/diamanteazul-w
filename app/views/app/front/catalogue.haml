@@ -1,19 +1,20 @@
-.container.catalogue-container
-  = simple_form_for @category, url: app_catalogue_path, method: :get do
-    .input-group
-      %input.form-control{placeholder: "Buscar...", type: "text", name: 'q'}
-      .input-group-append
-        %button.btn.btn-primary{type: "submit"}
-          %i.icofont-search
-    %small Ejemplo: graduación, boda, dije, etc.
-  .catalogue-items
-    .row
-      %img.banner-category{ src: @category&.banner&.url || '/assets/app/diamanteazul/banner.jpg' }
-      - @categories.each do |category|
-        .col-lg-4
-          .card-catalogue
-            .card-catalogue-img
-              = link_to category.children? ? app_category_path(category) : app_products_path(category) do
-                %img{ src: category.image.url }
-            .card-catalogue-content
-              %h2.card-catalogue-title= category.name
+.wrapper
+  .container.catalogue-container
+    = simple_form_for @category, url: app_catalogue_path, method: :get do
+      .input-group
+        %input.form-control{placeholder: "Buscar...", type: "text", name: 'q'}
+        .input-group-append
+          %button.btn.btn-primary{type: "submit"}
+            %i.icofont-search
+      %small Ejemplo: graduación, boda, dije, etc.
+    .catalogue-items
+      .row
+        %img.banner-category{ src: @category&.banner&.url || '/assets/app/diamanteazul/banner.jpg' }
+        - @categories.each do |category|
+          .col-lg-4
+            .card-catalogue
+              .card-catalogue-img
+                = link_to category.children? ? app_category_path(category) : app_products_path(category) do
+                  %img{ src: category.image.url }
+              .card-catalogue-content
+                %h2.card-catalogue-title= category.name

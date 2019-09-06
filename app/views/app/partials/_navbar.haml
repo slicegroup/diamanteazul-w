@@ -1,7 +1,9 @@
 .fixed-top
   %nav.navbar.navbar-top.navbar-expand-lg
-    %a.navbar-brand.mx-auto{href: "/"}
+    %a.navbar-brand{href: "/"}
       %img{ src: '/assets/app/diamanteazul/logo/logo-default.png' }
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", type: "button"}
+      %span.fa.fa-bars
   %nav.navbar.navbar-expand-lg
     #navbarSupportedContent.collapse.navbar-collapse
       %ul.navbar-nav.mx-auto
