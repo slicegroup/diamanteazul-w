@@ -1,4 +1,11 @@
 modules:
+  catalogues:
+    name: Catalogue
+    model: KepplerProductsCatalogue
+    actions: [
+      'index', 'create', 'update', 'destroy', 'download', 'upload', 'clone'
+    ]
+
   cotizations:
     name: Cotization
     model: KepplerProductsCotization

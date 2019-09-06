@@ -28,10 +28,12 @@ menu:
           icon: layers
           current: ['/admin/products/categories']
           model: KepplerProducts::Category
-
-      # - new:
-      #     name: + Add new module
-      #     url_path: /url_path
-      #     current: ['/current_path']
-      #     enviroment: development
-      #     model: User
+  keppler_catalogue:
+    name: catalogue
+    current: ['/admin/products/catalogues']
+    url_path: /admin/products/catalogues
+    icon: rocket
+    model: KepplerProducts::Catalogue
+    environment: all
+    position: 5
+    submenu:

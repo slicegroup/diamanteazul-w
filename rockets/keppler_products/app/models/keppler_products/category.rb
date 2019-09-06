@@ -36,8 +36,8 @@ module KepplerProducts
     	return if banner_cache.nil?
     	if banner.width < banner.height
     		errors.add :banner, 'El banner de publicidad debe tener mayor anchura que altura'
-    	elsif banner.width < 600 || banner.height < 300
-    		errors.add :banner, 'El banner de publicidad no cumple con las dimensiones mínimas recomendadas: 600x300'
+    	elsif banner.width < 1500 || banner.height < 500
+    		errors.add :banner, 'El banner de publicidad no cumple con las dimensiones mínimas recomendadas: 1500x500'
     	end
     end
 

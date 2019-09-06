@@ -14,6 +14,7 @@ module App
     end
 
     def catalogue
+      @catalogue = KepplerProducts::Catalogue.first
       if params[:q]
         @categories = KepplerProducts::Category.set_parents
         .ransack(name_cont: params[:q])
