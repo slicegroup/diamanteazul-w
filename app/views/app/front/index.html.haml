@@ -7,7 +7,7 @@
             %img{alt: banner.title, src: banner.image.url}
   .container.catalogue-container
     .catalogue-items.p-0
-      .row
+      .row{style:'margin-right: 0;margin-left: 0;'}
         - @categories.first(3).each do |category|
           .col-lg-4
             .card-catalogue

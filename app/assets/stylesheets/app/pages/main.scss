@@ -30,7 +30,10 @@ p, small, span {
 .banner-home {
   @include size(100%, 320px);
   overflow: hidden;
-  margin-top: 155px;
+
+  @include respond-to(xs) {
+    @include size(100%, 50vw);
+  }
 
   ul {
     padding-left: 0;
@@ -78,6 +81,9 @@ p, small, span {
 
 .wrapper {
   margin-top: 155px;
+  @include respond-to(xs ){
+    margin-top: 127px;
+  }
 }
 
 .category-header {
