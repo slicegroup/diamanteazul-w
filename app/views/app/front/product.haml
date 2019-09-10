@@ -84,7 +84,11 @@
                 = recaptcha_tags
               .col-lg-6.col-xs-12
                 .form-footer
-                  = f.submit 'Cotizar', class: 'btn btn-custom'
+                  %button.btn.btn-custom{type: 'submit'}
+                    - if @product.price.present?
+                      Comprar
+                    - else
+                      Solicitar
 - if flash[:notice].eql?("Mensaje enviado")
   :javascript
     Swal.fire({
