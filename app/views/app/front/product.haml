@@ -28,6 +28,8 @@
       .product-description
         %h3= @product&.reference
         %h1= @product.name
+        - if @product&.price.present?
+          %h2= number_to_currency(@product.price)
         %h4 Características
         %p= raw @product.description
         .formBox
@@ -88,7 +90,7 @@
                     - if @product&.price.present?
                       Comprar
                     - else
-                      Solicitar
+                      Cotizar
 - if flash[:notice].eql?("Mensaje enviado")
   :javascript
     Swal.fire({
