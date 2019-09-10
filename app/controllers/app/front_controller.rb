@@ -65,7 +65,7 @@ module App
     def send_cotization
       @cotization = KepplerProducts::Cotization.new(cotization_params.merge(
         product_id: params[:id]))
-      include_info_additional if !@product.price.present?
+      include_info_additional if !@product&.price.present?
       if @cotization.save
         flash[:notice] = "Mensaje enviado"
       else
