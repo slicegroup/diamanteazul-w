@@ -32,38 +32,40 @@
         %p= raw @product.description
         .formBox
           = simple_form_for @cotization, url: app_send_cotization_path(@product), html: {id: 'cotization_form'}, method: :get do |f|
+            - if !@product.price.present?
+              .row
+                .col-sm-12
+                  %h4 Materiales
             .row
-              .col-sm-12
-                %h4 Materiales
-            .row
-              .col-sm-6
-                .inputBox
-                  %label.checkbox-container
-                    Oro 18k
-                    %input{ type: "checkbox"}/
-                    %span.checkmark
-                  %label.checkbox-container
-                    Oro 10k
-                    %input{ type: "checkbox"}/
-                    %span.checkmark
-                  %label.checkbox-container
-                    Plata Ley 950
-                    %input{ type: "checkbox"}/
-                    %span.checkmark
-              .col-sm-6
-                .inputBox
-                  %label.checkbox-container
-                    Plata con baño de oro 24k
-                    %input{ type: "checkbox"}/
-                    %span.checkmark
-                  %label.checkbox-container
-                    Plata con baño de rodio
-                    %input{ type: "checkbox"}/
-                    %span.checkmark
-              .col-sm-12
-                %small Especifique las características adicionales que desea en esta joya para su cotización
-                .inputBox
-                  %textarea.input{placeholder: 'Características adicionales', name: 'cotization[]'}
+              - if !@product.price.present?
+                .col-sm-6
+                  .inputBox
+                    %label.checkbox-container
+                      Oro 18k
+                      %input{ type: "checkbox", name: 'additional[oro-18k]'}/
+                      %span.checkmark
+                    %label.checkbox-container
+                      Oro 10k
+                      %input{ type: "checkbox", name: 'additional[oro-10k]'}/
+                      %span.checkmark
+                    %label.checkbox-container
+                      Plata Ley 950
+                      %input{ type: "checkbox", name: 'additional[plata-ley-950]'}/
+                      %span.checkmark
+                .col-sm-6
+                  .inputBox
+                    %label.checkbox-container
+                      Plata con baño de oro 24k
+                      %input{ type: "checkbox", name: 'additional[plata-baño-oro-24k]'}/
+                      %span.checkmark
+                    %label.checkbox-container
+                      Plata con baño de rodio
+                      %input{ type: "checkbox", name: 'additional[plata-baño-rodio]'}/
+                      %span.checkmark
+                .col-sm-12
+                  %small Especifique las características adicionales que desea en esta joya para su cotización
+                  .inputBox
+                    %textarea.input{placeholder: 'Características adicionales', name: 'content'}
               .col-sm-6
                 .inputBox
                   %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'cotization[name]', id: 'name'}

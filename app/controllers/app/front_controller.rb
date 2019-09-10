@@ -4,6 +4,7 @@ module App
     layout 'app/layouts/application'
     before_action :set_categories_parents, except: [:catalogue]
     before_action :set_category, except: [:index, :products, :product]
+    before_action :set_product, only: [:send_cotization]
     before_action :recaptcha_cotization, only: [:send_cotization]
     before_action :recaptcha_message, only: [:send_message]
     def index
@@ -64,6 +65,7 @@ module App
     def send_cotization
       @cotization = KepplerProducts::Cotization.new(cotization_params.merge(
         product_id: params[:id]))
+      include_info_additional if !@product.price.present?
       if @cotization.save
         flash[:notice] = "Mensaje enviado"
       else
@@ -87,6 +89,10 @@ module App
     end
 
     private
+
+    def set_product
+      @product = KepplerProducts::Product.find(params[:id])
+    end
 
     def recaptcha_cotization
       return if verify_recaptcha(model: @cotization, timeout: 10, message: "Oh! It's error with reCAPTCHA!")
@@ -116,6 +122,13 @@ module App
       params.require(:message).permit(
         :name, :from_email, :subject, :content
       )
+    end
+
+    def include_info_additional
+      additional = 'Caracteristicas adicionales: '
+      additional << params[:additional].keys.join(', ').gsub('-', ' ').titlecase
+      additional << '<br>' + params[:content]
+      @cotization.additional = additional
     end
 
   end

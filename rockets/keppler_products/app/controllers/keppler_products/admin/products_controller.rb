@@ -103,7 +103,7 @@ module KepplerProducts
       # Only allow a trusted parameter "white list" through.
       def product_params
         params.require(:product).permit(
-          :name, :category_id, :description, :tags, {images: []}, :reference
+          :name, :category_id, :description, :tags, {images: []}, :reference, :price
         )
       end
     end
