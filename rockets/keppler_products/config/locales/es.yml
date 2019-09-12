@@ -3,6 +3,7 @@ es:
     sidebar-menu:
       keppler-products: Keppler products
       keppler-products-submenu:
+        design: Design
         catalogue: Catalogue
         cotization: Cotization
         product: Product
@@ -10,16 +11,19 @@ es:
     permissions:
     models:
       singularize:
+        design: design
         catalogue: catalogue
         cotization: cotization
         product: product
         category: category
       pluralize:
+        designs: designs
         catalogues: catalogues
         cotizations: cotizations
         products: products
         categories: categories
     modules:
+      admin/design: Design
       admin/catalogue: Catalogue
       admin/cotization: Cotization
       admin/product: Product

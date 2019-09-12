@@ -36,3 +36,11 @@ menu:
     model: KepplerProducts::Catalogue
     environment: all
     position: 4
+  keppler_design:
+    name: design
+    url_path: /admin/products/designs
+    icon: rocket
+    current: ['/admin/products/designs']
+    model: KepplerProducts::Design
+    environment: all
+    position: 5

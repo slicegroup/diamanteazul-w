@@ -12,6 +12,7 @@ module App
     end
 
     def about
+      @category_url = KepplerProducts::Design.first&.url
     end
 
     def catalogue

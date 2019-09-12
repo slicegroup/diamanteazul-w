@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_175159) do
+ActiveRecord::Schema.define(version: 2019_09_11_190321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -209,6 +209,14 @@ ActiveRecord::Schema.define(version: 2019_09_10_175159) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text "additional"
+  end
+
+  create_table "keppler_products_designs", force: :cascade do |t|
+    t.string "url"
+    t.integer "position"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "keppler_products_products", force: :cascade do |t|

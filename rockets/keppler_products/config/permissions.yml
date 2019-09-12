@@ -1,4 +1,11 @@
 modules:
+  designs:
+    name: Design
+    model: KepplerProductsDesign
+    actions: [
+      'index', 'create', 'update', 'destroy', 'download', 'upload', 'clone'
+    ]
+
   catalogues:
     name: Catalogue
     model: KepplerProductsCatalogue
