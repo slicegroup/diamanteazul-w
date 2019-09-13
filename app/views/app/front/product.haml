@@ -26,71 +26,73 @@
           - @product.images.each do |image|
             %img{ src: image.url }
       .product-description
-        %h3= @product&.reference
-        %h1= @product.name
-        - if @product&.price.present?
-          %h2= number_to_currency(@product.price)
-        %h4 Características
-        %p= raw @product.description
-        .formBox
-          = simple_form_for @cotization, url: app_send_cotization_path(@product), html: {id: 'cotization_form'}, method: :get do |f|
+        = simple_form_for @cotization, url: app_send_cotization_path(@product), html: {id: 'cotization_form'}, method: :get do |f|
+          %h3= @product&.reference
+          %h1= @product.name
+          - if @product&.price.present?
+            %h2= number_to_currency(@product.price)
+          - if !@product&.price.present?
+            .row
+              .col-sm-12
+                %h4 Materiales
+          .row
+            - if !@product&.price.present?
+              .col-sm-6
+                .inputBox
+                  %label.checkbox-container
+                    Oro 18k
+                    %input{ type: "checkbox", name: 'additional[oro-18k]'}/
+                    %span.checkmark
+                  %label.checkbox-container
+                    Oro 10k
+                    %input{ type: "checkbox", name: 'additional[oro-10k]'}/
+                    %span.checkmark
+                  %label.checkbox-container
+                    Plata Ley 950
+                    %input{ type: "checkbox", name: 'additional[plata-ley-950]'}/
+                    %span.checkmark
+              .col-sm-6
+                .inputBox
+                  %label.checkbox-container
+                    Plata con baño de oro 24k
+                    %input{ type: "checkbox", name: 'additional[plata-baño-oro-24k]'}/
+                    %span.checkmark
+                  %label.checkbox-container
+                    Plata con baño de rodio
+                    %input{ type: "checkbox", name: 'additional[plata-baño-rodio]'}/
+                    %span.checkmark
+          %h4 Características
+          %p= raw @product.description
+          .formBox
             - if !@product&.price.present?
               .row
-                .col-sm-12
-                  %h4 Materiales
-            .row
-              - if !@product&.price.present?
-                .col-sm-6
-                  .inputBox
-                    %label.checkbox-container
-                      Oro 18k
-                      %input{ type: "checkbox", name: 'additional[oro-18k]'}/
-                      %span.checkmark
-                    %label.checkbox-container
-                      Oro 10k
-                      %input{ type: "checkbox", name: 'additional[oro-10k]'}/
-                      %span.checkmark
-                    %label.checkbox-container
-                      Plata Ley 950
-                      %input{ type: "checkbox", name: 'additional[plata-ley-950]'}/
-                      %span.checkmark
-                .col-sm-6
-                  .inputBox
-                    %label.checkbox-container
-                      Plata con baño de oro 24k
-                      %input{ type: "checkbox", name: 'additional[plata-baño-oro-24k]'}/
-                      %span.checkmark
-                    %label.checkbox-container
-                      Plata con baño de rodio
-                      %input{ type: "checkbox", name: 'additional[plata-baño-rodio]'}/
-                      %span.checkmark
                 .col-sm-12
                   %small Especifique las características adicionales que desea en esta joya para su cotización
                   .inputBox
                     %textarea.input{placeholder: 'Características adicionales', name: 'content'}
-              .col-sm-6
-                .inputBox
-                  %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'cotization[name]', id: 'name'}
-              .col-sm-6
-                .inputBox
-                  %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'cotization[email]', id: 'email'}
-            .row
-              .col-sm-6
-                .inputBox
-                  %input.input.required{placeholder: 'Teléfono', type: "text", name: 'cotization[phone]', id: 'phone'}
-              .col-sm-6
-                .inputBox
-                  %textarea.input{placeholder: 'Mensaje', name: 'cotization[message]'}
-            .row
-              .col-lg-6.col-xs-12
-                = recaptcha_tags
-              .col-lg-6.col-xs-12
-                .form-footer
-                  %button.btn.btn-custom{type: 'submit'}
-                    - if @product&.price.present?
-                      Comprar
-                    - else
-                      Cotizar
+                .col-sm-6
+                  .inputBox
+                    %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'cotization[name]', id: 'name'}
+                .col-sm-6
+                  .inputBox
+                    %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'cotization[email]', id: 'email'}
+              .row
+                .col-sm-6
+                  .inputBox
+                    %input.input.required{placeholder: 'Teléfono', type: "text", name: 'cotization[phone]', id: 'phone'}
+                .col-sm-6
+                  .inputBox
+                    %textarea.input{placeholder: 'Mensaje', name: 'cotization[message]'}
+              .row
+                .col-lg-6.col-xs-12
+                  = recaptcha_tags
+                .col-lg-6.col-xs-12
+                  .form-footer
+                    %button.btn.btn-custom{type: 'submit'}
+                      - if @product&.price.present?
+                        Comprar
+                      - else
+                        Cotizar
 - if flash[:notice].eql?("Mensaje enviado")
   :javascript
     Swal.fire({
