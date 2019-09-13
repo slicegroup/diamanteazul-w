@@ -207,7 +207,7 @@ p, small, span {
 .btn-custom {
   background-color: $primary;
   border-radius: 10px;
-  color: $white;
+  color: $white !important;
   font-family: $lato;
   margin-bottom: 10px;
 
@@ -624,4 +624,13 @@ textarea{
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.logo-diseno-joyas {
+  img {
+    width: 550px;
+    @include respond-to(xs) {
+      width: 100%;
+    }
+  }
 }
