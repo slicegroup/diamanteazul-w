@@ -9,7 +9,8 @@
       %small Ejemplo: graduación, boda, dije, etc.
     .catalogue-items
       .row
-        %img.banner-category{ src: @catalogue&.banner&.url || '/assets/app/diamanteazul/banner.jpg' }
+        - if @catalogue&.banner&.url&.present?
+          %img.banner-category{ src: @catalogue&.banner&.url}
         - @categories.each do |category|
           .col-lg-4
             .card-catalogue
