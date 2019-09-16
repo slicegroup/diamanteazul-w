@@ -30,7 +30,7 @@
           %h3= @product&.reference
           %h1= @product.name
           - if @product&.price.present?
-            %h2= number_to_currency(@product.price)
+            %h2= @product.price
           - if !@product&.price.present?
             .row
               .col-sm-12
