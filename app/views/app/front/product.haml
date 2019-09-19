@@ -30,7 +30,7 @@
           %h3= @product&.reference
           %h1= @product.name
           - if @product&.price.present?
-            %h2= number_to_currency(@product.price)
+            %h2= @product.price
           - if !@product&.price.present?
             .row
               .col-sm-12
@@ -70,29 +70,30 @@
                   %small Especifique las características adicionales que desea en esta joya para su cotización
                   .inputBox
                     %textarea.input{placeholder: 'Características adicionales', name: 'content'}
-                .col-sm-6
-                  .inputBox
-                    %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'cotization[name]', id: 'name'}
-                .col-sm-6
-                  .inputBox
-                    %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'cotization[email]', id: 'email'}
-              .row
-                .col-sm-6
-                  .inputBox
-                    %input.input.required{placeholder: 'Teléfono', type: "text", name: 'cotization[phone]', id: 'phone'}
-                .col-sm-6
-                  .inputBox
-                    %textarea.input{placeholder: 'Mensaje', name: 'cotization[message]'}
-              .row
-                .col-lg-6.col-xs-12
-                  = recaptcha_tags
-                .col-lg-6.col-xs-12
-                  .form-footer
-                    %button.btn.btn-custom{type: 'submit'}
-                      - if @product&.price.present?
-                        Comprar
-                      - else
-                        Cotizar
+            .row
+              .col-sm-6
+                .inputBox
+                  %input.input.required{placeholder: 'Nombre y Apellido', type: "text", name: 'cotization[name]', id: 'name'}
+              .col-sm-6
+                .inputBox
+                  %input.input.required{placeholder: 'Correo electrónico', type: "text", name: 'cotization[email]', id: 'email'}
+            .row
+              .col-sm-6
+                .inputBox
+                  %input.input.required{placeholder: 'Teléfono', type: "text", name: 'cotization[phone]', id: 'phone'}
+              .col-sm-6
+                .inputBox
+                  %textarea.input{placeholder: 'Mensaje', name: 'cotization[message]'}
+            .row
+              .col-lg-6.col-xs-12
+                = recaptcha_tags
+              .col-lg-6.col-xs-12
+                .form-footer
+                  %button.btn.btn-custom{type: 'submit'}
+                    - if @product&.price.present?
+                      Comprar
+                    - else
+                      Cotizar
 - if flash[:notice].eql?("Mensaje enviado")
   :javascript
     Swal.fire({
