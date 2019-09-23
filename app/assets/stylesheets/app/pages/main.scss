@@ -274,7 +274,8 @@ p, small, span {
     bottom: 20px;
   }
   .slick-dots li button:before, .slick-dots li button, .slick-dots li {
-    @include size(25px, 8px);
+    @include size(12px);
+    border-radius: 50%;
   }
   .slick-dots li button:before {
     background-color: #000;
@@ -287,7 +288,8 @@ p, small, span {
 
 .slick-dots li button:before {
   background-color: $primary;
-  @include size(15px, 5px);
+  @include size(12px);
+  border-radius: 50%;
   content: '';
 }
 
