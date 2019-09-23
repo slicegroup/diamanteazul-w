@@ -94,7 +94,7 @@ module App
 
     def send_mailer
       if @product&.price.present?
-        ContactMailer.shopy_client(@product).deliver_now
+        ContactMailer.shopy_client(@cotization, @product).deliver_now
       else
         ContactMailer.cotization_admin(@cotization, @product).deliver_now
       end
