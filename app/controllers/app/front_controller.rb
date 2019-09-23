@@ -69,6 +69,7 @@ module App
       include_info_additional if !@product&.price.present?
       if @cotization.save
         flash[:notice] = "Mensaje enviado"
+        # send_mailer
       else
         flash[:notice] = "Mensaje no enviado"
       end
@@ -90,6 +91,14 @@ module App
     end
 
     private
+
+    def send_mailer
+      if @product&.price.present?
+        ContactMailer.shopy_client(@cotization).deliver_now
+      else
+        ContactMailer.cotization_admin(@cotization).deliver_now
+      end
+    end
 
     def set_product
       @product = KepplerProducts::Product.find(params[:id])
