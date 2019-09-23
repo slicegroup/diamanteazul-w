@@ -28,7 +28,7 @@ p, small, span {
 }
 
 .banner-home {
-  @include size(100%, 320px);
+  @include size(100%, 25vw);
   overflow: hidden;
 
   @include respond-to(xs) {
