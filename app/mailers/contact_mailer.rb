@@ -1,13 +1,15 @@
 class ContactMailer < ApplicationMailer
 	default from: 'ventas@joyeriadiamanteazul.xyz'
 
-  def cotization_admin(cotization)
+  def cotization_admin(cotization, product)
     @cotization = cotization
-    mail(from: 'ventas@joyeriadiamanteazul.xyz', to: 'ventas@joyeriadiamanteazul.xyz', subject: 'Solicitud de cotización')
-  end
+    @product = product
+    mail(from: 'ventas@joyeriadiamanteazul.xyz', to: @cotization.email, subject: 'Gracias por tu cotización')
+  end	
 
-  def shopy_client(cotization)
+  def shopy_client(cotization, product)
     @cotization = cotization
-    mail(from: 'ventas@joyeriadiamanteazul.xyz', to: 'ventas@joyeriadiamanteazul.xyz', subject: 'Solicitud de compra')
+    @product = product
+    mail(from: 'ventas@joyeriadiamanteazul.xyz', to: @cotization.email, subject: 'Gracias por tu compra')
   end
 end
