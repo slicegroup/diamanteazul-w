@@ -106,8 +106,9 @@ p, small, span {
 
 .banner-category {
   width: 100%;
-  height: 250px;
+  height: 20vw;
   margin-bottom: 20px;
+  object-fit: cover;
 }
 
 .category-items {
