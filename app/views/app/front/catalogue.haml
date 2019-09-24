@@ -7,10 +7,11 @@
           %button.btn.btn-primary{type: "submit"}
             %i.icofont-search
       %small Ejemplo: graduación, boda, dije, etc.
+  .banner-category-box.d-none.d-xl-block.d-lg-block.d-xl-none
+    - if @catalogue&.banner&.url&.present?
+      %img.banner-category{ src: @catalogue&.banner&.url}
+  .container.catalogue-container
     .catalogue-items
-      .d-none.d-xl-block.d-lg-block.d-xl-none
-        - if @catalogue&.banner&.url&.present?
-          %img.banner-category{ src: @catalogue&.banner&.url}
       .row
         - @categories.each do |category|
           .col-lg-4

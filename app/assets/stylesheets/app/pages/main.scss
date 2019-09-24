@@ -75,8 +75,12 @@ p, small, span {
 }
 
 
-.category-container, .catalogue-container, .product-container {
+.catalogue-container, .product-container {
   padding: 50px 0;
+}
+
+.category-container {
+  padding-top: 50px;
 }
 
 .wrapper {
@@ -104,9 +108,14 @@ p, small, span {
   display: flex;
 }
 
+.banner-category-box {
+  width: 80vw;
+  margin: 0 auto;
+}
+
 .banner-category {
   width: 100%;
-  height: 20vw;
+  height: 26vw;
   margin-bottom: 20px;
   object-fit: cover;
 }
@@ -304,7 +313,7 @@ p, small, span {
 
   @include respond-to(xs) {
     width: 100%;
-    padding: 10px 20px;
+    padding: 30px 20px;
     margin-left: 0;
   }
 
@@ -504,6 +513,9 @@ textarea{
   @include respond-to(xs) {
     padding: 20px 10px;
   }
+  @include respond-to(sm) {
+    padding: 0 20px;
+  }
 
   h4 {
     font-size: 25px;
@@ -547,6 +559,23 @@ textarea{
         color: #636363;
       }
     }
+  }
+}
+
+.float-left-clock {
+  float: left;
+}
+
+.float-right-clock {
+  float: right;
+
+  @include respond-to(xs) {
+    float: left;
+    margin-left: 20px;
+  }
+  @include respond-to(sm) {
+    float: left;
+    margin-left: 20px;
   }
 }
 

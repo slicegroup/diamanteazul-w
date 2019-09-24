@@ -9,10 +9,12 @@
             %button.btn.btn-primary{type: "submit"}
               %i.icofont-search
         %small Ejemplo: graduación, boda, dije, etc.
+  .banner-category-box
+    - if @category&.banner&.url&.present?
+      %img.banner-category{ src: @category&.banner&.url }
+  .container.category-container
     .category-box
       .category-items
-        - if @category&.banner&.url&.present?
-          %img.banner-category{ src: @category&.banner&.url }
         .row
           - @subcategories.each do |category|
             .col-lg-4.col-sm-6.col-xs-12
