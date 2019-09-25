@@ -117,7 +117,7 @@ module App
     end
 
     def set_categories_parents
-      @categories = KepplerProducts::Category.set_parents
+      @categories = KepplerProducts::Category.set_parents.order(:id)
     end
 
     def set_category
