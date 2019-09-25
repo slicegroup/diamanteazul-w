@@ -217,7 +217,8 @@
                           <table width="290" border="0" cellspacing="0" cellpadding="0" align="left" class="em_wrapper">
                               <tr>
                                 <td align="center" valign="middle">
-                                  <img width="200" src="<%= @product.images[0].url %>">
+                                  <!-- <img width="200" src=""> -->
+                                  <%= image_tag @product.images[0].url, width:"200" %>
                                 </td>
                               </tr>
                             </table>

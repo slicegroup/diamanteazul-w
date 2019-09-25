@@ -29,7 +29,7 @@
               .card-catalogue
                 .card-catalogue-img
                   = link_to app_product_path(@category, product) do
-                    %img{ src: product.images[0] }
+                    = image_tag product.images[0].url
                 .card-catalogue-content
                   %h2.card-catalogue-title= product.name
                   = link_to app_product_path(@category, product), class: 'btn btn-custom' do
