@@ -97,6 +97,7 @@ module App
         ContactMailer.shopy_client(@cotization, @product).deliver_now
         ContactMailer.shopy_admin(@cotization, @product).deliver_now
       else
+        ContactMailer.cotization_client(@cotization, @product).deliver_now
         ContactMailer.cotization_admin(@cotization, @product).deliver_now
       end
     end
