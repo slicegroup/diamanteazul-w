@@ -4,6 +4,7 @@ class ContactMailer < ApplicationMailer
   def cotization_client(cotization, product)
     @cotization = cotization
     @product = product
+    attachments.inline['photo.png'] = File.read(@product.images[0].url)
     mail(from: 'ventas@joyeriadiamanteazul.xyz', to: @cotization.email, subject: 'Gracias por tu cotización')
   end	
 
@@ -16,6 +17,7 @@ class ContactMailer < ApplicationMailer
   def shopy_client(cotization, product)
     @cotization = cotization
     @product = product
+    attachments.inline['photo.png'] = File.read(@product.images[0].url)
     mail(from: 'ventas@joyeriadiamanteazul.xyz', to: @cotization.email, subject: 'Gracias por tu compra')
   end
 
