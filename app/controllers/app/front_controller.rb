@@ -5,8 +5,8 @@ module App
     before_action :set_categories_parents, except: [:catalogue]
     before_action :set_category, except: [:index, :products, :product]
     before_action :set_product, only: [:send_cotization]
-    # before_action :recaptcha_cotization, only: [:send_cotization]
-    # before_action :recaptcha_message, only: [:send_message]
+    before_action :recaptcha_cotization, only: [:send_cotization]
+    before_action :recaptcha_message, only: [:send_message]
     def index
       @banners = KepplerBanners::Banner.all
     end
@@ -69,7 +69,7 @@ module App
       include_info_additional if !@product&.price.present?
       if @cotization.save
         flash[:notice] = "Mensaje enviado"
-        # send_mailer
+        send_mailer
       else
         flash[:notice] = "Mensaje no enviado"
       end
