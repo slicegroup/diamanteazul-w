@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Gracias por su compra</title>
+    <title>Solicitud <del></del> compra</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
@@ -183,13 +183,13 @@
                     <td height="50" class="em_height">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td align="center" style="font-family:'Lato', sans-serif; font-size:25px; font-weight:bold; line-height:22px; color:#1e46a1; text-transform:uppercase;">Su cotización</td>
+                    <td align="center" style="font-family:'Lato', sans-serif; font-size:25px; font-weight:bold; line-height:22px; color:#1e46a1; text-transform:uppercase;">Solicitud de</td>
                   </tr>
                   <tr>
                     <td height="14" style="font-size:1px; line-height:1px;">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td align="center" style="font-family:'Lato', sans-serif; font-size:18px; font-weight:bold; line-height:22px; color:#1e46a1; text-transform:uppercase;">fue procesada</td>
+                    <td align="center" style="font-family:'Lato', sans-serif; font-size:18px; font-weight:bold; line-height:22px; color:#1e46a1; text-transform:uppercase;">compra</td>
                   </tr>
                   <tr>
                     <td height="25" class="em_height">&nbsp;</td>
@@ -199,12 +199,6 @@
                   </tr>
                   <tr>
                     <td height="27" class="em_height">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td align="center" style="font-family:'Lato', sans-serif; font-size:16px; line-height:22px; color:#30373b;">
-                      Cotización:
-                      <strong><%= @product.name%></strong>
-                    </td>
                   </tr>
                   <tr>
                     <td height="23" class="em_height">&nbsp;</td>
@@ -217,7 +211,7 @@
                           <table width="290" border="0" cellspacing="0" cellpadding="0" align="left" class="em_wrapper">
                               <tr>
                                 <td align="center" valign="middle">
-                                  <img width="200" src="<%= @product.images[0]%>">
+                                  <img width="200" src="<%= @product.images[0] %>">
                                 </td>
                               </tr>
                             </table>
@@ -230,13 +224,33 @@
                                 </td>
                               </tr>
                               <tr>
+                                <td valign="middle" class="em_font1" height="42" style="font-family:'Lato', sans-serif; font-size:17px; font-weight:bold; color:#30373b;">
+                                  <span style="color:#1e46a1;">A nombre de:</span> 
+                                  <br>
+                                  <%= @cotization.name %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td valign="top" class="em_pad_top">
+                                  <table width="100%" border="0" cellspacing="0" cellpadding="0"  >
+                                    <tr>
+                                      <td valign="middle" class="em_font1" height="42" style="font-family:'Lato', sans-serif; font-size:17px; font-weight:bold; color:#30373b;">
+                                        <span style="color:#1e46a1;">Precio:</span> 
+                                        <br>
+                                        <%= @product.price %>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
                                   <td valign="top" class="em_pad_top">
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0"  >
                                       <tr>
                                         <td valign="middle" class="em_font1" height="42" style="font-family:'Lato', sans-serif; font-size:17px; font-weight:bold; color:#30373b;">
                                           <span style="color:#1e46a1;">Caracteristicas:</span> 
                                           <br>
-                                          <%= raw @cotization&.additional %>
+                                          <%= raw @product.description %>
                                         </td>
                                       </tr>
                                     </table>
@@ -248,61 +262,6 @@
                       </table>
                     </td>
                   </tr>
-                  <tr>
-                    <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td height="20" align="center" class="em_font1" height="42" style="font-family:'Lato', sans-serif; font-size:17px; font-weight:bold; color:#30373b;">Nuestro departamento de ventas se contactará con usted a la brevedad posible.</td>
-                  </tr>
-                  <tr>
-                    <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td height="20" align="center" class="em_font1" height="42" style="font-family:'Lato', sans-serif; font-size:17px; font-weight:bold; color:#30373b;">Si lo desea puede comunicarse al WhatsApp: 0424-6779776 <br>
-                    o a nuestro correo <span style="color:#1e46a1;">ventas@joyeriadiamanteazul.xyz</span></td>
-                  </tr>
-                  <tr>
-                    <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td valign="top">
-                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <td valign="top" style="display: flex;align-items: center;">
-                              <table width="290" border="0" cellspacing="0" cellpadding="0" align="left" class="em_wrapper">
-                                <tr>
-                                  <td valign="middle" align="center" class="em_font1" height="42" style="font-family:'Lato', sans-serif; font-size:17px; color:#30373b; text-transform:uppercase;">
-                                    <img width="200" src="https://joyeriadiamanteazul.xyz/assets/app/diamanteazul/logo/logo_negro.png">
-                                  </td>
-                                </tr>
-                              </table>
-                              <table width="290" border="0" cellspacing="0" cellpadding="0" align="right" class="em_wrapper">
-                                <tr>
-                                  <td valign="top" class="em_pad_top">
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0"  >
-                                      <tr>
-                                        <td valign="middle" align="center" class="em_font1" height="42" style="font-family:'Lato', sans-serif; font-size:17px; color:#30373b; text-transform:uppercase;">
-                                          <img width="200" src="https://joyeriadiamanteazul.xyz/assets/app/diamanteazul/logo/logo_estefania_negro.png">
-                                        </td>
-                                      </tr>
-                                    </table>
-                                  </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td height="20" align="center" class="em_font1" height="42" style="font-family:'Lato', sans-serif; font-size:22px; font-weight:bold; color:#1e46a1;">Diseñamos la joya de tus sueños</td>
-                  </tr> 
                   <tr>
                     <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
                   </tr>

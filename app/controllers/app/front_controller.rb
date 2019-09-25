@@ -5,8 +5,8 @@ module App
     before_action :set_categories_parents, except: [:catalogue]
     before_action :set_category, except: [:index, :products, :product]
     before_action :set_product, only: [:send_cotization]
-    before_action :recaptcha_cotization, only: [:send_cotization]
-    before_action :recaptcha_message, only: [:send_message]
+    # before_action :recaptcha_cotization, only: [:send_cotization]
+    # before_action :recaptcha_message, only: [:send_message]
     def index
       @banners = KepplerBanners::Banner.all
     end
@@ -69,7 +69,7 @@ module App
       include_info_additional if !@product&.price.present?
       if @cotization.save
         flash[:notice] = "Mensaje enviado"
-        send_mailer
+        # send_mailer
       else
         flash[:notice] = "Mensaje no enviado"
       end
@@ -95,6 +95,7 @@ module App
     def send_mailer
       if @product&.price.present?
         ContactMailer.shopy_client(@cotization, @product).deliver_now
+        ContactMailer.shopy_admin(@cotization, @product).deliver_now
       else
         ContactMailer.cotization_admin(@cotization, @product).deliver_now
       end
@@ -135,6 +136,7 @@ module App
     end
 
     def include_info_additional
+      return if params[:additional].blank?
       additional = 'Caracteristicas adicionales: '
       additional << params[:additional].keys.join(', ').gsub('-', ' ').titlecase
       additional << '<br>' + params[:content]
