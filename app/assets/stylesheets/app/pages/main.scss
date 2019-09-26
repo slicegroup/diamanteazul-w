@@ -32,7 +32,7 @@ p, small, span {
   overflow: hidden;
 
   @include respond-to(xs) {
-    @include size(100%, 50vw);
+    @include size(100%, 25vw);
   }
 
   ul {
@@ -41,6 +41,12 @@ p, small, span {
 
   .slick-list, .slick-slider, .slick-track {
     height: 100%;
+  }
+
+  .slick-dots {
+    @include respond-to(xs) {
+      display: none;
+    }
   }
 
   li {
@@ -176,7 +182,7 @@ p, small, span {
   border-radius: 7px;
   // border: 1px solid $secondary;
   text-align: center;
-  height: 350px;
+  height: 380px;
   box-shadow: 3px 5px 5px -5px rgba($primary, 0.5);
   transition: all ease-in-out .3s;
 
@@ -198,7 +204,7 @@ p, small, span {
 
   .card-catalogue-content {
     height: 30%;
-    padding: 20px;
+    padding: 10px;
     background-color: white;
   }
 
@@ -396,7 +402,7 @@ footer {
   font-family: $lato;
   padding: 50px 0 100px 0;
   @include respond-to(xs) {
-    padding: 0;
+    padding: 20px 0;
   }
 
   .widget-title {

@@ -18,7 +18,15 @@ $('.product-images-nav').slick({
   dots: true,
   centerMode: true,
   focusOnSelect: true,
-  arrows: false
+  arrows: false,
+  responsive: [
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+      }
+    }
+  ]
 });
   
 
