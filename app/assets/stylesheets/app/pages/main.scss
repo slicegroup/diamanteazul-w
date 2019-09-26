@@ -514,6 +514,9 @@ textarea{
     padding: 20px 10px;
   }
   @include respond-to(sm) {
+    padding: 20px;
+  }
+  @include respond-to(md) {
     padding: 0 20px;
   }
 
@@ -534,6 +537,21 @@ textarea{
     small {
       font-size: 15px;
     }
+  }
+}
+
+.schedule-box {
+  display: inline-flex;
+  padding-left: 0;
+
+  @include respond-to(xs) {
+    display: block;
+  }
+  @include respond-to(sm) {
+    display: block;
+  }
+  @include respond-to(md) {
+    display: block;
   }
 }
 
