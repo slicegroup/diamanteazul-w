@@ -1,7 +1,7 @@
 #Kaminari::Hooks.init
 
 Kaminari.configure do |config|
-  config.default_per_page = KepplerConfiguration.default_per_page
+  config.default_per_page = 9
   config.max_per_page = 9
   # config.window = 4
   # config.outer_window = 0
