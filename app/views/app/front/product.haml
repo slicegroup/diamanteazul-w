@@ -94,7 +94,13 @@
                       Comprar
                     - else
                       Cotizar
-- if flash[:notice].eql?("Mensaje enviado")
+- if flash[:notice].eql?("Mensaje enviado") && @product&.price.present?
+  :javascript
+    Swal.fire({
+      type: 'success',
+      title: 'Tu compra ha sido enviada con éxito'
+    })
+- elsif flash[:notice].eql?("Mensaje enviado")
   :javascript
     Swal.fire({
       type: 'success',
