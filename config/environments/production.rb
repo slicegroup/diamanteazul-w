@@ -79,8 +79,6 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.action_mailer.default_url_options =
     { host: Rails.application.secrets.domain_name }
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default charset: 'utf-8'
 
@@ -90,9 +88,23 @@ Rails.application.configure do
   #   domain:               Rails.application.secrets.domain_name,
   #   user_name:            Rails.application.secrets.email,
   #   password:             Rails.application.secrets.password,
-  #   authentication:   'plain',
+  #   authentication:       'plain',
   #   enable_starttls_auto: true,
-  #   ssl: true }
+  #   ssl: true
+  # }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    address:              'cloud.slicegroup.co',
+    port:                 465,
+    domain:               'joyeriadiamanteazul.xyz',
+    user_name:            'ventas@joyeriadiamanteazul.xyz',
+    password:             '9WN7w07DJH',
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
