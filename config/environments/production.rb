@@ -96,11 +96,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    address:              'cloud.slicegroup.co',
-    port:                 465,
+    address:              'cloud2.slicegroup.co',
+    port:                 587,
     domain:               'joyeriadiamanteazul.xyz',
     user_name:            'ventas@joyeriadiamanteazul.xyz',
-    password:             '9WN7w07DJH',
+    password:             'AmEufYTgGp',
     authentication:       'plain',
     enable_starttls_auto: true,
     ssl: true,
