@@ -82,8 +82,7 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
 
 config.action_mailer.smtp_settings = {
-     # address:        "cloud2.slicegroup.co",
-      address:        "mail.joyeriadiamanteazul.xyz:2096",
+      address:        "cloud2.slicegroup.co",
       port: 465,
       domain:         "joyeriadiamanteazul.xyz",
       user_name:      "ventas@joyeriadiamanteazul.xyz",
