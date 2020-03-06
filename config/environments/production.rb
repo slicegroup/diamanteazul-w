@@ -82,14 +82,14 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
 
 config.action_mailer.smtp_settings = {
-      :address => "cloud2.slicegroup.co:2096",
-      :port => 465,
-      :domain => "joyeriadiamanteazul.xyz",
-      :user_name => "ventas@joyeriadiamanteazul.xyz",
-      :password => "AmEufYTgGp",
-      :authentication => "plain",
-      :enable_starttls_auto => true,
-      :ssl => true
+      address:        "cloud2.slicegroup.co:2096",
+      port: 465,
+      domain:         "joyeriadiamanteazul.xyz",
+      user_name:      "ventas@joyeriadiamanteazul.xyz",
+      password:       "AmEufYTgGp",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      ssl: true
   }
 
   # config.action_mailer.smtp_settings = {
@@ -114,7 +114,7 @@ config.action_mailer.smtp_settings = {
   #authentication: :plain,
   #enable_starttls_auto: true}
   # ActionMailer Config
-  config.action_mailer.default_url_options = { host: 'joyeriadiamanteazul.xyz' }
+  config.action_mailer.default_url_options = { host:'joyeriadiamanteazul.xyz' }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
