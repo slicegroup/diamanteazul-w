@@ -102,7 +102,6 @@ Rails.application.configure do
     user_name:            'ventas@joyeriadiamanteazul.xyz',
     password:             'AmEufYTgGp',
     authentication:       'plain',
-    enable_starttls_auto: true,
     ssl: true,
   }
 
