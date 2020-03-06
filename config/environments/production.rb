@@ -102,7 +102,7 @@ Rails.application.configure do
     user_name:            'ventas@joyeriadiamanteazul.xyz',
     password:             'AmEufYTgGp',
     authentication:       'plain',
-    ssl: true,
+    ssl: true
   }
 
 
