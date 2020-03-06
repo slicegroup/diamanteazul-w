@@ -81,6 +81,17 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
 
+config.action_mailer.smtp_settings = {
+      :address => "cloud2.slicegroup.co",
+      :port => 587,
+      :domain => "joyeriadiamanteazul.xyz",
+      :user_name => "ventas@joyeriadiamanteazul.xyz",
+      :password => "AmEufYTgGp",
+      :authentication => "plain",
+      :enable_starttls_auto => true,
+      :ssl => true
+  }
+
   # config.action_mailer.smtp_settings = {
   #   address:              Rails.application.secrets.address,
   #   port:                 Rails.application.secrets.port,
@@ -92,18 +103,16 @@ Rails.application.configure do
   #   ssl: true
   # }
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    
-    address:   'cloud2.slicegroup.co',
-    port:      587,
-    domain:    'joyeriadiamanteazul.xyz',
-    user_name: 'ventas@joyeriadiamanteazul.xyz',
-    password:  'AmEufYTgGp',
-    ssl: false,
-    tls: false,
-    authentication: :plain,
-    enable_starttls_auto: true}
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = {
+  # address:   'cloud2.slicegroup.co',
+  #port:      587,
+  #user_name: 'ventas@joyeriadiamanteazul.xyz',
+  #password:  'AmEufYTgGp',
+  #ssl: false,
+  #tls: false,
+  #authentication: :plain,
+  #enable_starttls_auto: true}
   # ActionMailer Config
   config.action_mailer.default_url_options = { host: 'joyeriadiamanteazul.xyz' }
 
