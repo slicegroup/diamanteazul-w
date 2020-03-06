@@ -83,7 +83,7 @@ Rails.application.configure do
 
 config.action_mailer.smtp_settings = {
       :address => "cloud2.slicegroup.co",
-      :port => 587,
+      :port => 465,
       :domain => "joyeriadiamanteazul.xyz",
       :user_name => "ventas@joyeriadiamanteazul.xyz",
       :password => "AmEufYTgGp",
