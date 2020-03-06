@@ -80,8 +80,8 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
-
-config.action_mailer.smtp_settings = {
+  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
       address:        "cloud2.slicegroup.co",
       port: 465,
       domain:         "joyeriadiamanteazul.xyz",
