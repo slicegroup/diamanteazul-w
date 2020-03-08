@@ -103,6 +103,7 @@ Rails.application.configure do
     password:             'AmEufYTgGp',
     authentication:       'plain',
     ssl: true,
+    enable_starttls_auto: true
   }
 
 
