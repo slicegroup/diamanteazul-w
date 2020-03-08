@@ -77,10 +77,20 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
   # Send deprecation notices to registered listeners.
-  config.action_mailer.default_url_options =
-    { host: Rails.application.secrets.domain_name }
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default charset: 'utf-8'
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
+  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:        "cloud2.slicegroup.co",
+      port: 465,
+      domain:         "joyeriadiamanteazul.xyz",
+      user_name:      "ventas@joyeriadiamanteazul.xyz",
+      password:       "AmEufYTgGp",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      ssl: true
+  }
 
   # config.action_mailer.smtp_settings = {
   #   address:              Rails.application.secrets.address,
@@ -92,20 +102,8 @@ Rails.application.configure do
   #   enable_starttls_auto: true,
   #   ssl: true
   # }
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.smtp_settings = {
-    address:              'cloud2.slicegroup.co',
-    port:                 587,
-    domain:               'joyeriadiamanteazul.xyz',
-    user_name:            'ventas@joyeriadiamanteazul.xyz',
-    password:             'AmEufYTgGp',
-    authentication:       'plain',
-    ssl: true,
-    enable_starttls_auto: true
-  }
-
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { host:'joyeriadiamanteazul.xyz' }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
