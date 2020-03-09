@@ -77,19 +77,30 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
   # Send deprecation notices to registered listeners.
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
-  config.action_mailer.smtp_settings = {
-      address:        "mail.joyeriadiamanteazul.xyz",
-      port: 587,
-      domain:         "joyeriadiamanteazul.xyz",
-      user_name:      "ventas@joyeriadiamanteazul.xyz",
-      password:       "AmEufYTgGp",
-      authentication: "plain",
-      enable_starttls_auto: true,
-      ssl: false
-  }
+  
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+ :address => "mail.joyeriadiamanteazul.xyz",
+ :port => 25,
+ :domain => "[joyeriadiamanteazul.xyz]" ,
+ :authentication => :login,
+ :user_name => "[ventas@joyeriadiamanteazul.xyz]" ,
+ :password => "[AmEufYTgGp]",
+ :enable_starttls_auto => false
+}
+  #config.action_mailer.perform_deliveries = true
+  #config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
+  #config.action_mailer.smtp_settings = {
+  #    address:        "mail.joyeriadiamanteazul.xyz",
+  #    port: 587,
+  #    domain:         "joyeriadiamanteazul.xyz",
+  #    user_name:      "ventas@joyeriadiamanteazul.xyz",
+  #    password:       "AmEufYTgGp",
+  #    authentication: "plain",
+  #    enable_starttls_auto: true,
+  #    ssl: false
+  #}
 
   # config.action_mailer.smtp_settings = {
   #   address:              Rails.application.secrets.address,
