@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those
   #   in config/application.rb.
-  config.read_encrypted_secrets = true
+  # config.read_encrypted_secrets = true
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -12,7 +12,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
   config.action_mailer.perform_caching = false
 
@@ -90,7 +90,6 @@ Rails.application.configure do
       password:       "AmEufYTgGp",
       authentication: "plain",
       enable_starttls_auto: true,
-      ssl: false
   }
 
   # config.action_mailer.smtp_settings = {
