@@ -86,7 +86,7 @@ config.action_mailer.perform_deliveries = true
 config.action_mailer.default charset: 'utf-8'
 
 config.action_mailer.smtp_settings = {
-address: 'cloud2.slicegroup.co',
+address: 'mail.joyeriadiamanteazul.xyz',
 port: 587,
 domain: 'joyeriadiamanteazul.xyz',
 user_name: 'ventas@joyeriadiamanteazul.xyz',
