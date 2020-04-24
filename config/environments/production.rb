@@ -96,7 +96,7 @@ enable_starttls_auto: true,
 ssl: false,
 openssl_verify_mode: 'none'
 }
-}
+
 
   # Send deprecation notices to registered listeners.
   #config.action_mailer.perform_deliveries = true
