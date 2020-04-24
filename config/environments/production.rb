@@ -77,20 +77,39 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+# Send deprecation notices to registered listeners.
+config.action_mailer.default_url_options =
+{ host: Rails.application.secrets.host }
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.perform_deliveries = true
+config.action_mailer.default charset: 'utf-8'
+
+config.action_mailer.smtp_settings = {
+address:              Rails.application.secrets.address,
+port:                 Rails.application.secrets.port,
+domain:               Rails.application.secrets.domain,
+user_name:            Rails.application.secrets.email,
+password:             Rails.application.secrets.password,
+authentication:   'plain',
+enable_starttls_auto: true,
+ssl: false
+}
+
   # Send deprecation notices to registered listeners.
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address:        "cloud2.slicegroup.co",
-      port: 587,
-      domain:         "joyeriadiamanteazul.xyz",
-      user_name:      "ventas@joyeriadiamanteazul.xyz",
-      password:       "AmEufYTgGp",
-      authentication: "plain",
-      enable_starttls_auto: true,
-  }
+  #config.action_mailer.perform_deliveries = true
+  #config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.default_options = {from: 'ventas@joyeriadiamanteazul.xyz'}
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = {
+  #    address:        "cloud2.slicegroup.co",
+  #    port: 587,
+  #    domain:         "joyeriadiamanteazul.xyz",
+  #    user_name:      "ventas@joyeriadiamanteazul.xyz",
+  #    password:       "AmEufYTgGp",
+  #    authentication: "plain",
+  #    enable_starttls_auto: true,
+  #}
 
   # config.action_mailer.smtp_settings = {
   #   address:              Rails.application.secrets.address,
