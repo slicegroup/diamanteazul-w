@@ -79,21 +79,23 @@ Rails.application.configure do
 
 # Send deprecation notices to registered listeners.
 config.action_mailer.default_url_options =
-{ host: Rails.application.secrets.host }
+{ host: Rails.application.secrets.domain_name }
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default charset: 'utf-8'
 
 config.action_mailer.smtp_settings = {
-address:              Rails.application.secrets.address,
-port:                 Rails.application.secrets.port,
-domain:               Rails.application.secrets.domain,
-user_name:            Rails.application.secrets.email,
-password:             Rails.application.secrets.password,
+address: 'cloud2.slicegroup.co',
+port: 587,
+domain: 'joyeriadiamanteazul.xyz',
+user_name: 'ventas@joyeriadiamanteazul.xyz',
+password: 'AmEufYTgGp',
 authentication:   'plain',
 enable_starttls_auto: true,
-ssl: false
+ssl: false,
+openssl_verify_mode: 'none'
+}
 }
 
   # Send deprecation notices to registered listeners.
