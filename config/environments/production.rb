@@ -97,7 +97,6 @@ ssl: false,
 openssl_verify_mode: 'none'
 }
 
-
   # Send deprecation notices to registered listeners.
   #config.action_mailer.perform_deliveries = true
   #config.action_mailer.raise_delivery_errors = true
@@ -123,8 +122,9 @@ openssl_verify_mode: 'none'
   #   enable_starttls_auto: true,
   #   ssl: true
   # }
+
   # ActionMailer Config
-  config.action_mailer.default_url_options = { host:'joyeriadiamanteazul.xyz' }
+  #config.action_mailer.default_url_options = { host:'joyeriadiamanteazul.xyz' }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
