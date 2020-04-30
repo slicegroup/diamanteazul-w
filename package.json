@@ -28,7 +28,7 @@
     "gulp-imagemin": "^4.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-slim": "^0.3.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "merge-stream": "^1.0.1",
     "run-sequence": "^2.2.0"
   },
